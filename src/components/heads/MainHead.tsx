@@ -19,9 +19,10 @@ export default class MainHead extends Component<{ description?: string, preview?
         const title = this.props.title === undefined ? 'Semantyk' : this.props.title;
         const description = this.props.description === undefined ? 'Ideas Wonder. |' +
             ' Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
+        console.log(this.props.description);
         const preview = this.props.preview === undefined ? process.env.PUBLIC_URL + '/preview.png' : this.props.preview;
         const apple_touch_icon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/apple-touch-icon.png' : this.props.preview;
-        const domain = this.props.url === undefined ? 'https://www.semantyk.com' : this.props.url;
+        const domain = 'semantyk.com';
         const favicon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/favicon.ico' : this.props.preview;
         const keywords = "Semantyk, Linked Data, Solid, CSS, JavaScript";
         const url = this.props.url === undefined ? window.location.href : this.props.url;
@@ -47,7 +48,7 @@ export default class MainHead extends Component<{ description?: string, preview?
                 <meta content={preview} property="twitter:image"/>
                 {/* URL */}
                 <meta content={url} property="og:url"/>
-                <meta content={url} property="twitter:domain"/>
+                <meta content={domain} property="twitter:domain"/>
                 <meta content={url} property="twitter:url"/>
                 {/* HTML/CSS */}
                 <meta charSet="utf-8"/>

@@ -22,7 +22,7 @@ import Head from '../heads/Head';
 export default class ArchivePage extends Component {
     render() {
         const title = 'Archive';
-        const description = 'Knlowledge Database & File System';
+        const description = 'Knowledge Database & File System';
         const url = 'https://www.semantyk.com/archive/';
         return (
             <div id={title}>
