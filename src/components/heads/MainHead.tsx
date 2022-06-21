@@ -53,6 +53,7 @@ export default class MainHead extends Component<{ description?: string, preview?
                 <meta content={preview} property="og:image"/>
                 <meta content={preview} property="twitter:image"/>
                 {/* URL */}
+                <link rel="canonical" href={url}/>
                 <meta content={url} property="og:url"/>
                 <meta content={domain} property="twitter:domain"/>
                 <meta content={url} property="twitter:url"/>
