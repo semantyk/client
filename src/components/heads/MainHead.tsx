@@ -16,14 +16,22 @@ import {Helmet} from 'react-helmet-async';
 //* Main
 export default class MainHead extends Component<{ description?: string, preview?: string, title?: string, url?: string }, {}> {
     render() {
+        // Title
         const title = this.props.title === undefined ? 'Semantyk' : this.props.title;
+        // Description
         const description = this.props.description === undefined ? 'Ideas Wonder. | Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
-        const preview = this.props.preview === undefined ? process.env.PUBLIC_URL + '/preview.png' : this.props.preview;
-        const apple_touch_icon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/apple-touch-icon.png' : this.props.preview;
-        const domain = 'semantyk.com';
-        const favicon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/favicon.ico' : this.props.preview;
+        // Keywords
         const keywords = "Semantyk, Linked Data, Solid, CSS, JavaScript";
+        // Apple Touch Icon
+        const apple_touch_icon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/apple-touch-icon.png' : this.props.preview;
+        // Favicon
+        const favicon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/favicon.ico' : this.props.preview;
+        // Preview Image
+        const preview = this.props.preview === undefined ? process.env.PUBLIC_URL + '/preview.png' : this.props.preview;
+        // URL
+        const domain = 'semantyk.com';
         const url = this.props.url === undefined ? window.location.href : this.props.url;
+        // return
         return (
             <Helmet>
                 {/* Title */}
