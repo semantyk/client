@@ -18,7 +18,7 @@ import MainHead from './MainHead';
 //* Main
 export default class Head extends React.Component<{ description?: string, preview?: string, title?: string, url?: string }, {}> {
     render() {
-        const description = 'Ideas Wonder.' + (this.props.description === undefined ? '' : ' | ' + this.props.description + '.');
+        const description = 'Ideas Wonder' + (this.props.description === undefined ? '' : ' | ' + this.props.description + '.');
         const {preview} = this.props;
         const title = this.props.title + ' | Semantyk';
         const {url} = this.props;

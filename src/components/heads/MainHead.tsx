@@ -19,7 +19,7 @@ export default class MainHead extends Component<{ description?: string, preview?
         // Title
         const title = this.props.title === undefined ? 'Semantyk' : this.props.title;
         // Description
-        const description = this.props.description === undefined ? 'Ideas Wonder. | Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
+        const description = this.props.description === undefined ? 'Ideas Wonder | Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
         // Keywords
         const keywords = "Semantyk, Linked Data, Solid, CSS, JavaScript";
         // Apple Touch Icon
