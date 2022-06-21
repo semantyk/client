@@ -19,7 +19,6 @@ export default class MainHead extends Component<{ description?: string, preview?
         const title = this.props.title === undefined ? 'Semantyk' : this.props.title;
         const description = this.props.description === undefined ? 'Ideas Wonder. |' +
             ' Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
-        console.log(this.props.description);
         const preview = this.props.preview === undefined ? process.env.PUBLIC_URL + '/preview.png' : this.props.preview;
         const apple_touch_icon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/apple-touch-icon.png' : this.props.preview;
         const domain = 'semantyk.com';
