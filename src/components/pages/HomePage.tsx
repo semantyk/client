@@ -35,7 +35,7 @@ export default class HomePage extends Component {
                     </Col>
                     <Col/>
                 </Row>
-                <h1 className="text-center display-4 pt-5">Próximamente...</h1>
+                <h1 className="text-center display-4 pt-5">Jul 11, 2022</h1>
             </Container>
             <Footer/>
         </div>);
