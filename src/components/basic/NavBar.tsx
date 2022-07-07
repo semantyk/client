@@ -11,7 +11,7 @@
 
 //* External Imports
 import {Image, Nav, Navbar} from 'react-bootstrap';
-import {Link, NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import React, {Component} from 'react';
 
 //* Main
@@ -26,7 +26,7 @@ export default class NavBar extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link as={NavLink} to="/archive">Archive</Nav.Link>
+                        {/*<Nav.Link as={NavLink} to="/archive">Archive</Nav.Link>*/}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
