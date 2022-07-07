@@ -14,7 +14,6 @@ import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 //* Internal Imports
-import ArchivePage from "../pages/ArchivePage";
 import HomePage from '../pages/HomePage';
 import NotFoundPage from "../pages/NotFoundPage";
 
@@ -24,7 +23,7 @@ export default function MainRouter() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/archive/" element={<ArchivePage/>}/>
+                {/*<Route path="/archive/" element={<ArchivePage/>}/>*/}
                 <Route path="*" element={<NotFoundPage/>}/>
             </Routes>
         </BrowserRouter>

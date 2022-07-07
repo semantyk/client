@@ -1,26 +1,23 @@
-/**
- * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # semantyk.com
- * Module | `index.tsx`
- *
- * June 13, 2022
- *
- * Copyright © Semantyk 2022. All rights reserved.
- * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- */
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+// Index
+// Module | `index.js`
+//
+// React Index Module.
+//
+// Daniel Bakas Amuchastegui\
+// Dicember 27, 2020
+//
+// Copyright © Semantyk 2020. All rights reserved.\
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-//* External Imports
-import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
 import React from 'react';
-import {createRoot} from "react-dom/client";
+import {render} from "react-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-//* Internal Imports
-import App from "./App";
-
-//* Main
-const root = createRoot(document.getElementById("root") as HTMLElement);
-root.render(
+render(
     <React.StrictMode>
-        <App/>
-    </React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
 );
