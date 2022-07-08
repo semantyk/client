@@ -29,7 +29,7 @@ export default class HomePage extends Component {
             <Container fluid>
                 <Row>
                     <h1 className="text-center display-2 fw-bold">{project.name}</h1>
-                    <h1 className="text-center display-6">{project.slogan}</h1>
+                    <h2 className="text-center display-6">{project.slogan}</h2>
                     <Col/>
                     <Col className="text-center" md={6}>
                         <Image fluid src={project.images.connected}/>

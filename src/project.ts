@@ -11,7 +11,7 @@
 
 export const project = {
     name: "Semantyk",
-    description: "Narratives & Linked Data Interactive Exploration and Experience Ecosystem",
+    description: "Knowledge Graphs Interactive Experience Ecosystem",
     domain: "semantyk.com",
     images: {
         apple_touch_icon: process.env.PUBLIC_URL + '/apple-touch-icon.png',
