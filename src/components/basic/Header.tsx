@@ -10,13 +10,13 @@
  */
 
 //* External Imports
-import React, {ReactNode} from 'react';
+import {Component, ReactNode} from 'react';
 
 //* Internal Imports
 import NavBar from './NavBar';
 
 //* Main
-export default class Header extends React.Component<{ children?: ReactNode, noLine?: string }, {}> {
+export default class Header extends Component<{ children?: ReactNode, noLine?: string }, {}> {
     render() {
         const line = this.props.noLine !== undefined ? 'border-bottom' : '';
         return (

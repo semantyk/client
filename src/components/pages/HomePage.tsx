@@ -18,6 +18,7 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import Header from '../basic/Header';
 import Footer from '../basic/Footer';
 import MainHead from '../heads/MainHead';
+import {project} from "../../project";
 
 //* Main
 export default class HomePage extends Component {
@@ -27,11 +28,11 @@ export default class HomePage extends Component {
             <Header/>
             <Container fluid>
                 <Row>
-                    <h1 className="text-center display-2 fw-bold">Semantyk</h1>
-                    <h1 className="text-center display-6">Ideas Wonder</h1>
+                    <h1 className="text-center display-2 fw-bold">{project.name}</h1>
+                    <h1 className="text-center display-6">{project.slogan}</h1>
                     <Col/>
                     <Col className="text-center" md={6}>
-                        <Image fluid src="Connected.png"/>
+                        <Image fluid src={project.images.connected}/>
                     </Col>
                     <Col/>
                 </Row>

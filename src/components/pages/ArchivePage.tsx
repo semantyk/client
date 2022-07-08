@@ -23,26 +23,24 @@ export default class ArchivePage extends Component {
     render() {
         const title = 'Archive';
         const description = 'Knowledge Database & File System';
-        return (
-            <div id={title}>
-                <Head description={description} title={title}/>
-                <Header>
-                    <Row className="align-items-center">
-                        <Col>
-                            {<h1>{title}</h1>}
-                            {<p>{description}</p>}
-                        </Col>
-                    </Row>
-                </Header>
-                <Row className="m-0 px-5 pt-3">
-                    <a href="https://lod-cloud.net/clouds/lod-cloud.svg">
-                        <Image alt="Linked Open Data Cloud"
-                               width="100%"
-                               src="https://lod-cloud.net/clouds/lod-cloud.svg"/>
-                    </a>
+        return (<>
+            <Head description={description} title={title}/>
+            <Header>
+                <Row className="align-items-center">
+                    <Col>
+                        {<h1>{title}</h1>}
+                        {<p>{description}</p>}
+                    </Col>
                 </Row>
-                <Footer/>
-            </div>
-        );
+            </Header>
+            <Row className="m-0 px-5 pt-3">
+                <a href="https://lod-cloud.net/clouds/lod-cloud.svg">
+                    <Image alt="Linked Open Data Cloud"
+                           width="100%"
+                           src="https://lod-cloud.net/clouds/lod-cloud.svg"/>
+                </a>
+            </Row>
+            <Footer/>
+        </>);
     }
 }

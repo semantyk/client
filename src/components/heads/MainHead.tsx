@@ -14,7 +14,7 @@ import {Component} from 'react';
 import {Helmet} from 'react-helmet-async';
 
 //* Internal Imports
-import {seo} from "../../util";
+import {seo} from "../../seo";
 
 //* Main
 export default class MainHead extends Component<{ description?: string, title?: string }, {}> {
@@ -28,26 +28,24 @@ export default class MainHead extends Component<{ description?: string, title?: 
         // URL
         const url = window.location.href;
         // return
-        return (
-            <Helmet>
-                {/* Title */}
-                <title>{title}</title>
-                <meta content={title} name="title"/>
-                <meta content={title} property="og:title"/>
-                <meta content={title} property="twitter:title"/>
-                {/* Description*/}
-                <meta content={description} name="description"/>
-                <meta content={description} property="og:description"/>
-                <meta content={description} property="twitter:description"/>
-                {/* Keywords*/}
-                <meta content={keywords} name="keywords"/>
-                {/* URL */}
-                <link rel="canonical" href={url}/>
-                <meta content={url} property="og:url"/>
-                <meta content={url} property="twitter:url"/>
-                {/* Twitter Meta Tags */}
-                <meta content="summary_large_image" property="twitter:card"/>
-            </Helmet>
-        );
+        return (<Helmet>
+            {/* HTML */}
+            <body className="bg-light"></body>
+            {/* Title */}
+            <title>{title}</title>
+            <meta content={title} name="title"/>
+            <meta content={title} property="og:title"/>
+            <meta content={title} property="twitter:title"/>
+            {/* Description*/}
+            <meta content={description} name="description"/>
+            <meta content={description} property="og:description"/>
+            <meta content={description} property="twitter:description"/>
+            {/* Keywords*/}
+            <meta content={keywords} name="keywords"/>
+            {/* URL */}
+            <link href={url} rel="canonical"/>
+            <meta content={url} property="og:url"/>
+            <meta content={url} property="twitter:url"/>
+        </Helmet>);
     }
 }

@@ -11,10 +11,13 @@
 
 //* External Imports
 import {Link} from 'react-router-dom';
-import React, {ReactNode} from 'react';
+import {Component, ReactNode} from 'react';
+
+//* Internal Imports
+import {project} from "../../project";
 
 //* Main
-export default class Footer extends React.Component<{ children?: ReactNode, noLine?: string }, {}> {
+export default class Footer extends Component<{ children?: ReactNode, noLine?: string }, {}> {
     render() {
         const line = this.props.noLine !== undefined ? 'border-bottom' : '';
         return (
@@ -22,7 +25,7 @@ export default class Footer extends React.Component<{ children?: ReactNode, noLi
                 <small>
                     <p className="mb-0 text-center text-muted">
                         Copyright © <Link className="text-muted"
-                                          to="/">Semantyk</Link> {new Date().getFullYear()}
+                                          to="/">{project.name}</Link> {new Date().getFullYear()}
                     </p>
                 </small>
             </footer>
