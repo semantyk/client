@@ -26,7 +26,7 @@ export default function MainRouter() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/archive/" element={<ArchivePage/>}/>
+                    <Route path="/archive" element={<ArchivePage/>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             </BrowserRouter>
