@@ -9,14 +9,9 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import {HelmetProvider} from 'react-helmet-async';
 import React from 'react';
 import MainRouter from "./components/routes/MainRouter";
 
 export default function App() {
-    return (
-        <HelmetProvider>
-            <MainRouter/>
-        </HelmetProvider>
-    );
+    return <MainRouter/>;
 }

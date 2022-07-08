@@ -13,24 +13,20 @@
 import {Component} from 'react';
 import {Helmet} from 'react-helmet-async';
 
+//* Internal Imports
+import {seo} from "../../util";
+
 //* Main
-export default class MainHead extends Component<{ description?: string, preview?: string, title?: string, url?: string }, {}> {
+export default class MainHead extends Component<{ description?: string, title?: string }, {}> {
     render() {
         // Title
-        const title = this.props.title === undefined ? 'Semantyk' : this.props.title;
+        const title = this.props.title || seo.title;
         // Description
-        const description = this.props.description === undefined ? 'Ideas Wonder | Visual Interactive Semantic Intelligent Online Network.' : this.props.description;
+        const description = this.props.description || seo.description;
         // Keywords
-        const keywords = "Semantyk, Linked Data, Solid, CSS, JavaScript";
-        // Apple Touch Icon
-        const apple_touch_icon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/apple-touch-icon.png' : this.props.preview;
-        // Favicon
-        const favicon = this.props.preview === undefined ? process.env.PUBLIC_URL + '/favicon.ico' : this.props.preview;
-        // Preview Image
-        const preview = this.props.preview === undefined ? process.env.PUBLIC_URL + '/preview.png' : this.props.preview;
+        const keywords = seo.keywords.join();
         // URL
-        const domain = 'semantyk.com';
-        const url = this.props.url === undefined ? window.location.href : this.props.url;
+        const url = window.location.href;
         // return
         return (
             <Helmet>
@@ -45,26 +41,10 @@ export default class MainHead extends Component<{ description?: string, preview?
                 <meta content={description} property="twitter:description"/>
                 {/* Keywords*/}
                 <meta content={keywords} name="keywords"/>
-                {/* Apple Touch Icon */}
-                <link href={apple_touch_icon} rel="apple-touch-icon"/>
-                {/* Favicon */}
-                <link href={favicon} rel="icon"/>
-                {/* Preview Image */}
-                <meta content={preview} property="og:image"/>
-                <meta content={preview} property="twitter:image"/>
                 {/* URL */}
                 <link rel="canonical" href={url}/>
                 <meta content={url} property="og:url"/>
-                <meta content={domain} property="twitter:domain"/>
                 <meta content={url} property="twitter:url"/>
-                {/* HTML/CSS */}
-                <meta charSet="utf-8"/>
-                <meta content="width=device-width, initial-scale=1"
-                      name="viewport"/>
-                {/* Facebook Domain Verification */}
-                <meta content="787eo0v092pbygw2kjh68w1gfqu28p"
-                      name="facebook-domain-verification"/>
-                <meta content="website" property="og:type"/>
                 {/* Twitter Meta Tags */}
                 <meta content="summary_large_image" property="twitter:card"/>
             </Helmet>

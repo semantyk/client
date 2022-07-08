@@ -22,13 +22,13 @@ import MainHead from '../heads/MainHead';
 //* Main
 export default class HomePage extends Component {
     render() {
-        return (<div className="HomePage">
+        return (<>
             <MainHead/>
             <Header/>
             <Container fluid>
                 <Row>
                     <h1 className="text-center display-2 fw-bold">Semantyk</h1>
-                    <h1 className="text-center display-5">Ideas Wonder</h1>
+                    <h1 className="text-center display-6">Ideas Wonder</h1>
                     <Col/>
                     <Col className="text-center" md={6}>
                         <Image fluid src="Connected.png"/>
@@ -38,6 +38,6 @@ export default class HomePage extends Component {
                 <h1 className="text-center display-4 pt-5">Jul 11, 2022</h1>
             </Container>
             <Footer/>
-        </div>);
+        </>);
     }
 }

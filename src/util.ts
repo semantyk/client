@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `index.tsx`
+ * Module | `util.ts`
  *
  * June 13, 2022
  *
@@ -9,15 +9,16 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Imports
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import {createRoot} from "react-dom/client";
-
-//* Internal Imports
-import App from './App';
-
-//* Main
-const container = document.getElementById('root');
-const root = createRoot(container!);
-root.render(<App/>);
+export const seo = {
+    title: "Semantyk",
+    description: "Ideas Wonder | Visual Interactive Semantic Intelligent Online Network.",
+    domain: "semantyk.com",
+    favicon: process.env.PUBLIC_URL + '/favicon.ico',
+    keywords: [
+        "semantyk",
+        "linked data",
+    ],
+    ga: "G-15WBDLX8S4",
+    apple_touch_icon: process.env.PUBLIC_URL + '/apple-touch-icon.png',
+    preview: process.env.PUBLIC_URL + '/preview.png'
+};

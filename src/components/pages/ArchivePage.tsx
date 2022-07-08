@@ -23,10 +23,9 @@ export default class ArchivePage extends Component {
     render() {
         const title = 'Archive';
         const description = 'Knowledge Database & File System';
-        const url = 'https://www.semantyk.com/archive/';
         return (
             <div id={title}>
-                <Head description={description} title={title} url={url}/>
+                <Head description={description} title={title}/>
                 <Header>
                     <Row className="align-items-center">
                         <Col>
