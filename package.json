@@ -3,8 +3,6 @@
   "author": "Daniel Bakas <daniel@semanytk.com>",
   "bugs": "https://github.com/semantyk/client/issues",
   "description": "Client for semantyk.com | Semantyk",
-  "homepage": ".",
-  "keywords": [],
   "license": "",
   "private": true,
   "repository": {
