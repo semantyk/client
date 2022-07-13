@@ -48,7 +48,6 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "npm run build; gcloud config set project semantyk-com-client; gcloud app deploy -q",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"
