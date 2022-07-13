@@ -7,16 +7,11 @@ on:
     branches:
       - master
 jobs:
-  deploy:
+  build:
     name: GAE Deploy
     runs-on: ubuntu-latest
     steps:
-      - id: auth
-        uses: google-github-actions/auth@v0
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/deploy-appengine@v0
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
-
-      - id: deploy
-        uses: google-github-actions/deploy-appengine@v0
-        with:
-          deliverables: app.yaml
