@@ -10,6 +10,9 @@ jobs:
   deploy:
     name: GAE Deploy
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - id: auth
         uses: google-github-actions/auth@v0
