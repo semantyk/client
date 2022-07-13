@@ -1,19 +1,22 @@
-name: Deploy to Google App Engine
+name: Deploy to GAE
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 jobs:
-  build:
+  deploy:
     name: GAE Deploy
     runs-on: ubuntu-latest
     steps:
-      - id: 'auth'
-        uses: 'google-github-actions/auth@v0'
+      - id: auth
+        uses: google-github-actions/auth@v0
         with:
-          credentials_json: '${{ secrets.gcp_credentials }}'
+          credentials_json: ${{ secrets.gcp_credentials }}
 
-      - id: 'deploy'
-        uses: 'google-github-actions/deploy-appengine@v0'
+      - id: deploy
+        uses: google-github-actions/deploy-appengine@v0
         with:
           deliverables: app.yaml
