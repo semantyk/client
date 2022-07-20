@@ -3,21 +3,21 @@
  * # semantyk.com
  * Module | `App.test.tsx`
  *
- * July 13, 2022
+ * June 13, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Imports
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import {createRoot} from "react-dom/client";
+//* External Exports
 
-//* Internal Imports
-import {App} from './App';
+//* Internal Exports
 
 //* Main
-const element = document.getElementById('root');
-const root = createRoot(element!);
-root.render(<App/>);
+describe("Base", () => {
+    it("true", () => {
+        expect(true).toBe(true);
+    });
+});
+
+export {};
