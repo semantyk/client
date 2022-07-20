@@ -10,18 +10,13 @@
  */
 
 //* External Imports
-import {Component} from 'react';
 
 //* Internal Imports
 import MainHead from './MainHead';
 
 //* Main
-export default class Head extends Component<{ description: string, title: string }, {}> {
-    render() {
-        const description = `Ideas Wonder | ${this.props.description}.`;
-        const title = this.props.title + ' | Semantyk';
-        return (
-            <MainHead description={description} title={title}/>
-        );
-    }
-}
+export const Head = (props: any) => {
+    const description = `Ideas Wonder | ${props.description}.`;
+    const title = props.title + ' | Semantyk';
+    return <MainHead description={description} title={title}/>;
+};

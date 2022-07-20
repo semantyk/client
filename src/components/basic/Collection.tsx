@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `HomePage.tsx`
+ * Module | `Collection.tsx`
  *
  * June 13, 2022
  *
@@ -9,16 +9,9 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Internal Imports
-import Header from '../basic/Header';
-import Footer from '../basic/Footer';
-import MainHead from '../heads/MainHead';
-import {SmileyCollection} from "../models/smiley/SmileyCollection";
-
 //* Main
-export const HomePage = () => (<>
-    <MainHead/>
-    <Header/>
-    <SmileyCollection/>
-    <Footer/>
-</>);
+export const Collection = (props: any) => {
+    const {data, type} = props;
+    const Component = type;
+    return data.map((data: any) => <Component data={data}/>);
+};

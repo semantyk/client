@@ -10,34 +10,35 @@
  */
 
 //* External Imports
-import {Col, Image, Row} from 'react-bootstrap';
+import {Image, Row} from 'react-bootstrap';
 import React, {Component} from 'react';
 
 //* Internal Imports
 import Footer from '../basic/Footer';
 import Header from '../basic/Header';
-import Head from '../heads/Head';
+import {Head} from '../heads/Head';
 
 //* Main
-export default class ArchivePage extends Component {
+export class ArchivePage extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            title: 'Archive',
+            description: 'Knowledge Database & File System'
+        };
+    }
+
     render() {
-        const title = 'Archive';
-        const description = 'Knowledge Database & File System';
+        const {description, title} = this.state;
         return (<>
             <Head description={description} title={title}/>
-            <Header>
-                <Row className="align-items-center">
-                    <Col>
-                        {<h1>{title}</h1>}
-                        {<p>{description}</p>}
-                    </Col>
-                </Row>
+            <Header description={description} title={title}>
             </Header>
             <Row className="m-0 px-5 pt-3">
                 <a href="https://lod-cloud.net/clouds/lod-cloud.svg">
                     <Image alt="Linked Open Data Cloud"
-                           width="100%"
-                           src="https://lod-cloud.net/clouds/lod-cloud.svg"/>
+                           src="https://lod-cloud.net/clouds/lod-cloud.svg"
+                           width="100%"/>
                 </a>
             </Row>
             <Footer/>

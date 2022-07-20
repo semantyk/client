@@ -15,21 +15,20 @@ import {HelmetProvider} from "react-helmet-async";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 //* Internal Imports
-import ArchivePage from "../pages/ArchivePage";
-import HomePage from '../pages/HomePage';
-import NotFoundPage from "../pages/NotFoundPage";
+import {ArchivePage} from "../components/pages/ArchivePage";
+import {HomePage} from '../components/pages/HomePage';
+import {NotFoundPage} from "../components/pages/NotFoundPage";
 
 //* Main
-export default function MainRouter() {
-    return (<HelmetProvider>
-        <div className="MainRouter">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<HomePage/>}/>
-                    <Route path="/archive" element={<ArchivePage/>}/>
-                    <Route path="*" element={<NotFoundPage/>}/>
-                </Routes>
-            </BrowserRouter>
-        </div>
-    </HelmetProvider>);
-}
+export const MainRouter = () => (
+    <HelmetProvider>
+        <BrowserRouter>
+            <Routes>
+                {/* TODO: Replace with Factory */}
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/archive" element={<ArchivePage/>}/>
+                <Route path="*" element={<NotFoundPage/>}/>
+            </Routes>
+        </BrowserRouter>
+    </HelmetProvider>
+);

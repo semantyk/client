@@ -10,21 +10,25 @@
  */
 
 //* External Imports
-import {Component, ReactNode} from 'react';
+import React, {Component} from 'react';
 
 //* Internal Imports
 import NavBar from './NavBar';
+import {Col} from "react-bootstrap";
 
 //* Main
-export default class Header extends Component<{ children?: ReactNode, noLine?: string }, {}> {
+export default class Header extends Component<any> {
     render() {
-        const line = this.props.noLine !== undefined ? 'border-bottom' : '';
+        const {title, description} = this.props || '';
+        const line = this.props.line ? 'border-bottom' : '';
         return (
-            <header id="Header" className={'sticky-top px-5 ' + line} style={{
-                backdropFilter: 'blur(25px)',
-                backgroundColor: 'rgba(251, 251, 251, 0.5)'
-            }}>
+            <header className={`sticky-top px-5 ${line}`}
+                    style={{backdropFilter: 'blur(50px)'}}>
                 <NavBar/>
+                {title || description ? <Col className="pb-1">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </Col> : null}
                 {this.props.children}
             </header>
         );

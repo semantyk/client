@@ -9,9 +9,11 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* External Imports
 import React from 'react';
-import MainRouter from "./components/routes/MainRouter";
 
-export default function App() {
-    return <MainRouter/>;
-}
+//* Internal Imports
+import {MainRouter} from "./routes/MainRouter";
+
+//* Main
+export const App = () => <MainRouter/>;

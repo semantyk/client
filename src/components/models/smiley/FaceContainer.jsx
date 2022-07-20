@@ -1,23 +1,19 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `App.test.tsx`
+ * Module | `FaceContainer.tsx`
  *
- * June 13, 2022
+ * July 20, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Exports
-import {render} from '@testing-library/react';
-
-//* Internal Exports
-import App from "./App";
-
 //* Main
-describe("Render", () => {
-    it("<App />", () => {
-        render(App());
-    });
-});
+export const FaceContainer = ({ children, data }) => (
+  <svg height={data.radius} width={data.radius}>
+    <g transform={`translate(${data.radius / 2},${data.radius / 2})`}>
+      {children}
+    </g>
+  </svg>
+)

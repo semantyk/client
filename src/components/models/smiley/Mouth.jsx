@@ -1,24 +1,22 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `HomePage.tsx`
+ * Module | `Mouth.tsx`
  *
- * June 13, 2022
+ * July 20, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Internal Imports
-import Header from '../basic/Header';
-import Footer from '../basic/Footer';
-import MainHead from '../heads/MainHead';
-import {SmileyCollection} from "../models/smiley/SmileyCollection";
+import { arc } from 'd3'
 
-//* Main
-export const HomePage = () => (<>
-    <MainHead/>
-    <Header/>
-    <SmileyCollection/>
-    <Footer/>
-</>);
+export const Mouth = ({ r, width }) => {
+  const mouthArc = arc()
+    .innerRadius(r)
+    .outerRadius(r + width)
+    .startAngle(Math.PI / 2)
+    .endAngle(Math.PI * 3 / 2)
+
+  return <path d={mouthArc()}/>
+}

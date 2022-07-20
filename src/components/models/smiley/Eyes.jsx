@@ -1,24 +1,16 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `HomePage.tsx`
+ * Module | `Eyes.tsx`
  *
- * June 13, 2022
+ * July 20, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Internal Imports
-import Header from '../basic/Header';
-import Footer from '../basic/Footer';
-import MainHead from '../heads/MainHead';
-import {SmileyCollection} from "../models/smiley/SmileyCollection";
-
 //* Main
-export const HomePage = () => (<>
-    <MainHead/>
-    <Header/>
-    <SmileyCollection/>
-    <Footer/>
-</>);
+export const Eyes = ({ cx, cy, r }) => (<>
+  <circle cx={-cx} cy={-cy} r={r}/>
+  <circle cx={cx} cy={-cy} r={r}/>
+</>)

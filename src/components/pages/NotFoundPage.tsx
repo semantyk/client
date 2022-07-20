@@ -14,14 +14,21 @@ import React, {Component} from 'react';
 
 //* Internal Imports
 import Footer from '../basic/Footer';
-import Head from '../heads/Head';
+import {Head} from '../heads/Head';
 import Header from '../basic/Header';
 
 //* Main
-export default class NotFoundPage extends Component {
+export class NotFoundPage extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            title: '404 Not Found',
+            description: 'Not Found'
+        };
+    }
+
     render() {
-        const title = '404 Not Found';
-        const description = 'Not Found';
+        const {description, title} = this.state;
         return (
             <div id={title}>
                 <Head description={description} title={title}/>
