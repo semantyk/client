@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `SmileyCollection.tsx`
+ * Component | `App`
  *
  * June 13, 2022
  *
@@ -10,21 +10,13 @@
  */
 
 //* External Imports
-import {Collection} from "../../basic/Collection";
-import {range} from "d3";
+import React from 'react';
 
 //* Internal Imports
-import {Smiley} from "./Smiley";
+import Router from "../Router";
 
 //* Main
-const data = range(100).map(() => ({
-    cx: 20 + Math.random() * 9,
-    cy: 20 + Math.random() * 15,
-    er: 5 + Math.random() * 10,
-    mr: 30 + Math.random() * 10,
-    mWidth: 7 + Math.random() * 9,
-    radius: 160,
-    strokeWidth: 6 + Math.random() * 3
-}));
+const App = () => <Router/>;
 
-export const SmileyCollection = () => <Collection data={data} type={Smiley}/>;
+//* Exports
+export default App;

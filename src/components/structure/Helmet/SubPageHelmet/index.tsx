@@ -1,19 +1,27 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `FaceContainer.tsx`
+ * Module | `index.jsx`
  *
- * July 20, 2022
+ * June 13, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Internal Imports
+import PageHelmet from "../PageHelmet";
+
 //* Main
-export const FaceContainer = ({ children, data }) => (
-  <svg height={data.radius} width={data.radius}>
-    <g transform={`translate(${data.radius / 2},${data.radius / 2})`}>
-      {children}
-    </g>
-  </svg>
-)
+class SubPageHelmet extends PageHelmet {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            description: `Ideas Wonder | ${this.props.description}.`,
+            title: `${this.props.title} | Semantyk`
+        };
+    }
+}
+
+//* Exports
+export default SubPageHelmet;

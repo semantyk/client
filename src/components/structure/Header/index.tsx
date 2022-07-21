@@ -13,24 +13,36 @@
 import React, {Component} from 'react';
 
 //* Internal Imports
-import NavBar from './NavBar';
 import {Col} from "react-bootstrap";
+import NavBar from '../NavBar';
 
 //* Main
-export default class Header extends Component<any> {
+class Header extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            description: this.props.description || '',
+            title: this.props.title || '',
+        };
+    }
+
     render() {
-        const {title, description} = this.props || '';
-        const line = this.props.line ? 'border-bottom' : '';
+        const {description, title} = this.state;
+        const header = title || description ? (
+            <Col className="pb-1">
+                <h1>{title}</h1>
+                <p>{description}</p>
+            </Col>
+        ) : null;
         return (
-            <header className={`sticky-top px-5 ${line}`}
+            <header className={'sticky-top px-5'}
                     style={{backdropFilter: 'blur(50px)'}}>
                 <NavBar/>
-                {title || description ? <Col className="pb-1">
-                    <h1>{title}</h1>
-                    <p>{description}</p>
-                </Col> : null}
-                {this.props.children}
+                {header}
             </header>
         );
     }
 }
+
+//* Exports
+export default Header;

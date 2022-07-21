@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `HomePage.tsx`
+ * Model | `Smiley`
  *
  * June 13, 2022
  *
@@ -9,16 +9,25 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* External Imports
+import {range} from "d3";
+
 //* Internal Imports
-import Header from '../basic/Header';
-import Footer from '../basic/Footer';
-import MainHead from '../heads/MainHead';
-import {SmileyCollection} from "../models/smiley/SmileyCollection";
+import Collection from "../../../structure/Collection";
+import Smiley from "../index";
 
 //* Main
-export const HomePage = () => (<>
-    <MainHead/>
-    <Header/>
-    <SmileyCollection/>
-    <Footer/>
-</>);
+const data = range(1).map(() => ({
+    cx: 20 + Math.random() * 9,
+    cy: 20 + Math.random() * 15,
+    er: 5 + Math.random() * 10,
+    mr: 30 + Math.random() * 10,
+    mWidth: 7 + Math.random() * 9,
+    radius: 160,
+    strokeWidth: 6 + Math.random() * 3
+}));
+
+const SmileyCollection = () => <Collection data={data} type={Smiley}/>;
+
+//* Exports
+export default SmileyCollection;

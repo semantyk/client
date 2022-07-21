@@ -1,22 +1,21 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `Mouth.tsx`
+ * Test | `ArchivePage`
  *
- * July 20, 2022
+ * June 13, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import { arc } from 'd3'
+//* External Exports
+import React from 'react';
 
-export const Mouth = ({ r, width }) => {
-  const mouthArc = arc()
-    .innerRadius(r)
-    .outerRadius(r + width)
-    .startAngle(Math.PI / 2)
-    .endAngle(Math.PI * 3 / 2)
+//* Internal Exports
+import App from "./index";
 
-  return <path d={mouthArc()}/>
-}
+//* Main
+test('App', () => {
+    //! FIX: render(<App/>);
+});

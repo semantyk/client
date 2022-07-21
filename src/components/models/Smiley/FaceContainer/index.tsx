@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `Eyes.tsx`
+ * Module | `FaceContainer.tsx`
  *
  * July 20, 2022
  *
@@ -10,7 +10,16 @@
  */
 
 //* Main
-export const Eyes = ({ cx, cy, r }) => (<>
-  <circle cx={-cx} cy={-cy} r={r}/>
-  <circle cx={cx} cy={-cy} r={r}/>
-</>)
+const FaceContainer = (props: any) => {
+    const {children, data} = props;
+    return (
+        <svg height={data.radius} width={data.radius}>
+            <g transform={`translate(${data.radius / 2},${data.radius / 2})`}>
+                {children}
+            </g>
+        </svg>
+    );
+};
+
+//* Exports
+export default FaceContainer;

@@ -1,19 +1,26 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `App.tsx`
+ * Component | `BackgroundCircle`
  *
- * June 13, 2022
+ * July 20, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Imports
-import React from 'react';
-
-//* Internal Imports
-import {MainRouter} from "./routes/MainRouter";
-
 //* Main
-export const App = () => <MainRouter/>;
+const BackgroundCircle = (props: any) => {
+    const {radius, strokeWidth} = props;
+    return (
+        <circle
+            r={radius / 2 - strokeWidth / 2}
+            fill="yellow"
+            stroke="black"
+            strokeWidth={strokeWidth}
+        />
+    );
+};
+
+//* Exports
+export default BackgroundCircle;

@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `MainHead.tsx`
+ * Helmet | `PageHelmet`
  *
  * June 13, 2022
  *
@@ -14,21 +14,32 @@ import {Component} from 'react';
 import {Helmet} from 'react-helmet-async';
 
 //* Internal Imports
-import {seo} from "../../seo";
+import {seo} from "../../../../seo";
 
 //* Main
-export default class MainHead extends Component<{ description?: string, title?: string }, {}> {
+class PageHelmet extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            description: this.props.description || seo.description,
+            domain: seo.domain,
+            keywords: seo.keywords.join(),
+            title: this.props.title || seo.title,
+            url: window.location.href
+        };
+    }
+
     render() {
         // Title
-        const title = this.props.title || seo.title;
+        const {title} = this.state;
         // Description
-        const description = this.props.description || seo.description;
+        const {description} = this.state;
         // Domain
-        const domain = seo.domain;
+        const {domain} = this.state;
         // Keywords
-        const keywords = seo.keywords.join();
+        const {keywords} = this.state;
         // URL
-        const url = window.location.href;
+        const {url} = this.state;
         // return
         return (
             <Helmet>
@@ -53,3 +64,6 @@ export default class MainHead extends Component<{ description?: string, title?: 
         );
     }
 }
+
+//* Exports
+export default PageHelmet;

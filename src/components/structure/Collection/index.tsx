@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `NotFoundPage.tsx`
+ * Module | `Collection.tsx`
  *
  * June 13, 2022
  *
@@ -10,32 +10,24 @@
  */
 
 //* External Imports
-import React, {Component} from 'react';
-
-//* Internal Imports
-import Footer from '../basic/Footer';
-import {Head} from '../heads/Head';
-import Header from '../basic/Header';
+import {Component} from "react";
 
 //* Main
-export class NotFoundPage extends Component<any, any> {
+class Collection extends Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            title: '404 Not Found',
-            description: 'Not Found'
+            data: this.props.data,
+            type: this.props.type,
         };
     }
 
     render() {
-        const {description, title} = this.state;
-        return (
-            <div id={title}>
-                <Head description={description} title={title}/>
-                <Header/>
-                <h1 className="my-3 text-center">{title}</h1>
-                <Footer/>
-            </div>
-        );
+        const {data, type} = this.state;
+        const Component = type;
+        return data.map((data: any) => <Component data={data}/>);
     }
 }
+
+//* Exports
+export default Collection;

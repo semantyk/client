@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `NavBar.tsx`
+ * Component | `NavBar`
  *
  * June 13, 2022
  *
@@ -13,10 +13,10 @@
 import {Image, Nav, Navbar} from 'react-bootstrap';
 import {Link, NavLink} from 'react-router-dom';
 import React, {Component} from 'react';
-import {project} from "../../project";
+import {project} from "../../../project";
 
 //* Main
-export default class NavBar extends Component {
+class NavBar extends Component {
     render() {
         return (
             <Navbar id="NavBar" className="px-0" expand="sm">
@@ -34,3 +34,6 @@ export default class NavBar extends Component {
         );
     }
 }
+
+//* Exports
+export default NavBar;

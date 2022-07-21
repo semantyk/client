@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `MainRouter.tsx`
+ * Router | `Router`
  *
  * June 13, 2022
  *
@@ -15,12 +15,12 @@ import {HelmetProvider} from "react-helmet-async";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 //* Internal Imports
-import {ArchivePage} from "../components/pages/ArchivePage";
-import {HomePage} from '../components/pages/HomePage';
-import {NotFoundPage} from "../components/pages/NotFoundPage";
+import ArchivePage from "../pages/ArchivePage";
+import HomePage from '../pages/HomePage';
+import NotFoundPage from "../pages/NotFoundPage";
 
 //* Main
-export const MainRouter = () => (
+const Router = () => (
     <HelmetProvider>
         <BrowserRouter>
             <Routes>
@@ -32,3 +32,6 @@ export const MainRouter = () => (
         </BrowserRouter>
     </HelmetProvider>
 );
+
+//* Exports
+export default Router;

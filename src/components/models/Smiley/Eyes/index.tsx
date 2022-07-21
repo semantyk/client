@@ -1,23 +1,22 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `App.test.tsx`
+ * Module | `Eyes.tsx`
  *
- * June 13, 2022
+ * July 20, 2022
  *
  * Copyright © Semantyk 2022. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Exports
-
-//* Internal Exports
-
 //* Main
-describe("Base", () => {
-    it("true", () => {
-        expect(true).toBe(true);
-    });
-});
+const Eyes = (props: any) => {
+    const {cx, cy, r} = props;
+    return (<>
+        <circle cx={-cx} cy={-cy} r={r}/>
+        <circle cx={cx} cy={-cy} r={r}/>
+    </>);
+};
 
-export {};
+//* Exports
+export default Eyes;

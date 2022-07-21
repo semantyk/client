@@ -11,24 +11,32 @@
 
 //* External Imports
 import {Link} from 'react-router-dom';
-import {Component, ReactNode} from 'react';
+import {Component} from 'react';
 
 //* Internal Imports
-import {project} from "../../project";
+import {project} from "../../../project";
 
 //* Main
-export default class Footer extends Component<{ children?: ReactNode, noLine?: string }, {}> {
+class Footer extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {title: project.name};
+    }
+
     render() {
-        const line = this.props.noLine !== undefined ? 'border-bottom' : '';
+        const {title} = this.state;
         return (
-            <footer id="Footer" className={'sticky-top px-5 py-3 ' + line}>
+            <footer id="Footer" className={'sticky-top px-5 py-3'}>
                 <small>
                     <p className="mb-0 text-center text-muted">
                         Copyright © <Link className="text-muted"
-                                          to="/">{project.name}</Link> {new Date().getFullYear()}
+                                          to="/">{title}</Link> {new Date().getFullYear()}
                     </p>
                 </small>
             </footer>
         );
     }
 }
+
+//* Exports
+export default Footer;

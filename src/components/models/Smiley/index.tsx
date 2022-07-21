@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `Smiley.tsx`
+ * Component | `Smiley`
  *
  * July 20, 2022
  *
@@ -9,14 +9,17 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Internal Imports
-import {BackgroundCircle} from './BackgroundCircle';
-import {Eyes} from './Eyes';
-import {FaceContainer} from './FaceContainer';
-import {Mouth} from './Mouth';
+//* External Imports
 import {Component} from "react";
 
-export class Smiley extends Component<any> {
+//* Internal Imports
+import BackgroundCircle from './BackgroundCircle';
+import Eyes from './Eyes';
+import FaceContainer from './FaceContainer';
+import Mouth from './Mouth';
+
+//* Main
+class Smiley extends Component<any> {
     render() {
         const {data} = this.props;
         return (
@@ -29,3 +32,6 @@ export class Smiley extends Component<any> {
         );
     }
 }
+
+//* Exports
+export default Smiley;

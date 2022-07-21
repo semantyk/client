@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `Head.tsx`
+ * View | `HomePage`
  *
  * June 13, 2022
  *
@@ -9,14 +9,17 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* External Imports
-
 //* Internal Imports
-import MainHead from './MainHead';
+import Header from '../../components/structure/Header';
+import Footer from '../../components/structure/Footer';
+import MainHelmet from '../../components/structure/Helmet/PageHelmet';
 
 //* Main
-export const Head = (props: any) => {
-    const description = `Ideas Wonder | ${props.description}.`;
-    const title = props.title + ' | Semantyk';
-    return <MainHead description={description} title={title}/>;
-};
+const HomePage = () => (<>
+    <MainHelmet/>
+    <Header/>
+    <Footer/>
+</>);
+
+//* Exports
+export default HomePage;
