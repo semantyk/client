@@ -9,7 +9,10 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-export const project = {
+//* Internal Imports
+
+//* Main
+const project: any = {
     name: "Semantyk",
     description: "Knowledge Graphs Interactive Experience Ecosystem",
     domain: "semantyk.com",
@@ -21,8 +24,8 @@ export const project = {
         preview: process.env.PUBLIC_URL + '/preview.png'
     },
     keywords: [
-        "data viz",
-        "linked data",
+        "util viz",
+        "linked util",
         "rdf",
         "rdfs",
         "semantyk",
@@ -30,3 +33,6 @@ export const project = {
     ],
     slogan: "Ideas Wonder",
 };
+
+//* Exports
+export default project;

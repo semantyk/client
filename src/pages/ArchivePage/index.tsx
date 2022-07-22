@@ -11,7 +11,7 @@
 
 //* External Imports
 import React, {Component} from 'react';
-import {Image, Row} from 'react-bootstrap';
+import {Container, Image} from 'react-bootstrap';
 
 //* Internal Imports
 import Footer from '../../components/structure/Footer';
@@ -33,13 +33,13 @@ class ArchivePage extends Component<any, any> {
         return (<>
             <SubPageHelmet description={description} title={title}/>
             <Header description={description} title={title}/>
-            <Row className="m-0 px-5 pt-3">
+            <Container fluid className="px-5">
                 <a href="https://lod-cloud.net/clouds/lod-cloud.svg">
                     <Image alt="Linked Open Data Cloud"
                            src="https://lod-cloud.net/clouds/lod-cloud.svg"
                            width="100%"/>
                 </a>
-            </Row>
+            </Container>
             <Footer/>
         </>);
     }

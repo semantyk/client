@@ -14,7 +14,7 @@ import {Component} from 'react';
 import {Helmet} from 'react-helmet-async';
 
 //* Internal Imports
-import {seo} from "../../../../seo";
+import seo from "../../../../util/seo";
 
 //* Main
 class PageHelmet extends Component<any, any> {

@@ -1,7 +1,7 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # semantyk.com
- * Module | `seo.ts`
+ * Module | `archive.ts`
  *
  * July 7, 2022
  *
@@ -9,14 +9,10 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import {project} from "./project";
-
-export const seo = {
-    title: project.name,
-    description: `${project.slogan}. | ${project.description}.`,
-    domain: project.domain,
-    favicon: project.images.favicon,
-    keywords: project.keywords,
-    apple_touch_icon: project.images.apple_touch_icon,
-    preview: project.images.preview
+//* Main
+const archive = {
+    title: "Archive"
 };
+
+//* Exports
+export default archive;

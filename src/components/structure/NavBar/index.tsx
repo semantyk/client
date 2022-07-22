@@ -10,10 +10,12 @@
  */
 
 //* External Imports
+import React, {Component} from 'react';
 import {Image, Nav, Navbar} from 'react-bootstrap';
 import {Link, NavLink} from 'react-router-dom';
-import React, {Component} from 'react';
-import {project} from "../../../project";
+
+//* Internal Imports
+import project from "../../../util/project";
 
 //* Main
 class NavBar extends Component {

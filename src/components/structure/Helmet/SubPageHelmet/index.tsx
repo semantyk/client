@@ -11,14 +11,16 @@
 
 //* Internal Imports
 import PageHelmet from "../PageHelmet";
+import project from "../../../../util/project";
+import seo from "../../../../util/seo";
 
 //* Main
 class SubPageHelmet extends PageHelmet {
     constructor(props: any) {
         super(props);
         this.state = {
-            description: `Ideas Wonder | ${this.props.description}.`,
-            title: `${this.props.title} | Semantyk`
+            description: `${project.slogan} | ${this.props.description}.`,
+            title: `${this.props.title} | ${seo.title}`
         };
     }
 }

@@ -11,11 +11,14 @@
 
 //* External Exports
 import React from 'react';
+import {render} from "@testing-library/react";
 
 //* Internal Exports
 import App from "./index";
 
 //* Main
-test('App', () => {
-    //! FIX: render(<App/>);
+describe('App', () => {
+    test('render', () => {
+        render(<App/>);
+    });
 });

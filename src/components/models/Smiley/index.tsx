@@ -19,9 +19,18 @@ import FaceContainer from './FaceContainer';
 import Mouth from './Mouth';
 
 //* Main
+const data = {
+    cx: 20 + Math.random() * 9,
+    cy: 20 + Math.random() * 15,
+    er: 5 + Math.random() * 10,
+    mr: 30 + Math.random() * 10,
+    mWidth: 7 + Math.random() * 9,
+    radius: 160,
+    strokeWidth: 6 + Math.random() * 3
+};
+
 class Smiley extends Component<any> {
     render() {
-        const {data} = this.props;
         return (
             <FaceContainer data={data}>
                 <BackgroundCircle radius={data.radius}

@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom';
 import {Component} from 'react';
 
 //* Internal Imports
-import {project} from "../../../project";
+import project from "../../../util/project";
 
 //* Main
 class Footer extends Component<any, any> {
