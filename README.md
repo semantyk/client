@@ -11,5 +11,3 @@ rights
 reserved.
 </i>
 </p>
-
-***
