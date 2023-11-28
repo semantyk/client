@@ -1,14 +1,16 @@
-# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-# # semantyk.com
-# `.gitignore`
-#
-# Created: Nov 28, 2023
-# Modified: Nov 28, 2023
-#
-# Author(s): Semantyk Team
-#
-# Copyright © Semantyk 2023. All rights reserved.
-# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ # # `.gitignore`
+ # client | Semantyk
+ #
+ # This file contains the list of files and folders that are ignored by Git.
+ #
+ # Created: Nov 28, 2023
+ # Modified: Nov 28, 2023
+ #
+ # Author(s): Semantyk Team
+ #
+ # Copyright © Semantyk 2023. All rights reserved.
+ # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,webstorm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,webstorm+all
