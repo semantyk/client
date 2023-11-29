@@ -34,6 +34,7 @@ jobs:
       - uses: actions/checkout@v4
       # 2. Setup Google Cloud SDK
       - run: echo "2. Setup Google Cloud SDK"
+      - run: npm install -g pnpm
       - name: Node.js Configuration (${{ matrix.node-version }})
         uses: actions/setup-node@v4
         with:
@@ -41,7 +42,6 @@ jobs:
           cache: 'pnpm'
       # 3. Install Dependencies
       - run: echo "3. Install Dependencies"
-      - run: npm install -g pnpm
       - run: pnpm ci
       # 4. Build
       - run: pnpm run build
