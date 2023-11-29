@@ -3,7 +3,7 @@ module.exports = {
     setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
     testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
     transform: {
-        "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+        "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { configFile: "./jest.babel.config.js" }],
     },
     moduleNameMapper: {
         "\\.(scss|css|sass)$": "identity-obj-proxy",
