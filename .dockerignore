@@ -17,8 +17,12 @@
 # Environment files
 *.env
 
-# Created by https://www.toptal.com/developers/gitignore/api/git,macos,webstorm+all,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,macos,webstorm+all,node
+# Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all,appengine
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,macos,webstorm+all,appengine
+
+### AppEngine ###
+# Google App Engine generated folder
+appengine-generated/
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -296,4 +300,4 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
-# End of https://www.toptal.com/developers/gitignore/api/git,macos,webstorm+all,node
+# End of https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all,appengine
