@@ -22,7 +22,7 @@ license:
 For inquiries or support regarding this project, please reach out to us:
 
 - **Email:** [contact@semantyk.com](mailto:contact@semantyk.com)
-- **[GitHub Issues](https://github.com/projectname/issues):** For reporting
+- **[GitHub Issues](https://github.com/semantyk/client/issues):** For reporting
   issues, requesting features or suggestions.
 
 Your feedback and questions are greatly appreciated!
