@@ -16,10 +16,12 @@
 FROM node:alpine AS builder
 # Set the working directory
 WORKDIR /usr/src/app
+# Install pnpm
+RUN npm install -g pnpm
 # Copy package.json and other related files
 COPY package*.json pnpm-lock.yaml ./
 # Install dependencies
-RUN npm install -g pnpm && pnpm install
+RUN pnpm install
 # Copy the rest of your app's source code
 COPY . .
 # Build the Next.js app
