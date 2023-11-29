@@ -1,11 +1,11 @@
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- # # `.gitignore`
+ # # `.dockerignore`
  # client | Semantyk
  #
  # This file contains the list of files and folders that are ignored by Git.
  #
- # Created: Nov 28, 2023
- # Modified: Nov 28, 2023
+ # Created: Nov 29, 2023
+ # Modified: Nov 29, 2023
  #
  # Author(s): Semantyk Team
  # Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
