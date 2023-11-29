@@ -13,7 +13,7 @@
 
 # Stage 1: Build the application
 # Use Node.js Image
-FROM node:20.10.0-alpine AS builder
+FROM node:alpine AS builder
 # Set the working directory
 WORKDIR /usr/src/app
 # Copy package.json and other related files
@@ -27,7 +27,7 @@ RUN pnpm build
 
 # Stage 2: Production environment
 # Use Node.js Image
-FROM node:20.10.0-alpine
+FROM node:alpine
 # Set the working directory
 WORKDIR /usr/src/app
 # Copy  related files
