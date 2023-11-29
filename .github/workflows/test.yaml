@@ -28,22 +28,25 @@ jobs:
       matrix:
         node-version: [ 20.10.0 ]
     steps:
-      # 1. Checkout the Repository
-      - run: echo "1. Checkout the Repository"
+      - run: echo "Build and Test Workflow"
+        # 1. Checkout the Repository
         name: Repository Checkout
       - uses: actions/checkout@v4
-      # 2. Setup Google Cloud SDK
-      - run: echo "2. Setup Google Cloud SDK"
-      - run: npm install -g pnpm
+      # 2. Setup pnpm
+      - uses: pnpm/setup-pnpm@v2
+        with:
+          version: 8
+      # 3. Setup Node.js
+      - run: echo "3. Setup Node.js"
       - name: Node.js Configuration (${{ matrix.node-version }})
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      # 3. Install Dependencies
-      - run: echo "3. Install Dependencies"
-      - run: pnpm ci
-      # 4. Build
+      # 4. Install Dependencies
+      - run: echo "4. Install Dependencies"
+      - run: pnpm install
+      # 5. Build
       - run: pnpm run build
-      # 5. Test
+      # 6. Test
       - run: pnpm test
