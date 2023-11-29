@@ -37,14 +37,12 @@ jobs:
         with:
           version: 8
       # 3. Setup Node.js
-      - run: echo "3. Setup Node.js"
       - name: Node.js Configuration (${{ matrix.node-version }})
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
       # 4. Install Dependencies
-      - run: echo "4. Install Dependencies"
       - run: pnpm install
       # 5. Build
       - run: pnpm run build
