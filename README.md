@@ -2,24 +2,16 @@
 <h3 align='center'><i>Ideas Wonder</i></h3>
 <p align='center'>
   <img alt='Semantyk' src='https://www.semantyk.com/logo.png' width='250'/>
-  <br>
-  <br>
-  <b>August 31, 2017</b>
-  <br>
-  <i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2023. All 
-rights 
-reserved.
-</i>
 </p>
 
----
 ## License
 
-This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
-
-### Key Points of the License:
+This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license:
 
 * **Attribution:** Please credit Semantyk as the original creator.
 * **Non-Commercial:** Use is allowed, but not for commercial gain.
 * **ShareAlike:** Modifications or enhancements must be shared under the same license terms.
 * **No Additional Restrictions:** Users should avoid imposing extra restrictions beyond those of the license.
+
+---
+<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2023. All rights reserved.</i>
