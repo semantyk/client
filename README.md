@@ -15,9 +15,7 @@ reserved.
 ---
 ## License
 
-This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
-
-**Key Points of the License:**
+This project is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license:
 
 * **Attribution:** Please credit Semantyk as the original creator.
 * **Non-Commercial:** Use is allowed, but not for commercial gain.
