@@ -9,7 +9,7 @@ This file lists all individuals having contributed content to the project.
 * **Author(s):** [Semantyk Team](https://github.com/orgs/semantyk/people)
 * **Maintainer(s):** [Daniel Bakas](https://id.danielbakas.com)
 
-## Team
+## Our Team
 
 | Name                                           | GitHub Username                                        | Role    | WebID                                                                 | Mail                                                           |
 |:-----------------------------------------------|:-------------------------------------------------------|:--------|:----------------------------------------------------------------------|:---------------------------------------------------------------|
