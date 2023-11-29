@@ -42,4 +42,4 @@ jobs:
       # Deployment to 'staging' service
       - name: Deploy to Staging Service
         if: github.ref == 'refs/heads/staging'
-        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote --version staging --no-cache
+        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote --version staging
