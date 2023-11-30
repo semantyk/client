@@ -38,8 +38,8 @@ jobs:
       # Deployment to 'main' service
       - name: Deploy to Main Service
         if: github.ref == 'refs/heads/main'
-        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote --version main
+        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote
       # Deployment to 'staging' service
       - name: Deploy to Staging Service
         if: github.ref == 'refs/heads/staging'
-        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote --version staging
+        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote
