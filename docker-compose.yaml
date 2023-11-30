@@ -21,8 +21,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - NODE_ENV=production
-    command: node_modules/.bin/next start
+      - NODE_ENV=staging
 
   test:
     build:
