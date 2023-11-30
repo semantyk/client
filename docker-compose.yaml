@@ -12,3 +12,15 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+    command: pnpm run dev
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: pnpm run test
