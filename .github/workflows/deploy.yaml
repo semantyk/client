@@ -24,22 +24,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 1. Checkout the Repository
-      - name: Repository Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        name: Repository Checkout
       # 2. Setup Google Cloud SDK
-      - name: Cloud SDK Configuration
-        uses: google-github-actions/setup-gcloud@v1
+      - uses: google-github-actions/setup-gcloud@v1
+        name: Cloud SDK Configuration
       # 3. Authenticate with Google Cloud
-      - name: GCP Authentication
-        uses: google-github-actions/auth@v2
+      - uses: google-github-actions/auth@v2
+        name: GCP Authentication
         with:
           credentials_json: ${{secrets.GCP_CREDENTIALS}}
       # 4. Deploy to Google App Engine
       # Deployment to 'main' service
-      - name: Deploy to Main Service
-        if: github.ref == 'refs/heads/main'
+      - if: github.ref == 'refs/heads/main'
+        name: Deploy to Main Service
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote
       # Deployment to 'staging' service
-      - name: Deploy to Staging Service
-        if: github.ref == 'refs/heads/staging'
+      - if: github.ref == 'refs/heads/staging'
+        name: Deploy to Staging Service
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote
