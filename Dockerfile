@@ -31,7 +31,7 @@ RUN pnpm run build
 # Use Node.js Image
 FROM node:alpine
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 # Copy  related files
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/.next ./.next
