@@ -38,3 +38,5 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 # Expose port 3000
 EXPOSE 3000
+# Run the Next.js app
+CMD ["node_modules/.bin/next", "start"]
