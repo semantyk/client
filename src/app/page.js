@@ -14,6 +14,9 @@
  */
 
 //* Main
-export default async function Main() {
-    return (<></>);
+export default function Main() {
+    return (
+        <div>
+        </div>
+    );
 }
