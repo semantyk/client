@@ -1,0 +1,45 @@
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# # `deploy.yaml`
+# client | Semantyk
+#
+# Created: Nov 29, 2023
+# Modified: Nov 29, 2023
+#
+# Author(s): Semantyk Team
+# Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+#
+# Copyright © Semantyk 2023. All rights reserved.
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+name: Deploy to Google App Engine
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout the Repository
+      - name: Repository Checkout
+        uses: actions/checkout@v4
+      # 2. Setup Google Cloud SDK
+      - name: Cloud SDK Configuration
+        uses: google-github-actions/setup-gcloud@v1
+      # 3. Authenticate with Google Cloud
+      - name: GCP Authentication
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{secrets.GCP_CREDENTIALS}}
+      # 4. Deploy to Google App Engine
+      # Deployment to 'main' service
+      - name: Deploy to Main Service
+        if: github.ref == 'refs/heads/main'
+        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote --version main
+      # Deployment to 'staging' service
+      - name: Deploy to Staging Service
+        if: github.ref == 'refs/heads/staging'
+        run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote --version staging
