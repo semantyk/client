@@ -1,0 +1,53 @@
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# # `test.yaml`
+# client | Semantyk
+#
+# Created: Nov 29, 2023
+# Modified: Nov 29, 2023
+#
+# Author(s): Semantyk Team
+# Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+#
+# Copyright © Semantyk 2023. All rights reserved.
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20.10.0 ]
+    steps:
+      # 1. Checkout the Repository
+      - uses: actions/checkout@v4
+        name: 1. Repository Checkout
+      # 2. Setup pnpm
+      - uses: pnpm/action-setup@v2
+        name: 2. Setup pnpm
+        with:
+          version: 8
+      # 3. Setup Node.js
+      - uses: actions/setup-node@v4
+        name: 3. Setup Node.js (v${{ matrix.node-version }})
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # 4. Install Dependencies
+      - run: pnpm install
+        name: 4. Install Dependencies
+      # 5. Build
+      - run: pnpm run build
+        name: 5. Build
+      # 6. Test
+      - run: pnpm test
+        name: 6. Test
