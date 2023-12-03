@@ -4,7 +4,7 @@
  * README.md | Semantyk
  *
  * Created: Nov 30, 2023
- * Modified: Nov 30, 2023
+ * Modified: Dec 3, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -16,19 +16,16 @@
 //* Imports
 import "bootstrap/dist/css/bootstrap.min.css";
 //* Local Imports
-import metadata from "./metadata.js";
+import getMetadata from "../logic/metadata/service.js";
 
 //* Main
-export async function generateMetadata() {
-    // Return
-    return metadata;
-}
+export function generateMetadata() { return getMetadata(); }
 
 export default function RootLayout({ children }) {
     // Return
     return (
         <html lang="en">
-        <body className={`bg-dark`}>
+        <body className={`bg-dark text-light`}>
         {children}
         </body>
         </html>

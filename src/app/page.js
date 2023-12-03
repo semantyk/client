@@ -1,7 +1,7 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `page.js` | `app`
- * README.md | Semantyk
+ * client | Semantyk
  *
  * Created: Nov 30, 2023
  * Modified: Nov 30, 2023
@@ -13,10 +13,14 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Imports
+
 //* Main
-export default function Main() {
+export default function Page() {
+    // Return
     return (
-        <div>
+        <div id="Page">
+
         </div>
     );
 }

@@ -16,9 +16,9 @@
 //* Imports
 import { render } from "@testing-library/react";
 //* Local Imports
-import Main from "./page";
+import Page from "./page";
 
 //* Main
-test("renders component correctly", () => {
-    render(<Main/>);
+test("Render Application", () => {
+    render(<Page/>);
 });
