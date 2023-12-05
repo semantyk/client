@@ -3,8 +3,8 @@
  * # `service.js` | `metadata`
  * client | Semantyk
  *
- * Created: Dec 03, 2023
- * Modified: Dec 03, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,16 +13,17 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Main
-import getData from "../data/service";
+//* Imports
+import { getData } from "@/logic/data/service";
 
-export default function getMetadata() {
+//* Main
+export async function getMetadata() {
     // Hooks
-    const { app } = getData();
+    const app = await getData(fetch);
     // Return
     return {
         // Base URL
-        metadataBase: new URL(app.url),
+        metadataBase: new URL("https://www.semantyk.com/"),
         // Metadata
         alternates: {
             canonical: "/",
@@ -31,11 +32,11 @@ export default function getMetadata() {
                 "es": "/es"
             }
         },
-        applicationName: app.title,
+        applicationName: app.name,
         authors: [{ name: app.author, url: app.webId }],
         category: "technology",
         creator: app.creator,
-        description: app.description,
+        description: `${app.slogan} | ${app.description}`,
         href: "/",
         icons: {
             apple: "/apple-icon.png",
@@ -45,24 +46,23 @@ export default function getMetadata() {
         keywords: app.keywords,
         lang: app.lang,
         openGraph: {
-            description: app.description,
+            description: `${app.slogan} | ${app.description}`,
             images: ["/opengraph-image.png"],
             locale: app.lang,
-            siteName: app.title,
-            title: app.title,
+            siteName: app.name,
+            title: app.name,
             type: "website",
-            url: "/",
-
+            url: "/"
         },
-        title: { default: app.title, template: `%s | ${app.title}` },
+        title: { default: app.name, template: `%s | ${app.name}` },
         twitter: {
             card: "summary_large_image",
             creator: app.twitter,
             creatorId: "",
-            description: app.description,
+            description: `${app.slogan} | ${app.description}`,
             images: ["/opengraph-image.png"],
             siteId: "",
-            title: app.title,
+            title: app.name,
         }
     };
 }
