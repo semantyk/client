@@ -13,10 +13,11 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Main
-import { getProperties, getThing } from "@/services/solid/service";
-import { APP_WEBID, APP_WEBID_DOC } from "@/services/app/nodes";
-import { appShape } from "@/services/app/shape";
+//* Imports
+import { getProperties, getThing } from "../../services/solid/service";
+import { APP_WEBID, APP_WEBID_DOC } from "../../services/app/nodes";
+import { appShape } from "../../services/app/shape";
+
 
 //* Main
 export async function getData(fetch) {

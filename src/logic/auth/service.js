@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import { CLIENT_ID, POD_URI } from "@/services/app/nodes";
+import { CLIENT_ID, POD_URI } from "../../services/app/nodes";
 
 export async function getOptions() {
     return {

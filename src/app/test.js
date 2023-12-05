@@ -16,9 +16,9 @@
 //* Imports
 import { render } from "@testing-library/react";
 //* Local Imports
-import Page from "./page";
+import RootLayout from "./layout";
 
 //* Main
 test("Render Application", () => {
-    render(<Page/>);
+    render(<RootLayout/>);
 });

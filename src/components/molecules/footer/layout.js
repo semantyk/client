@@ -13,6 +13,7 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Main
 export default function FooterLayout({ children }) {
     const position = "sticky-bottom";
     // Return

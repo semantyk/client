@@ -16,8 +16,8 @@
 //* Imports
 import "bootstrap/dist/css/bootstrap.min.css";
 //* Local Imports
-import StateManager from "@/logic/state/manager";
-import { getMetadata } from "@/logic/metadata/service";
+import { getMetadata } from "../logic/metadata/service";
+import StateManager from "../logic/state/manager";
 
 
 export async function generateMetadata() {return await getMetadata();}

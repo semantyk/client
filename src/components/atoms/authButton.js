@@ -7,7 +7,7 @@
  * Modified: Dec 04, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -17,8 +17,9 @@
 
 //* Imports
 import { useSession } from "@inrupt/solid-ui-react";
-import LoginButton from "@/components/atoms/loginButton";
-import LogoutButton from "@/components/atoms/logoutButton";
+//* Local Imports
+import LoginButton from "./loginButton";
+import LogoutButton from "./logoutButton";
 
 //* Main
 export default function AuthButton() {

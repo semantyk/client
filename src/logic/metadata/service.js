@@ -14,7 +14,8 @@
  */
 
 //* Imports
-import { getData } from "@/logic/data/service";
+import { getData } from "../data/service";
+
 
 //* Main
 export async function getMetadata() {
