@@ -17,9 +17,9 @@
 
 //* Imports
 //* Local Imports
-import FooterLayout from "@/components/molecules/footer/layout";
+import FooterLayout from "./layout";
 import Link from "next/link";
-import useData from "@/logic/data/hook";
+import useData from "../../../logic/data/hook";
 
 export default function Footer() {
     // Hooks
