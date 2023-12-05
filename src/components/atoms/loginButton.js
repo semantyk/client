@@ -1,0 +1,39 @@
+/*
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `loginButton.js` | `atoms`
+ * client | Semantyk
+ *
+ * Created: Dec 04, 2023
+ * Modified: Dec 04, 2023
+ *
+ * Author(s): Semantyk Team
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ *
+ * Copyright © Semantyk 2023. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ */
+
+"use client";
+
+//* Imports
+import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
+import { Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+//* Local imports
+import { getOptions } from "@/logic/auth/service";
+
+//* Main
+export default function LoginButton() {
+    // Hooks
+    const [options, setOptions] = useState({});
+    // Logic
+    useEffect(() => {
+        getOptions().then(setOptions);
+    }, []);
+    // Return
+    return (
+        <SolidLoginButton {...options}>
+            <Button>Log In</Button>
+        </SolidLoginButton>
+    );
+}
