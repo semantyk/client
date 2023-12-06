@@ -17,7 +17,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 //* Local Imports
-import StateManager from "./logic/state/manager";
 import { getMetadata } from "./logic/metadata/service";
 
 
@@ -29,9 +28,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <body className={`bg-dark text-light`}>
-        <StateManager>
-            {children}
-        </StateManager>
+        {children}
         </body>
         </html>
     );

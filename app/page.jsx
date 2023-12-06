@@ -18,14 +18,17 @@ import React from "react";
 //* Local Imports
 import "./page.css";
 import Footer from "./components/molecules/footer/component";
+import StateManager from "./logic/state/manager";
 
 
 //* Main
 export default function Page() {
     // Return
     return (
-        <div id="Page">
-            <Footer/>
-        </div>
+        <StateManager>
+            <div id="Page">
+                <Footer/>
+            </div>
+        </StateManager>
     );
 }
