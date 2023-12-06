@@ -1,25 +1,33 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `service.js` | `auth`
+ * # `loginButton.jsx` | `molecules`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 04, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import { CLIENT_ID, POD_URI } from "@/services/app/nodes";
+"use client";
 
-export async function getOptions() {
-    return {
-        authOptions: { clientId: CLIENT_ID },
-        oidcIssuer: POD_URI,
-        redirectUrl: window.location.href
-    };
+//* Imports
+import React from "react";
+//* Local Imports
+import LogoutButton from "./logoutButton";
+import LoginButton from "./loginButton";
+import { useSession } from "@inrupt/solid-ui-react";
+
+//* Main
+export default function AuthButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { isLoggedIn } = session.info;
+    // Return
+    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
 }

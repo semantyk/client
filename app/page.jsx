@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `molecules`
+ * # `page.jsx` | `data`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Nov 30, 2023
+ * Modified: Dic 5, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,21 +13,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
 import React from "react";
 //* Local Imports
-import LogoutButton from "@/components/atoms/logoutButton";
-import LoginButton from "@/components/atoms/loginButton";
-import { useSession } from "@inrupt/solid-ui-react";
+import "./page.css";
+import Footer from "./components/molecules/footer/component";
+
 
 //* Main
-export default function AuthButton() {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
+export default function Page() {
     // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
+    return (
+        <div id="Page">
+            <Footer/>
+        </div>
+    );
 }

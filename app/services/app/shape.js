@@ -14,8 +14,8 @@
  */
 
 //* Local Imports
-import { SCHEMA } from "@/services/solid/namespaces";
-import { ARCHIVE } from "@/services/app/namespaces";
+import { SCHEMA } from "../solid/namespaces";
+import { ARCHIVE } from "./namespaces";
 
 
 //* Main

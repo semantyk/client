@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `atoms`
+ * # `hook.js` | `data`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
+ * Created: Dec 05, 2023
  * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
@@ -13,28 +13,23 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "@/logic/auth/service";
+import { useEffect, useState } from "react";
+import { useSession } from "@inrupt/solid-ui-react";
+//* Local Imports
+import { getData } from "./service";
 
 
 //* Main
-export default function LoginButton() {
+export default function useData() {
     // Hooks
-    const [options, setOptions] = useState({});
-    // Logic
+    const { fetch } = useSession();
+    // - useState
+    const [data, setData] = useState({});
+    // - useEffect
     useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
+        getData(fetch).then(setData);
+    }, [fetch]);
     // Return
-    return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
-    );
+    return data;
 }

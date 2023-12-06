@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import { getData } from "@/logic/data/service";
+import { getData } from "../data/service";
 
 //* Main
 

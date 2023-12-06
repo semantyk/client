@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `data`
+ * # `service.js`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dec 5, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,26 +14,28 @@
  */
 
 //* Imports
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+
 //* Local Imports
-import StateManager from "../logic/state/manager";
-import { getMetadata } from "../logic/metadata/service";
+import { APP_WEBID, APP_WEBID_DOC } from "../../services/app/nodes";
+import { getProperties, getThing } from "../../services/solid/service";
+import { appShape } from "../../services/app/shape";
 
 
 //* Main
-export async function generateMetadata() {return await getMetadata();}
-
-export default function RootLayout({ children }) {
+export async function getData(fetch) {
+    // Logic
+    const thing = await getThing(fetch, APP_WEBID_DOC, APP_WEBID);
+    const lang = navigator.language.substring(0, 2);
+    const properties = getProperties(thing, appShape, lang);
+    // Props
+    const team = "Semantyk Team";
+    const twitter = "@semantyk";
     // Return
-    return (
-        <html lang="en">
-        <body className={`bg-dark text-light`}>
-        <StateManager>
-            Test
-            {children}
-        </StateManager>
-        </body>
-        </html>
-    );
+    return {
+        author: team,
+        creator: team,
+        lang,
+        twitter,
+        ...properties
+    };
 }

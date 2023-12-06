@@ -1,35 +1,25 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `hook.js` | `data`
+ * # `service.js` | `auth`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 04, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { useEffect, useState } from "react";
-import { useSession } from "@inrupt/solid-ui-react";
-//* Local Imports
-import { getData } from "@/logic/data/service";
+import { CLIENT_ID, POD_URI } from "../../services/app/nodes";
 
-
-//* Main
-export default function useData() {
-    // Hooks
-    const { fetch } = useSession();
-    // - useState
-    const [data, setData] = useState({});
-    // - useEffect
-    useEffect(() => {
-        getData(fetch).then(setData);
-    }, [fetch]);
-    // Return
-    return data;
+export async function getOptions() {
+    return {
+        authOptions: { clientId: CLIENT_ID },
+        oidcIssuer: POD_URI,
+        redirectUrl: window.location.href
+    };
 }
