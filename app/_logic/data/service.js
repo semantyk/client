@@ -24,7 +24,9 @@ import { appShape } from "../../_services/app/shape";
 //* Main
 export async function getData(fetch) {
     // Logic
-    const thing = await getThing(fetch, APP_WEBID_DOC, APP_WEBID);
+    const document = APP_WEBID_DOC.value;
+    const uri = APP_WEBID.value;
+    const thing = await getThing(fetch, document, uri);
     const lang = "en";
     const properties = getProperties(thing, appShape, lang);
     // Props
