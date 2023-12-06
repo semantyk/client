@@ -24,6 +24,7 @@ module.exports = {
         "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { configFile: "./jest.babel.config.js" }],
     },
     moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1",
         "\\.(scss|css|sass)$": "identity-obj-proxy",
         "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
     }
