@@ -7,7 +7,7 @@
  * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -18,7 +18,6 @@ import { useEffect, useState } from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 //* Local Imports
 import { getData } from "@/logic/data/service";
-
 
 
 //* Main
