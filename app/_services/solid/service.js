@@ -53,7 +53,7 @@ export const getProperty = (thing, type, property, locale) => {
 export const getProperties = (thing, shape, locale) => {
     let properties = {};
     for (const { ns, fragment, type } of shape) {
-        const property = ns(fragment);
+        const property = ns(fragment).value;
         properties[fragment] = getProperty(thing, type, property, locale);
     }
     return properties;
