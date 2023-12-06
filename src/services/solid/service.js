@@ -31,7 +31,6 @@ export const getNumber = (thing, property) => {
 };
 
 export const getProperty = (thing, type, property, locale) => {
-    property = property.value;
     // Ranges
     switch (type) {
         case "number":
