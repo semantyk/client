@@ -24,7 +24,8 @@ import RootLayout from "./layout";
 // Mocking Solid UI React's SessionProvider
 vi.mock("@inrupt/solid-ui-react", () => ({
     ...vi.importActual("@inrupt/solid-ui-react"),
-    SessionProvider: ({ children }) => <>{children}</>
+    SessionProvider: ({ children }) => <>{children}</>,
+    useSession: () => ({ session: { info: { webId: "https://id.example.com" } } })
 }));
 
 // Mocking the getMetadata function
