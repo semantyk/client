@@ -18,8 +18,8 @@ import { CLIENT_ID, POD_PROVIDER_URI } from "../../_services/app/nodes";
 
 export async function getOptions() {
     // Logic
-    const clientId = CLIENT_ID;
-    const oidcIssuer = POD_PROVIDER_URI;
+    const clientId = CLIENT_ID.value;
+    const oidcIssuer = POD_PROVIDER_URI.value;
     const redirectUrl = window.location.href;
     // Return
     return {
