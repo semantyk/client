@@ -31,7 +31,7 @@ export default function LogoutButton() {
     const { webId } = session.info;
     // Return
     return (<>
-        <p>Logged in as: <strong><code>{webId}</code></strong></p>
+        <p>WebID: <strong><code>{webId}</code></strong></p>
         <SolidLogoutButton>
             <Button>Log Out</Button>
         </SolidLogoutButton>
