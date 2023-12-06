@@ -1,22 +1,25 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.js` | `app`
- * README.md | Semantyk
+ * # `service.js` | `auth`
+ * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Nov 30, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 04, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Main
-export default function Main() {
-    return (
-        <div>
-        </div>
-    );
+//* Imports
+import { CLIENT_ID, POD_URI } from "../../services/app/nodes";
+
+export async function getOptions() {
+    return {
+        authOptions: { clientId: CLIENT_ID },
+        oidcIssuer: POD_URI,
+        redirectUrl: window.location.href
+    };
 }

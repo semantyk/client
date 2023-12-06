@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.js` | `app`
- * README.md | Semantyk
+ * # `layout.jsx` | `data`
+ * client | Semantyk
  *
  * Created: Nov 30, 2023
- * Modified: Nov 30, 2023
+ * Modified: Dec 5, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -15,21 +15,24 @@
 
 //* Imports
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 //* Local Imports
-import metadata from "./metadata.js";
+import StateManager from "./logic/state/manager";
+import { getMetadata } from "./logic/metadata/service";
+
 
 //* Main
-export async function generateMetadata() {
-    // Return
-    return metadata;
-}
+export async function generateMetadata() {return await getMetadata();}
 
 export default function RootLayout({ children }) {
     // Return
     return (
         <html lang="en">
-        <body className={`bg-dark`}>
-        {children}
+        <body className={`bg-dark text-light`}>
+        <StateManager>
+            Test
+            {children}
+        </StateManager>
         </body>
         </html>
     );

@@ -1,24 +1,28 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `test.js` | `app`
- * README.md | Semantyk
+ * # `layout.jsx`
+ * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Nov 30, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s): Daniel Bakas Amuchástegui <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { render } from "@testing-library/react";
-//* Local Imports
-import Main from "./page";
+import React from "react";
 
 //* Main
-test("renders component correctly", () => {
-    render(<Main/>);
-});
+export default function FooterLayout({ children }) {
+    const position = "sticky-bottom";
+    // Return
+    return (
+        <footer id="Footer" className={`${position} text-center`}>
+            {children}
+        </footer>
+    );
+}
