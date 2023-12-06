@@ -1,18 +1,17 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `jest.babel.config.js`
+ * # `vitest.setup.js`
  * client | Semantyk
  *
  * Created: Dec 05, 2023
  * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-module.exports = {
-    presets: ["next/babel"],
-};
+//* Imports
+import "@testing-library/jest-dom";
