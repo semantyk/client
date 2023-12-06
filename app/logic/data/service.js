@@ -25,7 +25,7 @@ import { appShape } from "../../services/app/shape";
 export async function getData(fetch) {
     // Logic
     const thing = await getThing(fetch, APP_WEBID_DOC, APP_WEBID);
-    const lang = navigator.language.substring(0, 2);
+    const lang = "en";
     const properties = getProperties(thing, appShape, lang);
     // Props
     const team = "Semantyk Team";
