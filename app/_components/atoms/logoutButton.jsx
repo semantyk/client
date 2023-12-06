@@ -1,13 +1,13 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `manager.jsx`
+ * # `logoutButton.jsx` | `atoms`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
  * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -17,15 +17,23 @@
 
 //* Imports
 import React from "react";
-import { SessionProvider } from "@inrupt/solid-ui-react";
+import {
+    LogoutButton as SolidLogoutButton,
+    useSession
+} from "@inrupt/solid-ui-react";
+import { Button } from "react-bootstrap";
 
-function StateManager({ children }) {
+//* Main
+export default function LogoutButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { webId } = session.info;
     // Return
-    return (
-        <SessionProvider restorePreviousSession>
-            {children}
-        </SessionProvider>
-    );
+    return (<>
+        <p>WebID: <strong><code>{webId}</code></strong></p>
+        <SolidLogoutButton>
+            <Button>Log Out</Button>
+        </SolidLogoutButton>
+    </>);
 }
-
-export default StateManager;

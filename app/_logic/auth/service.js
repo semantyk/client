@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `nodes.js`
+ * # `service.js` | `auth`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 04, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s):
@@ -14,10 +14,17 @@
  */
 
 //* Imports
-import { NamedNode } from "rdflib";
+import { CLIENT_ID, POD_PROVIDER_URI } from "../../_services/app/nodes";
 
-//* Main
-export const APP_WEBID = NamedNode.fromValue("https://id.inrupt.com/semantyk");
-export const APP_WEBID_DOC = NamedNode.fromValue("https://storage.inrupt.com/93eee8ab-4002-4bbf-a457-38eab9979cc8/public/profile/card");
-export const CLIENT_ID = NamedNode.fromValue("https://id.www.semantyk.com");
-export const POD_URI = NamedNode.fromValue("https://id.inrupt.com/semantyk");
+export async function getOptions() {
+    // Logic
+    const clientId = CLIENT_ID.value;
+    const oidcIssuer = POD_PROVIDER_URI.value;
+    const redirectUrl = window.location.href;
+    // Return
+    return {
+        authOptions: { clientId },
+        oidcIssuer,
+        redirectUrl
+    };
+}

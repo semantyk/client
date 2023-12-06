@@ -1,34 +1,27 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.jsx` | `data`
+ * # `not-found.jsx`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dic 6, 2023
+ * Created: Dec 06, 2023
+ * Modified: Dec 06, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import React from "react";
-//* Local Imports
-import "./page.css";
-import Footer from "./_components/molecules/footer/component";
-import AuthButton from "./_components/atoms/authButton";
-
+import Page from "./page";
 
 //* Main
-export default function Page({ children }) {
-    // Return
+export default function NotFound() {
     return (
-        <div id="Page">
-            {children}
-            <AuthButton/>
-            <Footer/>
-        </div>
+        <Page>
+            <h2>404 - Not Found</h2>
+            <p className="text-secondary">Could not find requested resource</p>
+        </Page>
     );
 }

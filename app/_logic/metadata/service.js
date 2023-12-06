@@ -34,7 +34,7 @@ export async function getMetadata() {
             }
         },
         applicationName: app.name,
-        authors: [{ name: app.author, url: app.webId }],
+        authors: [{ name: app.author }],
         category: "technology",
         creator: app.creator,
         description: `${app.slogan} | ${app.description}`,

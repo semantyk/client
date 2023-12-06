@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `atoms`
+ * # `service.js`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
+ * Created: Dec 05, 2023
  * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
@@ -13,28 +13,31 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "../../logic/auth/service";
+
+//* Local Imports
+import { APP_WEBID, APP_WEBID_DOC } from "../../_services/app/nodes";
+import { getProperties, getThing } from "../../_services/solid/service";
+import { appShape } from "../../_services/app/shape";
 
 
 //* Main
-export default function LoginButton() {
-    // Hooks
-    const [options, setOptions] = useState({});
+export async function getData(fetch) {
     // Logic
-    useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
+    const document = APP_WEBID_DOC.value;
+    const uri = APP_WEBID.value;
+    const thing = await getThing(fetch, document, uri);
+    const lang = "en";
+    const properties = getProperties(thing, appShape, lang);
+    // Props
+    const team = "Semantyk Team";
+    const twitter = "@semantyk";
     // Return
-    return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
-    );
+    return {
+        author: team,
+        creator: team,
+        lang,
+        twitter,
+        ...properties
+    };
 }
