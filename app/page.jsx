@@ -17,8 +17,8 @@
 import React from "react";
 //* Local Imports
 import "./page.css";
-import Footer from "./components/molecules/footer/component";
-import StateManager from "./logic/state/manager";
+import Footer from "./_components/molecules/footer/component";
+import StateManager from "./_logic/state/manager";
 
 
 //* Main

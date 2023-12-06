@@ -20,7 +20,7 @@ import React, { useEffect, useState } from "react";
 import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
 import { Button } from "react-bootstrap";
 //* Local imports
-import { getOptions } from "../../logic/auth/service";
+import { getOptions } from "../../_logic/auth/service";
 
 
 //* Main

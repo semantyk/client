@@ -1,6 +1,6 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `component.jsx`
+ * # `service.js`
  * client | Semantyk
  *
  * Created: Dec 05, 2023
@@ -13,25 +13,29 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import Link from "next/link";
+
 //* Local Imports
-import useData from "../../../logic/data/hook";
-import FooterLayout from "./layout";
+import { APP_WEBID, APP_WEBID_DOC } from "../../_services/app/nodes";
+import { getProperties, getThing } from "../../_services/solid/service";
+import { appShape } from "../../_services/app/shape";
 
 
-export default function Footer() {
-    // Hooks
-    const { name, copyrightYear } = useData();
+//* Main
+export async function getData(fetch) {
+    // Logic
+    const thing = await getThing(fetch, APP_WEBID_DOC, APP_WEBID);
+    const lang = "en";
+    const properties = getProperties(thing, appShape, lang);
+    // Props
+    const team = "Semantyk Team";
+    const twitter = "@semantyk";
     // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
-    return (
-        <FooterLayout>
-            <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
-            </small>
-        </FooterLayout>
-    );
+    return {
+        author: team,
+        creator: team,
+        lang,
+        twitter,
+        ...properties
+    };
 }

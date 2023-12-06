@@ -17,7 +17,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 //* Local Imports
-import { getMetadata } from "./logic/metadata/service";
+import { getMetadata } from "./_logic/metadata/service";
 
 
 //* Main
