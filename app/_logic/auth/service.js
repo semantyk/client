@@ -14,12 +14,17 @@
  */
 
 //* Imports
-import { CLIENT_ID, POD_URI } from "../../_services/app/nodes";
+import { CLIENT_ID, POD_PROVIDER_URI } from "../../_services/app/nodes";
 
 export async function getOptions() {
+    // Logic
+    const clientId = CLIENT_ID.value;
+    const oidcIssuer = POD_PROVIDER_URI.value;
+    const redirectUrl = window.location.href;
+    // Return
     return {
-        authOptions: { clientId: CLIENT_ID },
-        oidcIssuer: POD_URI,
-        redirectUrl: window.location.href
+        authOptions: { clientId },
+        oidcIssuer,
+        redirectUrl
     };
 }

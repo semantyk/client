@@ -17,13 +17,21 @@
 
 //* Imports
 import React from "react";
-import { LogoutButton as SolidLogoutButton } from "@inrupt/solid-ui-react";
+import {
+    LogoutButton as SolidLogoutButton,
+    useSession
+} from "@inrupt/solid-ui-react";
 import { Button } from "react-bootstrap";
 
 //* Main
 export default function LogoutButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { webId } = session.info;
     // Return
     return (<>
+        <p>Logged in as: <strong><code>{webId}</code></strong></p>
         <SolidLogoutButton>
             <Button>Log Out</Button>
         </SolidLogoutButton>

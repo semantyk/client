@@ -18,18 +18,17 @@ import React from "react";
 //* Local Imports
 import "./page.css";
 import Footer from "./_components/molecules/footer/component";
-import StateManager from "./_logic/state/manager";
+import AuthButton from "./_components/atoms/authButton";
 
 
 //* Main
 export default function Page({ children }) {
     // Return
     return (
-        <StateManager>
-            <div id="Page">
-                {children}
-                <Footer/>
-            </div>
-        </StateManager>
+        <div id="Page">
+            {children}
+            <AuthButton/>
+            <Footer/>
+        </div>
     );
 }

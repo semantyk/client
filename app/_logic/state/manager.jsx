@@ -17,12 +17,16 @@
 
 //* Imports
 import React from "react";
-import { SessionProvider } from "@inrupt/solid-ui-react";
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 
 function StateManager({ children }) {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { sessionId } = session.info;
     // Return
     return (
-        <SessionProvider restorePreviousSession>
+        <SessionProvider restorePreviousSession sessionId={sessionId}>
             {children}
         </SessionProvider>
     );
