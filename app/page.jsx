@@ -22,11 +22,12 @@ import StateManager from "./logic/state/manager";
 
 
 //* Main
-export default function Page() {
+export default function Page({ children }) {
     // Return
     return (
         <StateManager>
             <div id="Page">
+                {children}
                 <Footer/>
             </div>
         </StateManager>

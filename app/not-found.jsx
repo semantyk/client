@@ -14,15 +14,14 @@
  */
 
 //* Imports
-import Link from "next/link";
+import Page from "./page";
 
 //* Main
 export default function NotFound() {
     return (
-        <div>
-            <h2>Not Found</h2>
-            <p>Could not find requested resource</p>
-            <Link href="/">Return Home</Link>
-        </div>
+        <Page>
+            <h2>404 - Not Found</h2>
+            <p className="text-secondary">Could not find requested resource</p>
+        </Page>
     );
 }
