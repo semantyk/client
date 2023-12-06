@@ -14,10 +14,8 @@
  */
 
 //* Imports
-import { getProperties, getThing } from "../../services/solid/service";
-import { APP_WEBID, APP_WEBID_DOC } from "../../services/app/nodes";
-import { appShape } from "../../services/app/shape";
-
+import { getThing } from "@inrupt/solid-client";
+import { getProperties } from "@/services/solid/service";
 
 //* Main
 export async function getData(fetch) {

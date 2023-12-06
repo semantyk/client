@@ -16,7 +16,7 @@
 //* Imports
 import "bootstrap/dist/css/bootstrap.min.css";
 //* Local Imports
-import { getMetadata } from "../logic/metadata/service";
+import { getMetadata } from "@/logic/metadata/service";
 import StateManager from "../logic/state/manager";
 
 

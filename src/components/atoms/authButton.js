@@ -18,8 +18,8 @@
 //* Imports
 import { useSession } from "@inrupt/solid-ui-react";
 //* Local Imports
-import LoginButton from "./loginButton";
-import LogoutButton from "./logoutButton";
+import LoginButton from "@/components/atoms/loginButton";
+import LogoutButton from "@/components/atoms/logoutButton";
 
 //* Main
 export default function AuthButton() {

@@ -16,9 +16,11 @@
 //* Imports
 import { render } from "@testing-library/react";
 //* Local Imports
-import RootLayout from "./layout";
+import RootLayout from "@/app/layout";
 
 //* Main
-test("Render Application", () => {
-    render(<RootLayout/>);
+describe("Application", () => {
+    test("Render Application", () => {
+        render(<RootLayout/>);
+    });
 });

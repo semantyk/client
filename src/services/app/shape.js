@@ -14,8 +14,9 @@
  */
 
 //* Local Imports
-import { SCHEMA } from "../solid/namespaces";
-import { ARCHIVE } from "./namespaces";
+import { SCHEMA } from "@/services/solid/namespaces";
+import { ARCHIVE } from "@/services/app/namespaces";
+
 
 //* Main
 export const appShape = [

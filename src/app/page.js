@@ -17,7 +17,8 @@
 
 //* Local Imports
 import "./page.css";
-import Footer from "../components/molecules/footer/component";
+import Footer from "@/components/molecules/footer/component";
+
 
 //* Main
 export default function Page() {

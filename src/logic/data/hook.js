@@ -17,7 +17,8 @@
 import { useEffect, useState } from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 //* Local Imports
-import { getData } from "./service";
+import { getData } from "@/logic/data/service";
+
 
 
 //* Main

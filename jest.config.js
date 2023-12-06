@@ -16,7 +16,10 @@
 module.exports = {
     testEnvironment: "jest-environment-jsdom",
     setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-    testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+    testPathIgnorePatterns: [
+        "<rootDir>/.next/",
+        "<rootDir>/node_modules/",
+    ],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { configFile: "./jest.babel.config.js" }],
     },

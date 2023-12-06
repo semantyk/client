@@ -14,10 +14,10 @@
  */
 
 //* Imports
-import { getData } from "../data/service";
-
+import { getData } from "@/logic/data/service";
 
 //* Main
+
 export async function getMetadata() {
     // Hooks
     const app = await getData(fetch);

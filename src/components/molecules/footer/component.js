@@ -16,10 +16,12 @@
 "use client";
 
 //* Imports
-//* Local Imports
-import FooterLayout from "./layout";
 import Link from "next/link";
-import useData from "../../../logic/data/hook";
+//* Local Imports
+import useData from "@/logic/data/hook";
+import FooterLayout from "@/components/molecules/footer/layout";
+
+
 
 export default function Footer() {
     // Hooks
