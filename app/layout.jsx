@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
         <html lang="en">
         <body className={`bg-dark text-light`}>
         <StateManager>
-            Test
             {children}
         </StateManager>
         </body>
