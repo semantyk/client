@@ -20,4 +20,4 @@ import { NamedNode } from "rdflib";
 export const APP_WEBID = NamedNode.fromValue("https://id.inrupt.com/semantyk");
 export const APP_WEBID_DOC = NamedNode.fromValue("https://storage.inrupt.com/93eee8ab-4002-4bbf-a457-38eab9979cc8/public/profile/card");
 export const CLIENT_ID = NamedNode.fromValue("https://id.www.semantyk.com");
-export const POD_PROVIDER_URI = NamedNode.fromValue("https://pod.danielbakas.com");
+export const POD_PROVIDER_URI = NamedNode.fromValue("https://login.inrupt.com");
