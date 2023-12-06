@@ -13,15 +13,12 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import Page from "./page";
-
 //* Main
 export default function NotFound() {
     return (
-        <Page>
+        <>
             <h2>404 - Not Found</h2>
             <p className="text-secondary">Could not find requested resource</p>
-        </Page>
+        </>
     );
 }
