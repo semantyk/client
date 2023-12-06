@@ -1,13 +1,13 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `component.js`
+ * # `logoutButton.jsx` | `atoms`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
- * Modified: Dec 04, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -16,23 +16,16 @@
 "use client";
 
 //* Imports
-import Link from "next/link";
-//* Local Imports
-import useData from "@/logic/data/hook";
-import FooterLayout from "@/components/molecules/footer/layout";
+import React from "react";
+import { LogoutButton as SolidLogoutButton } from "@inrupt/solid-ui-react";
+import { Button } from "react-bootstrap";
 
-
-
-export default function Footer() {
-    // Hooks
-    const { name, copyrightYear } = useData();
+//* Main
+export default function LogoutButton() {
     // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
-    return (
-        <FooterLayout>
-            <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
-            </small>
-        </FooterLayout>
-    );
+    return (<>
+        <SolidLogoutButton>
+            <Button>Log Out</Button>
+        </SolidLogoutButton>
+    </>);
 }

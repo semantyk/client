@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `logoutButton.js` | `atoms`
+ * # `page.jsx` | `data`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 04, 2023
+ * Created: Nov 30, 2023
+ * Modified: Dic 5, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,18 +13,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import { LogoutButton as SolidLogoutButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
+import React from "react";
+//* Local Imports
+import "./page.css";
+import Footer from "@/components/molecules/footer/component";
+
 
 //* Main
-export default function LogoutButton() {
+export default function Page() {
     // Return
-    return (<>
-        <SolidLogoutButton>
-            <Button>Log Out</Button>
-        </SolidLogoutButton>
-    </>);
+    return (
+        <div id="Page">
+            <Footer/>
+        </div>
+    );
 }

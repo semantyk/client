@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `test.js` | `app`
- * README.md | Semantyk
+ * # `loginButton.jsx` | `molecules`
+ * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Nov 30, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,14 +13,21 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
-import { render } from "@testing-library/react";
+import React from "react";
 //* Local Imports
-import RootLayout from "@/app/layout";
+import LogoutButton from "@/components/atoms/logoutButton";
+import LoginButton from "@/components/atoms/loginButton";
+import { useSession } from "@inrupt/solid-ui-react";
 
 //* Main
-describe("Application", () => {
-    test("Render Application", () => {
-        render(<RootLayout/>);
-    });
-});
+export default function AuthButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { isLoggedIn } = session.info;
+    // Return
+    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
+}

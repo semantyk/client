@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.js` | `molecules`
+ * # `component.jsx`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 04, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -16,17 +16,22 @@
 "use client";
 
 //* Imports
-import { useSession } from "@inrupt/solid-ui-react";
+import Link from "next/link";
 //* Local Imports
-import LoginButton from "@/components/atoms/loginButton";
-import LogoutButton from "@/components/atoms/logoutButton";
+import useData from "@/logic/data/hook";
+import FooterLayout from "@/components/molecules/footer/layout";
 
-//* Main
-export default function AuthButton() {
+
+export default function Footer() {
     // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
+    const { name, copyrightYear } = useData();
     // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
+    const link = <Link className="text-secondary" href="/">{name}</Link>;
+    return (
+        <FooterLayout>
+            <small className="text-secondary">
+                Copyright © {link} {copyrightYear}
+            </small>
+        </FooterLayout>
+    );
 }
