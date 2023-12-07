@@ -18,7 +18,7 @@
 //* Imports
 import Link from "next/link";
 //* Local Imports
-import useData from "../../../_logic/data/hook";
+import useData from "../../../logic/data/hook";
 import FooterLayout from "./layout";
 
 

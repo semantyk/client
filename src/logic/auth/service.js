@@ -1,34 +1,30 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.jsx` | `data`
+ * # `service.js` | `auth`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dic 6, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 04, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import React from "react";
-//* Local Imports
-import "./page.css";
-import Footer from "./_components/molecules/footer/component";
-import AuthButton from "./_components/atoms/authButton";
+import { CLIENT_ID, POD_PROVIDER_URI } from "../../services/app/nodes";
 
-
-//* Main
-export default function Page({ children }) {
+export async function getOptions() {
+    // Logic
+    const clientId = CLIENT_ID.value;
+    const oidcIssuer = POD_PROVIDER_URI.value;
+    const redirectUrl = window.location.href;
     // Return
-    return (
-        <div id="Page">
-            {children}
-            <AuthButton/>
-            <Footer/>
-        </div>
-    );
+    return {
+        authOptions: { clientId },
+        oidcIssuer,
+        redirectUrl
+    };
 }
