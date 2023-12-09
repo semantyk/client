@@ -1,0 +1,47 @@
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# # `bug_report.yaml` | Issue Templates
+# client | Semantyk
+#
+# This file contains the list of files and folders that are ignored by Git.
+#
+# Created: Dic 9, 2023
+# Modified: Dic 9, 2023
+#
+# Author(s): Semantyk Team
+# Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+#
+# Copyright © Semantyk 2023. All rights reserved.
+# –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+name: "🐛 Bug | Report"
+description: Report a bug in the project
+title: "🐛 Bug | "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to report a bug!"
+  - type: input
+    id: title
+    attributes:
+      label: Bug Title
+      description: "A clear and concise title for the bug."
+      placeholder: "Enter the bug title"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: "Detailed information about the bug."
+      placeholder: "Describe the bug in detail..."
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      description: "Please confirm the following:"
+      options:
+        - label: "I have searched the existing issues and this is a new bug, not a duplicate."
+          required: true
