@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `app`
+ * # `getString.js` | `solid`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
+ * Created: Dec 10, 2023
  * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
@@ -14,25 +14,13 @@
  */
 
 //* Imports
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-//* Local Imports
-import { getMetadata } from "@/backend/logic/seo";
-import StateManager from "@/frontend/logic/state";
-
+import { getStringNoLocale, getStringWithLocale } from "@inrupt/solid-client";
 
 //* Main
-export async function generateMetadata() {return await getMetadata();}
-
-export default function RootLayout({ children }) {
-    // Return
-    return (
-        <html lang="en">
-        <body className={`bg-dark text-light`}>
-        <StateManager>
-            {children}
-        </StateManager>
-        </body>
-        </html>
-    );
-}
+export const getString = (thing, property, locale) => {
+    if (locale) {
+        const result = getStringWithLocale(thing, property, locale);
+        if (result) return result;
+    }
+    return getStringNoLocale(thing, property);
+};

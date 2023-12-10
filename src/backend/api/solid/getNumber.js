@@ -1,23 +1,22 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `nodes.js`
+ * # `getNumber.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { NamedNode } from "rdflib";
+import { getInteger } from "@inrupt/solid-client";
 
 //* Main
-export const APP_WEBID = NamedNode.fromValue("https://id.inrupt.com/semantyk");
-export const APP_WEBID_DOC = NamedNode.fromValue("https://storage.inrupt.com/93eee8ab-4002-4bbf-a457-38eab9979cc8/public/profile/card");
-export const CLIENT_ID = NamedNode.fromValue("https://id.www.semantyk.com");
-export const POD_PROVIDER_URI = NamedNode.fromValue("https://pod.danielbakas.com");
+export const getNumber = (thing, property) => {
+    return getInteger(thing, property);
+};

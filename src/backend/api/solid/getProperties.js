@@ -1,20 +1,27 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `namespaces.js`
+ * # `getProperties.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { Namespace } from "rdflib";
+import { getProperty } from "@/backend/api/solid/getProperty";
 
 //* Main
-export const ARCHIVE = Namespace("https://www.semantyk.com/archive/");
+export const getProperties = (thing, shape, locale) => {
+    let properties = { lang: locale };
+    for (const { ns, fragment, type } of shape) {
+        const property = ns + fragment;
+        properties[fragment] = getProperty(thing, type, property, locale);
+    }
+    return properties;
+};

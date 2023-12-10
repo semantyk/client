@@ -1,35 +1,28 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `manager.jsx`
+ * # `getThing.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React from "react";
-import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
+import {
+    getSolidDataset,
+    getThing as getSolidThing
+} from "@inrupt/solid-client";
 
-function StateManager({ children }) {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { sessionId } = session.info;
+//* Main
+export const getThing = async (fetch, document, uri) => {
+    // Project Dataset
+    const dataset = await getSolidDataset(document, { fetch });
     // Return
-    return (
-        <SessionProvider restorePreviousSession sessionId={sessionId}>
-            {children}
-        </SessionProvider>
-    );
-}
-
-export default StateManager;
+    return getSolidThing(dataset, uri);
+};

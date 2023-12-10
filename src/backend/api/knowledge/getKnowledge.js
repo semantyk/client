@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `app`
+ * # `getKnowledge.js` | `knowledge`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
+ * Created: Dec 05, 2023
  * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
@@ -13,26 +13,21 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
 //* Local Imports
-import { getMetadata } from "@/backend/logic/seo";
-import StateManager from "@/frontend/logic/state";
-
+import { getAppKnowledge } from "@/backend/api/knowledge/getAppKnowledge";
 
 //* Main
-export async function generateMetadata() {return await getMetadata();}
-
-export default function RootLayout({ children }) {
+export async function getKnowledge(fetch) {
+    // Logic
+    const appData = await getAppKnowledge(fetch);
+    // Props
+    const team = "Semantyk Team";
+    const twitter = "@semantyk";
     // Return
-    return (
-        <html lang="en">
-        <body className={`bg-dark text-light`}>
-        <StateManager>
-            {children}
-        </StateManager>
-        </body>
-        </html>
-    );
+    return {
+        author: team,
+        creator: team,
+        twitter,
+        ...appData
+    };
 }

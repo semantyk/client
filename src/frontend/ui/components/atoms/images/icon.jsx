@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `nodes.js`
+ * # `icon.jsx` | `images`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s):
@@ -13,8 +13,11 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import { Namespace } from "rdflib";
+import Image from "next/image";
+import icon from "@/app/icon.png";
 
-//* Main
-export const SCHEMA = Namespace("http://schema.org/");
+export default function Icon(props) {
+    return (
+        <Image src={icon} alt="Semantyk" title="Semantyk" {...props}/>
+    );
+}

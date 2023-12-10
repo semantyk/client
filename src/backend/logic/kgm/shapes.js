@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `logoutButton.jsx` | `atoms`
+ * # `shapes.js` | `kgm`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,27 +13,16 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
+//* Local Imports
+import { ARCHIVE, SCHEMA } from "./nodes";
 
-//* Imports
-import React from "react";
-import {
-    LogoutButton as SolidLogoutButton,
-    useSession
-} from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
 
 //* Main
-export default function LogoutButton() {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { webId } = session.info;
-    // Return
-    return (<>
-        <p>WebID: <strong><code>{webId}</code></strong></p>
-        <SolidLogoutButton>
-            <Button>Log Out</Button>
-        </SolidLogoutButton>
-    </>);
-}
+export const appShape = [
+    { "ns": SCHEMA, "fragment": "copyrightYear", "type": "number" },
+    { "ns": SCHEMA, "fragment": "description", "type": "string" },
+    { "ns": SCHEMA, "fragment": "keywords", "type": "stringAllNoLocale" },
+    { "ns": SCHEMA, "fragment": "name", "type": "stringNoLocale" },
+    { "ns": SCHEMA, "fragment": "slogan", "type": "string" },
+    { "ns": ARCHIVE, "fragment": "topLevelDomain", "type": "stringNoLocale" }
+];

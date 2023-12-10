@@ -1,35 +1,30 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `service.js`
+ * # `getProperty.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 06, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
+import { getNumber } from "@/backend/api/solid/getNumber";
 import {
-    getInteger,
-    getSolidDataset,
     getStringNoLocale,
     getStringNoLocaleAll,
-    getStringWithLocale,
-    getStringWithLocaleAll,
-    getThing as getSolidThing,
-    getUrl,
-    getUrlAll
+    getStringWithLocaleAll
 } from "@inrupt/solid-client";
+import { getURLAll } from "@/backend/api/solid/getURLAll";
+import { getString } from "@/backend/api/solid/getString";
+import { getURL } from "@/backend/api/solid/getURL";
 
-export const getNumber = (thing, property) => {
-    return getInteger(thing, property);
-};
-
+//* Main
 export const getProperty = (thing, type, property, locale) => {
     // Ranges
     switch (type) {
@@ -48,37 +43,4 @@ export const getProperty = (thing, type, property, locale) => {
         case "urlAll":
             return getURLAll(thing, property);
     }
-};
-
-export const getProperties = (thing, shape, locale) => {
-    let properties = {};
-    for (const { ns, fragment, type } of shape) {
-        const property = ns(fragment).value;
-        properties[fragment] = getProperty(thing, type, property, locale);
-    }
-    return properties;
-};
-
-export const getString = (thing, property, locale) => {
-    if (locale) {
-        const result = getStringWithLocale(thing, property, locale);
-        if (result) return result;
-    }
-    return getStringNoLocale(thing, property);
-};
-
-export const getThing = async (fetch, document, uri) => {
-    // Project Dataset
-    const dataset = await getSolidDataset(document, { fetch });
-    // Return
-    return getSolidThing(dataset, uri);
-};
-
-
-export const getURL = (thing, property) => {
-    return getUrl(thing, property);
-};
-
-export const getURLAll = (thing, property) => {
-    return getUrlAll(thing, property);
 };
