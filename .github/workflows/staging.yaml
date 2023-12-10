@@ -97,5 +97,5 @@ jobs:
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote
       # - Deployment to 'staging' service
       - if: github.ref == 'refs/heads/staging'
-        name: 4. Deploy to Staging Service
+        name: 4. Deploy to 'staging' Service
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote
