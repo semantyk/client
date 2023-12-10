@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.jsx` | `data`
+ * # `loginButton.jsx` | `atoms`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dic 6, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 05, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,22 +13,28 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
-import React from "react";
-//* Local Imports
-import "./page.css";
-import Footer from "./_components/molecules/footer/component";
-import AuthButton from "./_components/atoms/authButton";
+import React, { useEffect, useState } from "react";
+import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
+import { Button } from "react-bootstrap";
+//* Local imports
+import { getOptions } from "@/logic/auth/service";
 
 
 //* Main
-export default function Page({ children }) {
+export default function LoginButton() {
+    // Hooks
+    const [options, setOptions] = useState({});
+    // Logic
+    useEffect(() => {
+        getOptions().then(setOptions);
+    }, []);
     // Return
     return (
-        <div id="Page">
-            {children}
-            <AuthButton/>
-            <Footer/>
-        </div>
+        <SolidLoginButton {...options}>
+            <Button>Log In</Button>
+        </SolidLoginButton>
     );
 }

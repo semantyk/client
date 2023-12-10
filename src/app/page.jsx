@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `data`
+ * # `page.jsx` | `data`
  * client | Semantyk
  *
  * Created: Nov 30, 2023
- * Modified: Dec 5, 2023
+ * Modified: Dic 6, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,25 +14,21 @@
  */
 
 //* Imports
-import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 //* Local Imports
-import { getMetadata } from "./_logic/metadata/service";
-import StateManager from "./_logic/state/manager";
+import "./page.css";
+import Footer from "@/components/molecules/footer/component";
+import AuthButton from "@/components/atoms/authButton";
 
 
 //* Main
-export async function generateMetadata() {return await getMetadata();}
-
-export default function RootLayout({ children }) {
+export default function Page({ children }) {
     // Return
     return (
-        <html lang="en">
-        <body className={`bg-dark text-light`}>
-        <StateManager>
+        <div id="Page">
             {children}
-        </StateManager>
-        </body>
-        </html>
+            <AuthButton/>
+            <Footer/>
+        </div>
     );
 }

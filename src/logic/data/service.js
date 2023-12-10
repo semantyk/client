@@ -16,9 +16,9 @@
 //* Imports
 
 //* Local Imports
-import { APP_WEBID, APP_WEBID_DOC } from "../../_services/app/nodes";
-import { getProperties, getThing } from "../../_services/solid/service";
-import { appShape } from "../../_services/app/shape";
+import { APP_WEBID, APP_WEBID_DOC } from "@/services/app/nodes";
+import { getProperties, getThing } from "@/services/solid/service";
+import { appShape } from "@/services/app/shape";
 
 
 //* Main

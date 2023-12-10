@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `atoms`
+ * # `layout.jsx` | `data`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 05, 2023
+ * Created: Nov 30, 2023
+ * Modified: Dec 5, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,28 +13,26 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "../../_logic/auth/service";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+//* Local Imports
+import { getMetadata } from "@/logic/metadata/service";
+import StateManager from "@/logic/state/manager";
 
 
 //* Main
-export default function LoginButton() {
-    // Hooks
-    const [options, setOptions] = useState({});
-    // Logic
-    useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
+export async function generateMetadata() {return await getMetadata();}
+
+export default function RootLayout({ children }) {
     // Return
     return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
+        <html lang="en">
+        <body className={`bg-dark text-light`}>
+        <StateManager>
+            {children}
+        </StateManager>
+        </body>
+        </html>
     );
 }
