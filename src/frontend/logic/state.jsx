@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `component.jsx`
+ * # `state.jsx` | `logic`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -16,22 +16,18 @@
 "use client";
 
 //* Imports
-import Link from "next/link";
-//* Local Imports
-import useData from "@/logic/data/hook";
-import FooterLayout from "./layout";
+import React from "react";
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 
-
-export default function Footer() {
+export default function StateManager({ children }) {
     // Hooks
-    const { name, copyrightYear } = useData();
+    const { session } = useSession();
+    // Logic
+    const { sessionId } = session.info;
     // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
     return (
-        <FooterLayout>
-            <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
-            </small>
-        </FooterLayout>
+        <SessionProvider restorePreviousSession sessionId={sessionId}>
+            {children}
+        </SessionProvider>
     );
 }

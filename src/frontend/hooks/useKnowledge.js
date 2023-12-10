@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `service.js`
+ * # `useKnowledge.js` | `api`
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,30 +14,22 @@
  */
 
 //* Imports
-
+import { useEffect, useState } from "react";
+import { useSession } from "@inrupt/solid-ui-react";
 //* Local Imports
-import { APP_WEBID, APP_WEBID_DOC } from "@/services/app/nodes";
-import { getProperties, getThing } from "@/services/solid/service";
-import { appShape } from "@/services/app/shape";
+import { getKnowledge } from "@/backend/api/knowledge/getKnowledge";
 
 
 //* Main
-export async function getData(fetch) {
-    // Logic
-    const document = APP_WEBID_DOC.value;
-    const uri = APP_WEBID.value;
-    const thing = await getThing(fetch, document, uri);
-    const lang = "en";
-    const properties = getProperties(thing, appShape, lang);
-    // Props
-    const team = "Semantyk Team";
-    const twitter = "@semantyk";
+export default function useKnowledge() {
+    // Hooks
+    const { fetch } = useSession();
+    // - useState
+    const [knowledge, setKnowledge] = useState({});
+    // - useEffect
+    useEffect(() => {
+        getKnowledge(fetch).then(setKnowledge);
+    }, [fetch]);
     // Return
-    return {
-        author: team,
-        creator: team,
-        lang,
-        twitter,
-        ...properties
-    };
+    return knowledge;
 }

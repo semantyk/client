@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `molecules`
+ * # `getURL.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,21 +13,10 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React from "react";
-//* Local Imports
-import LogoutButton from "./logoutButton";
-import LoginButton from "./loginButton";
-import { useSession } from "@inrupt/solid-ui-react";
+import { getUrl } from "@inrupt/solid-client";
 
 //* Main
-export default function AuthButton() {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
-    // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
-}
+export const getURL = (thing, property) => {
+    return getUrl(thing, property);
+};

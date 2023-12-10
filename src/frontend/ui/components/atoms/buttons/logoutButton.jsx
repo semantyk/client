@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `atoms`
+ * # `logoutButton.jsx` | `buttons`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
- * Modified: Dec 05, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -16,25 +16,24 @@
 "use client";
 
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
+import React from "react";
+import {
+    LogoutButton as SolidLogoutButton,
+    useSession
+} from "@inrupt/solid-ui-react";
 import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "@/logic/auth/service";
-
 
 //* Main
-export default function LoginButton() {
+export default function LogoutButton() {
     // Hooks
-    const [options, setOptions] = useState({});
+    const { session } = useSession();
     // Logic
-    useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
+    const { webId } = session.info;
     // Return
-    return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
-    );
+    return (<>
+        <p>WebID: <strong><code>{webId}</code></strong></p>
+        <SolidLogoutButton>
+            <Button>Log Out</Button>
+        </SolidLogoutButton>
+    </>);
 }

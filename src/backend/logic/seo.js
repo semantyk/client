@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `service.js` | `metadata`
+ * # `seo.js` | `logic`
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,13 +14,13 @@
  */
 
 //* Imports
-import { getData } from "../data/service";
+import { getKnowledge } from "@/backend/api/knowledge/getKnowledge";
 
 //* Main
 
 export async function getMetadata() {
     // Hooks
-    const app = await getData(fetch);
+    const app = await getKnowledge(fetch);
     // Return
     return {
         // Base URL

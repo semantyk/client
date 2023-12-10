@@ -1,28 +1,33 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx`
+ * # `loginButton.jsx` | `buttons`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas Amuchástegui <https://id.danielbakas.com>
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
+//* Local Imports
+import LogoutButton from "./logoutButton";
+import LoginButton from "./loginButton";
+import { useSession } from "@inrupt/solid-ui-react";
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
+export default function AuthButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { isLoggedIn } = session.info;
     // Return
-    return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
-    );
+    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
 }

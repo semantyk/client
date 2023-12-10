@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `hook.js` | `data`
+ * # `layout.jsx` | `footer`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 10, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,22 +14,15 @@
  */
 
 //* Imports
-import { useEffect, useState } from "react";
-import { useSession } from "@inrupt/solid-ui-react";
-//* Local Imports
-import { getData } from "./service";
-
+import React from "react";
 
 //* Main
-export default function useData() {
-    // Hooks
-    const { fetch } = useSession();
-    // - useState
-    const [data, setData] = useState({});
-    // - useEffect
-    useEffect(() => {
-        getData(fetch).then(setData);
-    }, [fetch]);
+export default function FooterLayout({ children }) {
+    const position = "sticky-bottom";
     // Return
-    return data;
+    return (
+        <footer id="Footer" className={`${position} text-center`}>
+            {children}
+        </footer>
+    );
 }
