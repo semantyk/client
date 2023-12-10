@@ -18,6 +18,11 @@ import { defineConfig } from "vitest/config";
 
 //* Main
 export default defineConfig({
+    resolve: {
+        alias: {
+            "@": "/src",
+        },
+    },
     test: {
         globals: true,
         environment: "jsdom",

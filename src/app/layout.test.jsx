@@ -29,7 +29,7 @@ vi.mock("@inrupt/solid-ui-react", () => ({
 }));
 
 // Mocking the getMetadata function
-vi.mock("./logic/metadata/service", () => ({
+vi.mock("../logic/metadata/service", () => ({
     getMetadata: vi.fn().mockResolvedValue({ /* mock metadata object */ })
 }));
 

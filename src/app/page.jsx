@@ -17,8 +17,8 @@
 import React from "react";
 //* Local Imports
 import "./page.css";
-import Footer from "../components/molecules/footer/component";
-import AuthButton from "../components/atoms/authButton";
+import Footer from "@/components/molecules/footer/component";
+import AuthButton from "@/components/atoms/authButton";
 
 
 //* Main
