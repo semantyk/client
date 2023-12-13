@@ -16,22 +16,8 @@
 
 // layout.test.jsx
 import React from "react";
-import { vi } from "vitest";
 import { render } from "@testing-library/react";
 import RootLayout from "./layout";
-
-
-// Mocking Solid UI React's SessionProvider
-vi.mock("@inrupt/solid-ui-react", () => ({
-    ...vi.importActual("@inrupt/solid-ui-react"),
-    SessionProvider: ({ children }) => <>{children}</>,
-    useSession: () => ({ session: { info: { webId: "https://id.example.com" } } })
-}));
-
-// Mocking the getMetadata function
-vi.mock("../logic/metadata/service", () => ({
-    getMetadata: vi.fn().mockResolvedValue({ /* mock metadata object */ })
-}));
 
 describe("Root Layout", () => {
     it("should render", () => {
