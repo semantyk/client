@@ -17,14 +17,10 @@ on:
   push:
     branches:
       - staging
-  pull_request:
-    branches:
-      - staging
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       # 1. Repository Checkout
       - uses: actions/checkout@v4
@@ -44,5 +40,5 @@ jobs:
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --promote
       # - Deployment to 'staging' service
       - if: github.ref == 'refs/heads/staging'
-        name: 4. Deploy to 'staging' Service
+        name: 4. Deployment to 'staging' Service
         run: gcloud app deploy app.yaml --project ${{secrets.GCP_PROJECT_ID}} --no-promote
