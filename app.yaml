@@ -18,12 +18,6 @@ instance_class: F1
 env_variables:
   NODE_ENV: production
 
-automatic_scaling:
-  min_idle_instances: 0
-  max_idle_instances: 1
-  min_total_instances: 0
-  max_total_instances: 1
-
 handlers:
   - url: /.*
     secure: always
