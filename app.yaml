@@ -11,7 +11,7 @@
 # Copyright © Semantyk 2023. All rights reserved.
 # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-runtime: nodejs
+runtime: nodejs20
 env: standard
 instance_class: F1
 
