@@ -2,8 +2,8 @@
 # # `bug_report.yaml` | Issue Templates
 # client | Semantyk
 #
-# Created: Dic 9, 2023
-# Modified: Dic 9, 2023
+# Created: Dec 9, 2023
+# Modified: Dec 9, 2023
 #
 # Author(s): Semantyk Team
 # Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,7 +14,7 @@
 name: 🐛 Bug | Report
 title: "🐛 Bug | {Replace this with title}"
 description: Report a bug in Semantyk
-labels: [bug]
+labels: [ bug ]
 body:
   - type: textarea
     id: description

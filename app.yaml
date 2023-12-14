@@ -3,7 +3,7 @@
 # client | Semantyk
 #
 # Created: Nov 29, 2023
-# Modified: Nov 29, 2023
+# Modified: Dec 13, 2023
 #
 # Author(s): Semantyk Team
 # Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -11,8 +11,20 @@
 # Copyright © Semantyk 2023. All rights reserved.
 # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-runtime: custom
-env: flex
+runtime: nodejs
+env: standard
+instance_class: F1
 
 env_variables:
   NODE_ENV: production
+
+automatic_scaling:
+  min_idle_instances: 0
+  max_idle_instances: 1
+  min_total_instances: 0
+  max_total_instances: 1
+
+handlers:
+  - url: /.*
+    secure: always
+    script: auto
