@@ -1,17 +1,18 @@
- # -----------------------------------------------------------------------------
- # # `.dockerignore`
+ # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ # # `.gcloudignore`
  # client | Semantyk
  #
- # This file contains the list of files and folders that are ignored by Git.
+ # This file contains the list of files and folders that are ignored by
+ # Google Cloud. Note: Manually removed Next.js related files from the original.
  #
- # Created: Dec 14, 2023
- # Modified: Dec 14, 2023
+ # Created: Nov 28, 2023
+ # Modified: Nov 28, 2023
  #
  # Author(s): Semantyk Team
  # Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  #
- # Copyright Semantyk 2023. All rights reserved.
- # -----------------------------------------------------------------------------
+ # Copyright © Semantyk 2023. All rights reserved.
+ # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,node,macos,webstorm+all
@@ -149,14 +150,6 @@ web_modules/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
-
-# Next.js build output
-.next
-out
-
-# Nuxt.js build / generate output
-.nuxt
-dist
 
 # Gatsby files
 .cache/
