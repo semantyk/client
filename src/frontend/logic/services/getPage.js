@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import { getPages } from "@semantyk/frontend/logic/services/getPages";
+import { getPages } from "@/frontend/logic/services/getPages";
 
 //* Main
 export async function getPage(name) {

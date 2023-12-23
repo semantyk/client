@@ -14,7 +14,7 @@
  */
 
 //* Local Imports
-import { ARCHIVE, SCHEMA } from "@semantyk/backend/logic/kgm/nodes";
+import { ARCHIVE, SCHEMA } from "@/backend/logic/kgm/nodes";
 
 
 //* Main

@@ -16,7 +16,7 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/frontend/ui/components/organisms/Header/index.css";
+import "@/frontend/ui/components/organisms/Header/index.css";
 
 //* Main
 export default function HeaderLayout({ children }) {

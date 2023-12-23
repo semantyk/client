@@ -16,7 +16,7 @@
 //* Imports
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { getNavLinks } from "@semantyk/frontend/logic/services/getNavLinks";
+import { getNavLinks } from "@/frontend/logic/services/getNavLinks";
 //* Local Imports
 
 //* Main

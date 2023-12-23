@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import { getProperty } from "@semantyk/backend/api/solid/services/getProperty";
+import { getProperty } from "@/backend/api/solid/services/getProperty";
 
 //* Main
 export const getProperties = (thing, shape, locale) => {

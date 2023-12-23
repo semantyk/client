@@ -18,7 +18,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 //* Local Imports
-import Footer from "@semantyk/frontend/ui/components/molecules/Footer/index";
+import Footer from "@/frontend/ui/components/molecules/Footer/index";
 
 //* Main
 describe("Footer", () => {

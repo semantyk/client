@@ -16,8 +16,8 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/app/page.css";
-import Header from "@semantyk/frontend/ui/components/organisms/Header";
+import "@/app/page.css";
+import Header from "@/frontend/ui/components/organisms/Header";
 
 
 //* Main

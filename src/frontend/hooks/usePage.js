@@ -16,7 +16,7 @@
 //* Imports
 import { useEffect, useState } from "react";
 //* Local Imports
-import { getPage } from "@semantyk/frontend/logic/services/getPage";
+import { getPage } from "@/frontend/logic/services/getPage";
 
 //* Main
 export default function usePage(slug) {

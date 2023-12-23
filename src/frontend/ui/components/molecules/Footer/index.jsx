@@ -19,9 +19,9 @@
 import React from "react";
 import Link from "next/link";
 //* Local Imports
-import useKnowledge from "@semantyk/frontend/hooks/useKnowledge";
+import useKnowledge from "@/frontend/hooks/useKnowledge";
 import FooterLayout
-    from "@semantyk/frontend/ui/components/molecules/Footer/layout";
+    from "@/frontend/ui/components/molecules/Footer/layout";
 
 
 export default function Footer() {

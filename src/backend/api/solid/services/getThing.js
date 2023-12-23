@@ -15,7 +15,7 @@
 
 //* Imports
 import { getThing as getSolidThing } from "@inrupt/solid-client";
-import { getDataset } from "@semantyk/backend/api/solid/services/getDataset";
+import { getDataset } from "@/backend/api/solid/services/getDataset";
 
 //* Main
 export const getThing = async (fetch, document, uri) => {

@@ -20,9 +20,9 @@ import React from "react";
 //* Local Imports
 import { useSession } from "@inrupt/solid-ui-react";
 import LogoutButton
-    from "@semantyk/frontend/ui/components/atoms/buttons/LogoutButton";
+    from "@/frontend/ui/components/atoms/buttons/LogoutButton";
 import LoginButton
-    from "@semantyk/frontend/ui/components/atoms/buttons/LoginButton";
+    from "@/frontend/ui/components/atoms/buttons/LoginButton";
 
 //* Main
 export default function AuthButton() {

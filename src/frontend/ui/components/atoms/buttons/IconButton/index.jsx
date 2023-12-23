@@ -19,7 +19,7 @@
 import React from "react";
 //* Local Imports
 import Link from "next/link";
-import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon";
+import Icon from "@/frontend/ui/components/atoms/images/Icon";
 
 //* Main
 export default function IconButton({ href, ...props }) {

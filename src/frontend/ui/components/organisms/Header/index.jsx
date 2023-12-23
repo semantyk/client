@@ -19,9 +19,9 @@
 import React from "react";
 //* Local Imports
 import HeaderLayout
-    from "@semantyk/frontend/ui/components/organisms/Header/layout";
-import usePage from "@semantyk/frontend/hooks/usePage";
-import NavBar from "@semantyk/frontend/ui/components/molecules/NavBar";
+    from "@/frontend/ui/components/organisms/Header/layout";
+import usePage from "@/frontend/hooks/usePage";
+import NavBar from "@/frontend/ui/components/molecules/NavBar";
 
 
 export default function Header({ children, params }) {

@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import { getResponse } from "@semantyk/backend/middleware/services/getResponse";
+import { getResponse } from "@/backend/middleware/services/getResponse";
 
 //* Main
 export async function middleware(req) { return getResponse(req); }

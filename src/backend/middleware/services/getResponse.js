@@ -19,7 +19,7 @@ import { NextResponse } from "next/server";
 import {
     performContentNegotiation,
     requiresContentNegotiation
-} from "@semantyk/backend/middleware/contentNegotiation";
+} from "@/backend/middleware/contentNegotiation";
 
 //* Main
 export async function getResponse(req) {

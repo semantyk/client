@@ -16,12 +16,12 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/app/page.css";
-import Page from "@semantyk/app/page";
-import { getPage } from "@semantyk/frontend/logic/services/getPage";
+import "@/app/page.css";
+import Page from "@/app/page";
+import { getPage } from "@/frontend/logic/services/getPage";
 import {
     getKnowledge
-} from "@semantyk/backend/api/knowledge/services/getKnowledge";
+} from "@/backend/api/knowledge/services/getKnowledge";
 
 //* Metadata
 export async function generateMetadata({ params }) {
