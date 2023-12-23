@@ -17,9 +17,10 @@
 import React from "react";
 import Link from "next/link";
 import { Nav, Navbar } from "react-bootstrap";
+import Image from "next/image";
 //* Local Imports
 import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
-import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
+import icon from "@semantyk/app/icon.png";
 
 //* Main
 export default function NavBar() {
@@ -29,7 +30,8 @@ export default function NavBar() {
     return (
         <Navbar expand="sm" variant="dark">
             <Navbar.Brand as={Link} href={"/"}>
-                <Icon size={40} title={"Semantyk"}/>
+                <Image src={icon} alt="Semantyk" title="Semantyk" height="40"
+                       width="40"/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse className="justify-content-between">
