@@ -17,7 +17,7 @@
 // layout.test.jsx
 import React from "react";
 import { render } from "@testing-library/react";
-import RootLayout from "@semantyk/app/layout.jsx";
+import RootLayout from "@semantyk/app/layout";
 
 
 describe("Root Layout", () => {
