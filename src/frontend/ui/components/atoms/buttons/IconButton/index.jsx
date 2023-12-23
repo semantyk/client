@@ -19,14 +19,17 @@
 import React from "react";
 //* Local Imports
 import Link from "next/link";
-import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon";
+import Image from "next/image";
+import icon from "@semantyk/app/icon.png";
 
 //* Main
-export default function IconButton({ href, ...props }) {
+export default function IconButton(props) {
+    // Props
+    const { href, ...rest } = props;
     // Return
     return (
         <Link href={href}>
-            <Icon {...props}/>
+            <Image src={icon} alt="Semantyk" title="Semantyk" {...rest}/>
         </Link>
     );
 }
