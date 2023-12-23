@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.css.jsx`
+ * # `index.jsx` | `Header`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dec 22, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,21 +13,29 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/app/page.css";
-import Header from "@semantyk/frontend/ui/components/organisms/Header";
+import HeaderLayout
+    from "@semantyk/frontend/ui/components/organisms/Header/layout";
+import usePage from "@semantyk/frontend/hooks/usePage";
+import NavBar from "@semantyk/frontend/ui/components/molecules/NavBar";
 
 
-//* Main
-export default function Page(props) {
-    const { children, ...rest } = props;
+export default function Header({ children, params }) {
+    // Props
+    const slug = params && params.slug;
+    // Hooks
+    const page = usePage(slug);
     // Return
     return (
-        <div id="Page">
-            <Header {...rest}/>
+        <HeaderLayout>
+            <NavBar/>
+            {page && <h1>{page.title}</h1>}
+            {page && <p className={"text-secondary"}>{page.subtitle}</p>}
             {children}
-        </div>
+        </HeaderLayout>
     );
 }

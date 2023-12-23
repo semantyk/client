@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 05, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -20,7 +20,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
     resolve: {
         alias: {
-            "@": "/src",
+            "@semantyk": "/src",
         },
     },
     test: {

@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -17,7 +17,9 @@
 import { useEffect, useState } from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 //* Local Imports
-import { getKnowledge } from "@/backend/api/knowledge/getKnowledge";
+import {
+    getKnowledge
+} from "@semantyk/backend/api/knowledge/services/getKnowledge";
 
 
 //* Main

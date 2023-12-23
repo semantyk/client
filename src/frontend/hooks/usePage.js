@@ -1,26 +1,32 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getString.js` | `solid`
+ * # `usePage.js`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { getStringNoLocale, getStringWithLocale } from "@inrupt/solid-client";
+import { useEffect, useState } from "react";
+//* Local Imports
+import { getPage } from "@semantyk/frontend/logic/services/getPage";
 
 //* Main
-export const getString = (thing, property, locale) => {
-    if (locale) {
-        const result = getStringWithLocale(thing, property, locale);
-        if (result) return result;
-    }
-    return getStringNoLocale(thing, property);
-};
+export default function usePage(slug) {
+    // Hooks
+    // - useState
+    const [page, setPage] = useState({});
+    // - useEffect
+    useEffect(() => {
+        getPage(slug).then(setPage);
+    }, [slug]);
+    // Return
+    return page;
+}

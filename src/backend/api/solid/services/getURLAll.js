@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `buttons`
+ * # `getURLAll.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,28 +13,10 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "@/backend/logic/auth";
-
+import { getUrlAll } from "@inrupt/solid-client";
 
 //* Main
-export default function LoginButton() {
-    // Hooks
-    const [options, setOptions] = useState({});
-    // Logic
-    useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
-    // Return
-    return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
-    );
-}
+export const getURLAll = (thing, property) => {
+    return getUrlAll(thing, property);
+};

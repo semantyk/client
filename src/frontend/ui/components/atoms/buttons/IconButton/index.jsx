@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `footer`
+ * # `index.jsx` | `IconButton`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,16 +13,20 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
+//* Local Imports
+import Link from "next/link";
+import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon";
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
+export default function IconButton({ href, ...props }) {
     // Return
     return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
+        <Link href={href}>
+            <Icon {...props}/>
+        </Link>
     );
 }

@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `component.jsx`
+ * # `getPages.js`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,25 +13,22 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
-//* Imports
-import Link from "next/link";
-//* Local Imports
-import useKnowledge from "@/frontend/hooks/useKnowledge";
-import FooterLayout from "./layout";
-
-
-export default function Footer() {
-    // Hooks
-    const { name, copyrightYear } = useKnowledge();
+//* Main
+export async function getPages() {
+    // Logic
+    // TODO: Replace with API call
+    const pages = {
+        "archive": {
+            title: "Archive",
+            subtitle: "Knowledge Graph & File System",
+            path: "/archive"
+        },
+        "solid": {
+            title: "Solid",
+            subtitle: "Social Linked Data",
+            path: "/solid"
+        }
+    };
     // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
-    return (
-        <FooterLayout>
-            <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
-            </small>
-        </FooterLayout>
-    );
+    return pages;
 }

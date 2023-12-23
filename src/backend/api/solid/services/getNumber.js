@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getURL.js` | `solid`
+ * # `getNumber.js` | `solid`
  * client | Semantyk
  *
  * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,9 +14,9 @@
  */
 
 //* Imports
-import { getUrl } from "@inrupt/solid-client";
+import { getInteger } from "@inrupt/solid-client";
 
 //* Main
-export const getURL = (thing, property) => {
-    return getUrl(thing, property);
+export const getNumber = (thing, property) => {
+    return getInteger(thing, property);
 };

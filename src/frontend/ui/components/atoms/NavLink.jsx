@@ -1,31 +1,34 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getAppKnowledge.js` | `knowledge`
+ * # `getNavLinks.js`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 22, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { APP_WEBID, APP_WEBID_DOC } from "@/backend/logic/kgm/nodes";
-import { getThing } from "@/backend/api/solid/getThing";
-import { getProperties } from "@/backend/api/solid/getProperties";
-import { appShape } from "@/backend/logic/kgm/shapes";
+import React from "react";
+import { Nav } from "react-bootstrap";
+import Link from "next/link";
 
 //* Main
-export async function getAppKnowledge(fetch) {
+export function NavLink(props, key) {
+    // Props
+    const { pathname, page } = props;
     // Logic
-    const document = APP_WEBID_DOC;
-    const uri = APP_WEBID;
-    const thing = await getThing(fetch, document, uri);
-    const lang = "en";
+    const { path, title } = page;
+    const active = pathname === path;
     // Return
-    return getProperties(thing, appShape, lang);
+    return (
+        <Nav.Link active={active} as={Link} href={path} key={key}>
+            {title}
+        </Nav.Link>
+    );
 }

@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.css`
+ * # `getProperties.js` | `solid`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
+ * Created: Dec 10, 2023
  * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
@@ -12,3 +12,18 @@
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
+
+//* Imports
+import { getProperty } from "@semantyk/backend/api/solid/services/getProperty";
+
+//* Main
+export const getProperties = (thing, shape, locale) => {
+    // Logic
+    let properties = { lang: locale };
+    for (const { ns, fragment, type } of shape) {
+        const property = ns + fragment;
+        properties[fragment] = getProperty(thing, type, property, locale);
+    }
+    // Return
+    return properties;
+};

@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getThing.js` | `solid`
+ * # `middleware.js`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 22, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,15 +14,7 @@
  */
 
 //* Imports
-import {
-    getSolidDataset,
-    getThing as getSolidThing
-} from "@inrupt/solid-client";
+import { getResponse } from "@semantyk/backend/middleware/services/getResponse";
 
 //* Main
-export const getThing = async (fetch, document, uri) => {
-    // Project Dataset
-    const dataset = await getSolidDataset(document, { fetch });
-    // Return
-    return getSolidThing(dataset, uri);
-};
+export async function middleware(req) { return getResponse(req); }

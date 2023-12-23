@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx` | `app`
+ * # `layout.test.jsx`
  * client | Semantyk
  *
  * Created: Nov 30, 2023
- * Modified: Nov 5, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -17,7 +17,8 @@
 // layout.test.jsx
 import React from "react";
 import { render } from "@testing-library/react";
-import RootLayout from "./layout";
+import RootLayout from "@semantyk/app/layout.jsx";
+
 
 describe("Root Layout", () => {
     it("should render", () => {

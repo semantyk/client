@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `buttons`
+ * # `getThing.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,21 +13,14 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React from "react";
-//* Local Imports
-import LogoutButton from "./logoutButton";
-import LoginButton from "./loginButton";
-import { useSession } from "@inrupt/solid-ui-react";
+import { getThing as getSolidThing } from "@inrupt/solid-client";
+import { getDataset } from "@semantyk/backend/api/solid/services/getDataset";
 
 //* Main
-export default function AuthButton() {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
+export const getThing = async (fetch, document, uri) => {
+    // Project Dataset
+    const dataset = await getDataset(fetch, document);
     // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
-}
+    return getSolidThing(dataset, uri);
+};

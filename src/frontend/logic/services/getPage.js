@@ -1,33 +1,25 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getKnowledge.js` | `knowledge`
+ * # `getPage.js`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Local Imports
-import { getAppKnowledge } from "@/backend/api/knowledge/getAppKnowledge";
+//* Imports
+import { getPages } from "@semantyk/frontend/logic/services/getPages";
 
 //* Main
-export async function getKnowledge(fetch) {
+export async function getPage(name) {
     // Logic
-    const appData = await getAppKnowledge(fetch);
-    // Props
-    const team = "Semantyk Team";
-    const twitter = "@semantyk";
+    const pages = await getPages();
     // Return
-    return {
-        author: team,
-        creator: team,
-        twitter,
-        ...appData
-    };
+    return pages[name];
 }

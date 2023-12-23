@@ -1,23 +1,30 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `icon.jsx` | `images`
+ * # `layout.jsx` | `Header`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 04, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import Image from "next/image";
-import icon from "@/app/icon.png";
+//* Imports
+import React from "react";
+//* Local Imports
+import "@semantyk/frontend/ui/components/organisms/Header/index.css";
 
-export default function Icon(props) {
+//* Main
+export default function HeaderLayout({ children }) {
+    const position = "sticky-top";
+    // Return
     return (
-        <Image src={icon} alt="Semantyk" title="Semantyk" {...props}/>
+        <header id="Header" className={`${position}`}>
+            {children}
+        </header>
     );
 }

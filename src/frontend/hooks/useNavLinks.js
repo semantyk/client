@@ -1,22 +1,34 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getNumber.js` | `solid`
+ * # `useNavLinkProps.jsx`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 22, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { getInteger } from "@inrupt/solid-client";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { getNavLinks } from "@semantyk/frontend/logic/services/getNavLinks";
+//* Local Imports
 
 //* Main
-export const getNumber = (thing, property) => {
-    return getInteger(thing, property);
-};
+export default function useNavLinks() {
+    // Hooks
+    const [navLinks, setNavLinks] = useState([]);
+    // - pathname
+    const pathname = usePathname();
+    // - useEffect
+    useEffect(() => {
+        getNavLinks(pathname).then(setNavLinks);
+    }, [pathname]);
+    // Return
+    return navLinks;
+}
