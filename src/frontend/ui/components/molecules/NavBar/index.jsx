@@ -18,7 +18,7 @@ import React from "react";
 import Link from "next/link";
 import { Nav, Navbar } from "react-bootstrap";
 //* Local Imports
-import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon";
+import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon/index";
 import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
 
 //* Main
