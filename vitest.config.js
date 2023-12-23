@@ -20,7 +20,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
     resolve: {
         alias: {
-            "@": "/src",
+            "@semantyk": "/src",
         },
     },
     test: {

@@ -14,15 +14,15 @@
  */
 
 //* Imports
-import { getNumber } from "@/backend/api/solid/services/getNumber";
+import { getNumber } from "@semantyk/backend/api/solid/services/getNumber";
 import {
     getStringNoLocale,
     getStringNoLocaleAll,
     getStringWithLocaleAll
 } from "@inrupt/solid-client";
-import { getURLAll } from "@/backend/api/solid/services/getURLAll";
-import { getString } from "@/backend/api/solid/services/getString";
-import { getURL } from "@/backend/api/solid/services/getURL";
+import { getURLAll } from "@semantyk/backend/api/solid/services/getURLAll";
+import { getString } from "@semantyk/backend/api/solid/services/getString";
+import { getURL } from "@semantyk/backend/api/solid/services/getURL";
 
 //* Main
 export const getProperty = (thing, type, property, locale) => {

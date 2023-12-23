@@ -17,7 +17,7 @@
 import {
     CLIENT_WEBID,
     POD_PROVIDER_WEBID
-} from "@/backend/logic/kgm/nodes";
+} from "@semantyk/backend/logic/kgm/nodes";
 
 export async function getOptions() {
     // Logic

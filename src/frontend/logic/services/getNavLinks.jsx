@@ -16,8 +16,8 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import { getPages } from "@/frontend/logic/services/getPages";
-import { NavLink } from "@/frontend/ui/components/atoms/NavLink";
+import { getPages } from "@semantyk/frontend/logic/services/getPages";
+import { NavLink } from "@semantyk/frontend/ui/components/atoms/NavLink";
 
 //* Main
 export async function getNavLinks(pathname) {

@@ -16,7 +16,7 @@
 //* Local Imports
 import {
     getAppKnowledge
-} from "@/backend/api/knowledge/services/getAppKnowledge";
+} from "@semantyk/backend/api/knowledge/services/getAppKnowledge";
 
 //* Main
 export async function getKnowledge(fetch) {

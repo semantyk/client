@@ -16,10 +16,10 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@/app/layout.css";
-import { getMetadata } from "@/backend/logic/seo";
-import SessionProvider from "@/frontend/logic/SessionProvider";
-import Footer from "@/frontend/ui/components/molecules/Footer";
+import "@semantyk/app/layout.css";
+import { getMetadata } from "@semantyk/backend/logic/seo";
+import SessionProvider from "@semantyk/frontend/logic/SessionProvider";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
 
 
 //* Main

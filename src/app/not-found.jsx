@@ -14,7 +14,7 @@
  */
 
 //* Imports
-import Page from "@/app/page";
+import Page from "@semantyk/app/page";
 
 //* Main
 export default function NotFound() {

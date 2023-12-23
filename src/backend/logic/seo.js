@@ -16,7 +16,7 @@
 //* Imports
 import {
     getKnowledge
-} from "@/backend/api/knowledge/services/getKnowledge";
+} from "@semantyk/backend/api/knowledge/services/getKnowledge";
 
 //* Main
 export async function getMetadata() {

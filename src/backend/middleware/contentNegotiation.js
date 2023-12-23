@@ -14,8 +14,8 @@
  */
 
 //* Imports
-import { APP_PAGES_DOC } from "@/backend/logic/kgm/nodes";
-import { getDataset } from "@/backend/api/solid/services/getDataset";
+import { APP_PAGES_DOC } from "@semantyk/backend/logic/kgm/nodes";
+import { getDataset } from "@semantyk/backend/api/solid/services/getDataset";
 
 //* Main
 export const contentTypes = [

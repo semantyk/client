@@ -18,8 +18,8 @@ import React from "react";
 import Link from "next/link";
 import { Nav, Navbar } from "react-bootstrap";
 //* Local Imports
-import Icon from "@/frontend/ui/components/atoms/images/Icon/index.jsx";
-import useNavLinks from "@/frontend/hooks/useNavLinks";
+import Icon from "@semantyk/frontend/ui/components/atoms/images/Icon/index.jsx";
+import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
 
 //* Main
 export default function NavBar() {
