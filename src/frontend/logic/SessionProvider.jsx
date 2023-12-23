@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `buttons`
+ * # `SessionProvider.jsx` | `logic`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -16,25 +16,21 @@
 "use client";
 
 //* Imports
-import React, { useEffect, useState } from "react";
-import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-//* Local imports
-import { getOptions } from "@/backend/logic/auth";
+import React from "react";
+import {
+    SessionProvider as SolidSessionProvider,
+    useSession
+} from "@inrupt/solid-ui-react";
 
-
-//* Main
-export default function LoginButton() {
+export default function SessionProvider({ children }) {
     // Hooks
-    const [options, setOptions] = useState({});
+    const { session } = useSession();
     // Logic
-    useEffect(() => {
-        getOptions().then(setOptions);
-    }, []);
+    const { sessionId } = session.info;
     // Return
     return (
-        <SolidLoginButton {...options}>
-            <Button>Log In</Button>
-        </SolidLoginButton>
+        <SolidSessionProvider restorePreviousSession sessionId={sessionId}>
+            {children}
+        </SolidSessionProvider>
     );
 }

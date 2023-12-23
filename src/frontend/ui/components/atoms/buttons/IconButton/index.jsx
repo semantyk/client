@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getURL.js` | `solid`
+ * # `index.jsx` | `IconButton`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,10 +13,23 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
-import { getUrl } from "@inrupt/solid-client";
+import React from "react";
+//* Local Imports
+import Link from "next/link";
+import Image from "next/image";
+import icon from "@semantyk/app/icon.png";
 
 //* Main
-export const getURL = (thing, property) => {
-    return getUrl(thing, property);
-};
+export default function IconButton(props) {
+    // Props
+    const { href, ...rest } = props;
+    // Return
+    return (
+        <Link href={href}>
+            <Image src={icon} alt="Semantyk" title="Semantyk" {...rest}/>
+        </Link>
+    );
+}

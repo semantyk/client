@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getNumber.js` | `solid`
+ * # `index.test.jsx` | `Header`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,10 +13,15 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import { getInteger } from "@inrupt/solid-client";
 
+//* Imports
+import React from "react";
+import Header from "@semantyk/frontend/ui/components/organisms/Header";
+import { render } from "@testing-library/react";
 //* Main
-export const getNumber = (thing, property) => {
-    return getInteger(thing, property);
-};
+
+describe("Header", () => {
+    it("should render", () => {
+        render(<Header/>);
+    });
+});

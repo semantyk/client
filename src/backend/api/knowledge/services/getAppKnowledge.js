@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `auth.js` | `logic`
+ * # `getAppKnowledge.js` | `knowledge`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
+ * Created: Dec 10, 2023
  * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
@@ -14,20 +14,20 @@
  */
 
 //* Imports
+import { APP_WEBID, APP_WEBID_DOC } from "@semantyk/backend/logic/kgm/nodes";
+import { getThing } from "@semantyk/backend/api/solid/services/getThing";
 import {
-    CLIENT_WEBID,
-    POD_PROVIDER_WEBID
-} from "@semantyk/backend/logic/kgm/nodes";
+    getProperties
+} from "@semantyk/backend/api/solid/services/getProperties";
+import { appShape } from "@semantyk/backend/logic/kgm/shapes";
 
-export async function getOptions() {
+//* Main
+export async function getAppKnowledge(fetch) {
     // Logic
-    const clientId = CLIENT_WEBID;
-    const oidcIssuer = POD_PROVIDER_WEBID;
-    const redirectUrl = window.location.href;
+    const document = APP_WEBID_DOC;
+    const uri = APP_WEBID;
+    const thing = await getThing(fetch, document, uri);
+    const lang = "en";
     // Return
-    return {
-        authOptions: { clientId },
-        oidcIssuer,
-        redirectUrl
-    };
+    return getProperties(thing, appShape, lang);
 }

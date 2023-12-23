@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `logoutButton.jsx` | `buttons`
+ * # `getPages.js`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,27 +13,22 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
-//* Imports
-import React from "react";
-import {
-    LogoutButton as SolidLogoutButton,
-    useSession
-} from "@inrupt/solid-ui-react";
-import { Button } from "react-bootstrap";
-
 //* Main
-export default function LogoutButton() {
-    // Hooks
-    const { session } = useSession();
+export async function getPages() {
     // Logic
-    const { webId } = session.info;
+    // TODO: Replace with API call
+    const pages = {
+        "archive": {
+            title: "Archive",
+            subtitle: "Knowledge Graph & File System",
+            path: "/archive"
+        },
+        "solid": {
+            title: "Solid",
+            subtitle: "Social Linked Data",
+            path: "/solid"
+        }
+    };
     // Return
-    return (<>
-        <p>WebID: <strong><code>{webId}</code></strong></p>
-        <SolidLogoutButton>
-            <Button>Log Out</Button>
-        </SolidLogoutButton>
-    </>);
+    return pages;
 }

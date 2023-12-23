@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `component.jsx`
+ * # `middleware.js`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 22, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,25 +13,8 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import Link from "next/link";
-//* Local Imports
-import useKnowledge from "@/frontend/hooks/useKnowledge";
-import FooterLayout from "./layout";
+import { getResponse } from "@semantyk/backend/middleware/services/getResponse";
 
-
-export default function Footer() {
-    // Hooks
-    const { name, copyrightYear } = useKnowledge();
-    // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
-    return (
-        <FooterLayout>
-            <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
-            </small>
-        </FooterLayout>
-    );
-}
+//* Main
+export async function middleware(req) { return getResponse(req); }

@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx`
+ * # `index.jsx`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dec 22, 2023
+ * Created: Dec 05, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,15 +13,27 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
 
-// layout.test.jsx
+//* Imports
 import React from "react";
-import { render } from "@testing-library/react";
-import RootLayout from "@semantyk/app/layout";
+import Link from "next/link";
+//* Local Imports
+import useKnowledge from "@semantyk/frontend/hooks/useKnowledge";
+import FooterLayout
+    from "@semantyk/frontend/ui/components/molecules/Footer/layout";
 
 
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
+export default function Footer() {
+    // Hooks
+    const { name, copyrightYear } = useKnowledge();
+    // Return
+    const link = <Link className="text-secondary" href="/">{name}</Link>;
+    return (
+        <FooterLayout>
+            <small className="text-secondary">
+                Copyright © {link} {copyrightYear}
+            </small>
+        </FooterLayout>
+    );
+}

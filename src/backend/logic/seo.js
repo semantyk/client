@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,10 +14,11 @@
  */
 
 //* Imports
-import { getKnowledge } from "@/backend/api/knowledge/getKnowledge";
+import {
+    getKnowledge
+} from "@semantyk/backend/api/knowledge/services/getKnowledge";
 
 //* Main
-
 export async function getMetadata() {
     // Hooks
     const app = await getKnowledge(fetch);
@@ -55,7 +56,10 @@ export async function getMetadata() {
             type: "website",
             url: "/"
         },
-        title: { default: app.name, template: `%s | ${app.name}` },
+        title: {
+            default: app.name,
+            template: `%s | ${app.name}`
+        },
         twitter: {
             card: "summary_large_image",
             creator: app.twitter,

@@ -1,33 +1,34 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `loginButton.jsx` | `buttons`
+ * # `useNavLinkProps.jsx`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 22, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { getNavLinks } from "@semantyk/frontend/logic/services/getNavLinks";
 //* Local Imports
-import LogoutButton from "./logoutButton";
-import LoginButton from "./loginButton";
-import { useSession } from "@inrupt/solid-ui-react";
 
 //* Main
-export default function AuthButton() {
+export default function useNavLinks() {
     // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
+    const [navLinks, setNavLinks] = useState([]);
+    // - pathname
+    const pathname = usePathname();
+    // - useEffect
+    useEffect(() => {
+        getNavLinks(pathname).then(setNavLinks);
+    }, [pathname]);
     // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
+    return navLinks;
 }

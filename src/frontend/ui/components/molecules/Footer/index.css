@@ -1,23 +1,18 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `icon.jsx` | `images`
+ * # `index.css` | `Footer`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 23, 2023
+ * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s):
+ * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import Image from "next/image";
-import icon from "@/app/icon.png";
-
-export default function Icon(props) {
-    return (
-        <Image src={icon} alt="Semantyk" title="Semantyk" {...props}/>
-    );
+#Header {
+    backdrop-filter: blur(33px);
 }

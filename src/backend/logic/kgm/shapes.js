@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Dec 05, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,7 +14,7 @@
  */
 
 //* Local Imports
-import { ARCHIVE, SCHEMA } from "./nodes";
+import { ARCHIVE, SCHEMA } from "@semantyk/backend/logic/kgm/nodes";
 
 
 //* Main

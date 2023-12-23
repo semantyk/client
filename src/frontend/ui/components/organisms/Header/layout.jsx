@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `state.jsx` | `logic`
+ * # `layout.jsx` | `Header`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -13,21 +13,18 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
 import React from "react";
-import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
+//* Local Imports
+import "@semantyk/frontend/ui/components/organisms/Header/index.css";
 
-export default function StateManager({ children }) {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { sessionId } = session.info;
+//* Main
+export default function HeaderLayout({ children }) {
+    const position = "sticky-top";
     // Return
     return (
-        <SessionProvider restorePreviousSession sessionId={sessionId}>
+        <header id="Header" className={`${position}`}>
             {children}
-        </SessionProvider>
+        </header>
     );
 }

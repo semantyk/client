@@ -1,33 +1,37 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `auth.js` | `logic`
+ * # `getResponse.js`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
+ * Created: Dec 23, 2023
  * Modified: Dec 23, 2023
  *
  * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer(s):
  *
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
+import { NextResponse } from "next/server";
+//* Local Imports
 import {
-    CLIENT_WEBID,
-    POD_PROVIDER_WEBID
-} from "@semantyk/backend/logic/kgm/nodes";
+    performContentNegotiation,
+    requiresContentNegotiation
+} from "@semantyk/backend/middleware/contentNegotiation";
 
-export async function getOptions() {
+//* Main
+export async function getResponse(req) {
     // Logic
-    const clientId = CLIENT_WEBID;
-    const oidcIssuer = POD_PROVIDER_WEBID;
-    const redirectUrl = window.location.href;
+    let res = NextResponse.next();
+    // Content Negotiation
+    // 1. Get Accept Header
+    const accept = req.headers.get("accept");
+    // 2. Is Content Negotiation Necessary
+    if (requiresContentNegotiation(accept))
+        // 3. Perform Content Negotiation
+        res = await performContentNegotiation(accept);
     // Return
-    return {
-        authOptions: { clientId },
-        oidcIssuer,
-        redirectUrl
-    };
+    return res;
 }

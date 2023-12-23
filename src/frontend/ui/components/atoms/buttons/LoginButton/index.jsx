@@ -1,6 +1,6 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `auth.js` | `logic`
+ * # `index.jsx` | `LoginButton`
  * client | Semantyk
  *
  * Created: Dec 04, 2023
@@ -13,21 +13,28 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import {
-    CLIENT_WEBID,
-    POD_PROVIDER_WEBID
-} from "@semantyk/backend/logic/kgm/nodes";
+"use client";
 
-export async function getOptions() {
+//* Imports
+import React, { useEffect, useState } from "react";
+import { LoginButton as SolidLoginButton } from "@inrupt/solid-ui-react";
+import { Button } from "react-bootstrap";
+//* Local imports
+import { getOptions } from "@semantyk/backend/logic/auth";
+
+
+//* Main
+export default function LoginButton() {
+    // Hooks
+    const [options, setOptions] = useState({});
     // Logic
-    const clientId = CLIENT_WEBID;
-    const oidcIssuer = POD_PROVIDER_WEBID;
-    const redirectUrl = window.location.href;
+    useEffect(() => {
+        getOptions().then(setOptions);
+    }, []);
     // Return
-    return {
-        authOptions: { clientId },
-        oidcIssuer,
-        redirectUrl
-    };
+    return (
+        <SolidLoginButton {...options}>
+            <Button>Log In</Button>
+        </SolidLoginButton>
+    );
 }

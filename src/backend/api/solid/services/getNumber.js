@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `footer`
+ * # `getNumber.js` | `solid`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Dec 10, 2023
+ * Created: Dec 10, 2023
+ * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
  * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
@@ -14,15 +14,9 @@
  */
 
 //* Imports
-import React from "react";
+import { getInteger } from "@inrupt/solid-client";
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
-    // Return
-    return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
-    );
-}
+export const getNumber = (thing, property) => {
+    return getInteger(thing, property);
+};

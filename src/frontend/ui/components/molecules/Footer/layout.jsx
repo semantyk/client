@@ -1,9 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.css`
+ * # `layout.jsx` | `Footer`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
+ * Created: Dec 04, 2023
  * Modified: Dec 22, 2023
  *
  * Author(s): Semantyk Team
@@ -12,3 +12,17 @@
  * Copyright © Semantyk 2023. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
+
+//* Imports
+import React from "react";
+
+//* Main
+export default function FooterLayout({ children }) {
+    const position = "sticky-bottom";
+    // Return
+    return (
+        <footer id="Footer" className={`${position} text-center`}>
+            {children}
+        </footer>
+    );
+}
