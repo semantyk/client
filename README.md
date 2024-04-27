@@ -5,6 +5,8 @@
 </p>
 
 ## About
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsemantyk%2Fclient.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsemantyk%2Fclient?ref=badge_shield)
+
 
 Welcome to [semantyk.com](https://www.semantyk.com)! 🥳
 
@@ -66,6 +68,9 @@ license:
   license terms.
 * **No Additional Restrictions:** Users should avoid imposing extra restrictions
   beyond those of the license.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsemantyk%2Fclient.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsemantyk%2Fclient?ref=badge_large)
 
 ## Contact
 
