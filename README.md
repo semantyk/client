@@ -67,6 +67,8 @@ license:
 * **No Additional Restrictions:** Users should avoid imposing extra restrictions
   beyond those of the license.
 
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsemantyk%2Fclient.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsemantyk%2Fclient?ref=badge_large&issueType=license)
+
 ## Contact
 
 For inquiries or support regarding this project, please reach out to us:
@@ -78,5 +80,5 @@ For inquiries or support regarding this project, please reach out to us:
 Your feedback and questions are greatly appreciated!
 
 ---
-<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2023. All rights
+<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2024. All rights
 reserved.</i>
