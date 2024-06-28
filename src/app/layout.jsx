@@ -20,6 +20,7 @@ import "@semantyk/app/layout.css";
 import { getMetadata } from "@semantyk/backend/logic/seo";
 import SessionProvider from "@semantyk/frontend/logic/SessionProvider";
 import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
+import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
 
 
 //* Main
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
     // Return
     return (
         <html lang="en">
+        <Analytics/>
         <body id="App" className={"bg-dark text-light"}>
         <SessionProvider>
             {children}
