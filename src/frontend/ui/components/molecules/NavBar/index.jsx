@@ -22,7 +22,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import Image from "next/image";
 //* Local Imports
 import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
-import icon from "@semantyk/app/icon.png";
+import icon from "@semantyk/app/icon-dark.png";
 
 //* Main
 export default function NavBar() {

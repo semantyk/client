@@ -22,7 +22,7 @@ import React from "react";
 //* Local Imports
 import Link from "next/link";
 import Image from "next/image";
-import icon from "@semantyk/app/icon.png";
+import icon from "@semantyk/app/icon-dark.png";
 
 //* Main
 export default function IconButton(props) {

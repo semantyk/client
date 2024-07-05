@@ -44,7 +44,7 @@ export async function getMetadata() {
         href: "/",
         icons: {
             apple: "/apple-icon.png",
-            icon: "/icon.png",
+            icon: "/icon-dark.png",
             shortcut: "/favicon.ico"
         },
         keywords: app.keywords,
