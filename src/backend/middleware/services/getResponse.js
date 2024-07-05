@@ -3,11 +3,14 @@
  * # `getResponse.js`
  * client | Semantyk
  *
- * Created: Dec 23, 2023
- * Modified: Apr 27, 2024
+ * This file contains a function that retrieves the response object based on
+ * the request headers.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 23, 2023
+ * Modified: July 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

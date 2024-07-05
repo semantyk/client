@@ -3,13 +3,15 @@
  # client | Semantyk
  #
  # This file contains the list of files and folders that are ignored by
- # Google Cloud. Note: Manually removed Next.js related files from the original.
+ # Google Cloud.
+ #
+ # Note: Manually removed Next.js related files from the original.
  #
  # Created: Nov 28, 2023
- # Modified: Apr 27, 2024
+ # Modified: Jul 5, 2024
  #
- # Author(s): Semantyk Team
- # Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ # Author: Semantyk Team
+ # Maintainer: Daniel Bakas <https://id.danielbakas.com>
  #
  # Copyright © Semantyk 2024. All rights reserved.
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

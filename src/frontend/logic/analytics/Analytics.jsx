@@ -3,11 +3,14 @@
  * # `GoogleAnalytics.jsx`
  * client | Semantyk
  *
- * Created: Jun 28, 2024
- * Modified: Jun 28, 2024
+ * This file contains the Analytics component. This component is used to
+ * load the Google Analytics script.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Jun 28, 2024
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -19,6 +22,7 @@ import Script from "next/script";
 
 //* Main
 export default function Analytics() {
+    // TODO: Replace with API call
     const gtag = "G-15WBDLX8S4";
     return (<>
         <Script
