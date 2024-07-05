@@ -17,6 +17,7 @@
 
 //* Imports
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 //* Local Imports
 import "@semantyk/app/page.css";
 import Header from "@semantyk/frontend/ui/components/organisms/Header";
