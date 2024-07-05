@@ -19,7 +19,8 @@
 export async function getPages() {
     // Logic
     // TODO: Replace with API call
-    const pages = {
+    // Return
+    return {
         "archive": {
             title: "Archive",
             subtitle: "Knowledge Graph & File System",
@@ -31,6 +32,4 @@ export async function getPages() {
             path: "/solid"
         }
     };
-    // Return
-    return pages;
 }
