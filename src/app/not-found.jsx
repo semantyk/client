@@ -3,17 +3,19 @@
  * # `not-found.jsx`
  * client | Semantyk
  *
- * Created: Dec 06, 2023
- * Modified: Apr 27, 2024
+ * This file contains the `NotFound` component.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 6, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
+//* Local Imports
 import Page from "@semantyk/app/page";
 
 //* Main

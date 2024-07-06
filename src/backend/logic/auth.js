@@ -3,11 +3,14 @@
  * # `auth.js` | `logic`
  * client | Semantyk
  *
- * Created: Dec 04, 2023
- * Modified: Apr 27, 2024
+ * This file contains a function that retrieves the options for the Solid
+ * auth flow.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 4, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -19,6 +22,7 @@ import {
     POD_PROVIDER_WEBID
 } from "@semantyk/backend/logic/kgm/nodes";
 
+//* Main
 export async function getOptions() {
     // Logic
     const clientId = CLIENT_WEBID;

@@ -3,11 +3,13 @@
  * # `index.jsx` | `NavBar`
  * client | Semantyk
  *
- * Created: Dec 23, 2023
- * Modified: Apr 27, 2024
+ * This file contains the logic for the navigation bar.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 23, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -17,21 +19,21 @@
 import React from "react";
 import Link from "next/link";
 import { Nav, Navbar } from "react-bootstrap";
-import Image from "next/image";
 //* Local Imports
 import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
-import icon from "@semantyk/app/icon.png";
+import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
+import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
 //* Main
 export default function NavBar() {
     // Hooks
+    const { colorScheme } = useColorScheme();
     const navLinks = useNavLinks();
     // Return
     return (
-        <Navbar expand="sm" variant="dark">
+        <Navbar expand="sm" variant={colorScheme}>
             <Navbar.Brand as={Link} href={"/"}>
-                <Image src={icon} alt="Semantyk" title="Semantyk" height="40"
-                       width="40"/>
+                <Icon height={40} width={40}/>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse className="justify-content-between">

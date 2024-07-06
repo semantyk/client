@@ -3,11 +3,13 @@
  * # `getAppKnowledge.js` | `knowledge`
  * client | Semantyk
  *
- * Created: Dec 10, 2023
- * Modified: Apr 27, 2024
+ * This module provides the logic to fetch the application knowledge graph.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 10, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

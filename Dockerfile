@@ -2,11 +2,13 @@
 # # `Dockerfile`
 # client | Semantyk
 #
-# Created: Nov 30, 2023
-# Modified: Apr 27, 2024
+# This file is used to build the production environment.
 #
-# Author(s): Semantyk Team
-# Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+# Created: Nov 30, 2023
+# Modified: Jul 5, 2024
+#
+# Author: Semantyk Team
+# Maintainer: Daniel Bakas <https://id.danielbakas.com>
 #
 # Copyright © Semantyk 2024. All rights reserved.
 # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -30,6 +32,8 @@ RUN pnpm run build
 # Stage 2: Production environment
 # Use Node.js Image
 FROM node:alpine
+# Install pnpm
+RUN npm install -g pnpm
 # Set the working directory
 WORKDIR /app
 # Copy  related files
@@ -37,5 +41,3 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 # Expose port 3000
 EXPOSE 3000
-# Run the Next.js app
-CMD ["node_modules/.bin/next", "start"]

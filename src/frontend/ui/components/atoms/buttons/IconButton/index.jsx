@@ -3,11 +3,13 @@
  * # `index.jsx` | `IconButton`
  * client | Semantyk
  *
- * Created: Dec 05, 2023
- * Modified: Apr 27, 2024
+ * This file contains the logic for the icon button.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Dec 5, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -17,10 +19,10 @@
 
 //* Imports
 import React from "react";
-//* Local Imports
 import Link from "next/link";
-import Image from "next/image";
-import icon from "@semantyk/app/icon.png";
+//* Local Imports
+import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
+
 
 //* Main
 export default function IconButton(props) {
@@ -29,7 +31,7 @@ export default function IconButton(props) {
     // Return
     return (
         <Link href={href}>
-            <Image src={icon} alt="Semantyk" title="Semantyk" {...rest}/>
+            <Icon {...rest}/>
         </Link>
     );
 }

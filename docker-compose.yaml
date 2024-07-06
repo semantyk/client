@@ -1,3 +1,19 @@
+# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# # `docker-compose.yaml`
+# client | Semantyk
+#
+# This file defines the services that will be run in the development,
+# staging, and test environments.
+#
+# Created: Nov 29, 2023
+# Modified: Jul 5, 2024
+#
+# Author: Semantyk Team
+# Maintainer: Daniel Bakas <https://id.danielbakas.com>
+#
+# Copyright © Semantyk 2024. All rights reserved.
+# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
 version: '3.8'
 services:
   dev:
@@ -18,10 +34,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=staging
+    command: pnpm run start
 
   test:
     build:

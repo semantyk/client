@@ -3,23 +3,25 @@
  * # `layout.test.jsx`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Dec 22, 2023
+ * This file contains the test suite for the `RootLayout` component.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Nov 30, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-
-// layout.test.jsx
+//* Imports
 import React from "react";
 import { render } from "@testing-library/react";
+//* Local Imports
 import RootLayout from "@semantyk/app/layout";
 
-
+//* Main
 describe("Root Layout", () => {
     it("should render", () => {
         render(<RootLayout/>);

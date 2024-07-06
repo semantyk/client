@@ -3,11 +3,13 @@
  * # `layout.jsx`
  * client | Semantyk
  *
- * Created: Nov 30, 2023
- * Modified: Apr 27, 2024
+ * This file contains the layout for the Page component.
  *
- * Author(s): Semantyk Team
- * Maintainer(s): Daniel Bakas <https://id.danielbakas.com>
+ * Created: Nov 30, 2023
+ * Modified: Jul 5, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -19,8 +21,9 @@ import React from "react";
 import "@semantyk/app/layout.css";
 import { getMetadata } from "@semantyk/backend/logic/seo";
 import SessionProvider from "@semantyk/frontend/logic/SessionProvider";
-import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
 import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
+import ColorSchemeProvider from "@semantyk/frontend/logic/ColorSchemeProvider";
 
 
 //* Main
@@ -31,12 +34,12 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <Analytics/>
-        <body id="App" className={"bg-dark text-light"}>
-        <SessionProvider>
-            {children}
-            <Footer/>
-        </SessionProvider>
-        </body>
+        <ColorSchemeProvider>
+            <SessionProvider>
+                {children}
+                <Footer/>
+            </SessionProvider>
+        </ColorSchemeProvider>
         </html>
     );
 }

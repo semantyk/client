@@ -1,11 +1,11 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `page.css.jsx`
+ * # `ColorSchemeProvider.jsx` | `logic`
  * client | Semantyk
  *
- * This file contains the Page component.
+ * This file contains the `ColorSchemeProvider` component.
  *
- * Created: Nov 30, 2023
+ * Created: Dec 4, 2023
  * Modified: Jul 5, 2024
  *
  * Author: Semantyk Team
@@ -15,22 +15,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-//* Local Imports
-import "@semantyk/app/page.css";
-import Header from "@semantyk/frontend/ui/components/organisms/Header";
+import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
-
-//* Main
-export default function Page(props) {
-    const { children, ...rest } = props;
+export default function ColorSchemeProvider({ children }) {
+    // Hooks
+    const { colorScheme, textColorScheme } = useColorScheme();
     // Return
     return (
-        <div id="Page">
-            <Header {...rest}/>
-            {children}
-        </div>
+        <body id="App" className={`bg-${colorScheme} text-${textColorScheme}`}>
+        {children}
+        </body>
     );
 }
