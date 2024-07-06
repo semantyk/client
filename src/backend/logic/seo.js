@@ -45,30 +45,70 @@ export async function getMetadata() {
         icons: {
             apple: [
                 {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: light)",
                     url: "/icon.svg"
                 },
                 {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/icon.png"
+                },
+                {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: dark)",
-                    url: "/icon-dark.svg",
+                    url: "/icon-dark.svg"
+                },
+                {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/icon-dark.png"
+                },
+            ],
+            icon: [
+                {
+                    type: "image/svg+xml",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/icon.svg"
+                },
+                {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/icon.png"
+                },
+                {
+                    type: "image/svg+xml",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/icon-dark.svg"
+                },
+                {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/icon-dark.png"
+                },
+            ],
+            shortcut: [
+                {
+                    type: "image/svg+xml",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/favicon.svg"
+                },
+                {
+                    type: "image/x-icon",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/favicon.ico"
+                },
+                {
+                    type: "image/svg+xml",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/favicon-dark.svg"
+                },
+                {
+                    type: "image/x-icon",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/favicon-dark.ico"
                 }
             ],
-            icon: [{
-                media: "(prefers-color-scheme: light)",
-                url: "/icon.svg"
-            }, {
-                media: "(prefers-color-scheme: dark)",
-                url: "/icon-dark.svg"
-            }],
-            shortcut: [{
-                type: "image/x-icon",
-                media: "(prefers-color-scheme: light)",
-                url: "/favicon.svg"
-            }, {
-                type: "image/x-icon",
-                media: "(prefers-color-scheme: dark)",
-                url: "/favicon-dark.svg"
-            }],
         },
         keywords: app.keywords,
         lang: app.lang,
@@ -76,13 +116,25 @@ export async function getMetadata() {
             description: `${app.slogan} | ${app.description}`,
             images: [
                 {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: light)",
                     url: "/seo.svg"
                 },
                 {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/seo.png"
+                },
+                {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: dark)",
                     url: "/seo-dark.svg"
-                }
+                },
+                {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/seo-dark.png"
+                },
             ],
             locale: app.lang,
             siteName: app.name,
@@ -101,13 +153,25 @@ export async function getMetadata() {
             description: `${app.slogan} | ${app.description}`,
             images: [
                 {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: light)",
                     url: "/seo.svg"
                 },
                 {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: light)",
+                    url: "/seo.png"
+                },
+                {
+                    type: "image/svg+xml",
                     media: "(prefers-color-scheme: dark)",
                     url: "/seo-dark.svg"
-                }
+                },
+                {
+                    type: "image/png",
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/seo-dark.png"
+                },
             ],
             siteId: "",
             title: app.name,
