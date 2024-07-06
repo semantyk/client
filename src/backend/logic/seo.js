@@ -46,11 +46,11 @@ export async function getMetadata() {
             apple: [
                 {
                     media: "(prefers-color-scheme: light)",
-                    url: "/apple-icon.jpg"
+                    url: "/apple-icon.svg"
                 },
                 {
                     media: "(prefers-color-scheme: dark)",
-                    url: "/apple-icon-dark.jpg",
+                    url: "/apple-icon-dark.svg",
                 }
             ],
             icon: [{
@@ -62,10 +62,10 @@ export async function getMetadata() {
             }],
             shortcut: [{
                 media: "(prefers-color-scheme: light)",
-                url: "/icon.svg"
+                url: "/favicon.svg"
             }, {
                 media: "(prefers-color-scheme: dark)",
-                url: "/icon-dark.svg"
+                url: "/favicon-dark.svg"
             }],
         },
         keywords: app.keywords,
