@@ -1,58 +1,32 @@
+[//]: # (
+\ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+\ # `README.md`
+\ client | Semantyk
+\ 
+\ This is the main README file for the client project.
+\
+\ Created: Nov 28, 2023
+\ Modified: Jul 5, 2024
+\
+\ Author: Semantyk Team
+\ Maintainer: Daniel Bakas <https://id.danielbakas.com>
+\
+\ Copyright © Semantyk 2024. All rights reserved.
+\ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+)
+
 <h1 align='center'>Client | Semantyk</h1>
 <h3 align='center'><i>Ideas Wonder</i></h3>
 <p align='center'>
-  <img alt='Semantyk' src='https://www.semantyk.com/icon.png' width='250'/>
+  <picture>
+    <source srcset="https://www.semantyk.com/icon-dark.svg" media="
+(prefers-color-scheme: dark)" />
+    <source srcset="https://www.semantyk.com/icon.svg" media="
+(prefers-color-scheme: light)" />
+    <img src="https://www.semantyk.com/icon.png" alt="Semantyk" 
+width="250" />
+  </picture>
 </p>
-
-## About
-
-Welcome to [semantyk.com](https://www.semantyk.com)! 🥳
-
-This is the official repository for the Semantyk client 🌐
-
-🚀 Semantyk is not just another app – it's designed to be a game-changer
-multi-platform application in the world of **knowledge management, experience,
-and exploration.**
-
-🧠 Think of it as your go-to platform for everything related to creating,
-managing, and sharing **knowledge graphs and decentralized linked data**, but
-with a twist. It's:
-
-* social 🤝
-* collaborative 👥
-* and super intuitive 🧐
-
-thanks to the integration of **AI** ✨ to its innovative **knowledge exploration
-models** 🔭
-
-We're all about reshaping our relationship to **knowledge** 📖, by blending
-top-notch tech like **AI ✨, spatial computing, data visualization models**,
-and a design that's all about the user. **It's not just smart; it's
-user-smart. 💡**
-
-Privacy, security, and data ownership are big deals for us 🔒 That's why we're
-big on [Solid](https://solidproject.org) technology – it keeps your data yours,
-while still playing nice with other data management methods.
-
-🌌 Ever wanted to explore data in a way that's almost sci-fi? Semantyk makes that
-happen. Dive into **multi-dimensional experiences**, interact with
-**real-time data** in ways you've never imagined, and get insights on complex
-info with ease 🤩
-
-Plus, our AI isn't just smart; it's adaptive 😎, learning from how you
-use it to make your experience smoother and more **personalized** 🤯
-
-🛠️ Under the hood, Semantyk is **built to scale**. We're talking
-**micro-services architecture and containerization**, which means easy
-deployment and management, especially in the cloud. This setup ensures Semantyk
-is always up and running, adaptable, and ready for the future of tech. 💪
-
-🌟 In a nutshell, Semantyk stands at the **cutting edge of collaborative and
-decentralized knowledge management**. It's built for anyone and everyone who
-wants to explore, manage, and share knowledge in a whole new way.
-
-🎉 Ready to get started? Sign up for our beta (coming soon) and be the first to
-know when we go live! 🚀
 
 ## License
 
