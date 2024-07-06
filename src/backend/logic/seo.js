@@ -46,11 +46,11 @@ export async function getMetadata() {
             apple: [
                 {
                     media: "(prefers-color-scheme: light)",
-                    url: "/apple-icon.svg"
+                    url: "/icon.svg"
                 },
                 {
                     media: "(prefers-color-scheme: dark)",
-                    url: "/apple-icon-dark.svg",
+                    url: "/icon-dark.svg",
                 }
             ],
             icon: [{
