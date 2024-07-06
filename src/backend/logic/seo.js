@@ -62,10 +62,10 @@ export async function getMetadata() {
             }],
             shortcut: [{
                 media: "(prefers-color-scheme: light)",
-                url: "/icon.svg"
+                url: "/favicon.svg"
             }, {
                 media: "(prefers-color-scheme: dark)",
-                url: "/icon-dark.svg"
+                url: "/favicon-dark.svg"
             }],
         },
         keywords: app.keywords,

@@ -12,7 +12,7 @@ export default function Icon(props) {
     return colorScheme && (
         <Image
             alt="Semantyk"
-            src={`/icon${suffix}.svg`}
+            src={`/favicon${suffix}.svg`}
             title="Semantyk"
             {...props}
         />
