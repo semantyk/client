@@ -19,10 +19,10 @@
 
 //* Imports
 import React from "react";
-//* Local Imports
 import Link from "next/link";
-import Image from "next/image";
-import icon from "@semantyk/app/icon-dark.png";
+//* Local Imports
+import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
+
 
 //* Main
 export default function IconButton(props) {
@@ -31,7 +31,7 @@ export default function IconButton(props) {
     // Return
     return (
         <Link href={href}>
-            <Image src={icon} alt="Semantyk" title="Semantyk" {...rest}/>
+            <Icon {...rest}/>
         </Link>
     );
 }

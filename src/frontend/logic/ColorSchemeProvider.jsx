@@ -1,12 +1,11 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `vitest.setup.js`
+ * # `ColorSchemeProvider.jsx` | `logic`
  * client | Semantyk
  *
- * This file is used to specify setup code that runs before each test file
- * is executed, often used for test initialization.
+ * This file contains the `ColorSchemeProvider` component.
  *
- * Created: Dec 5, 2023
+ * Created: Dec 4, 2023
  * Modified: Jul 5, 2024
  *
  * Author: Semantyk Team
@@ -16,19 +15,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import "@testing-library/jest-dom";
+"use client";
 
-//* Main
-// window.matchMedia
-Object.defineProperty(window, "matchMedia", {
-    writable: true,
-    value: vi.fn().mockImplementation(query => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-    })),
-});
+//* Imports
+import React from "react";
+import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
+
+export default function ColorSchemeProvider({ children }) {
+    // Hooks
+    const { colorScheme, textColorScheme } = useColorScheme();
+    // Return
+    return (
+        <body id="App" className={`bg-${colorScheme} text-${textColorScheme}`}>
+        {children}
+        </body>
+    );
+}

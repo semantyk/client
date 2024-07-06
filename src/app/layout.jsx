@@ -21,8 +21,9 @@ import React from "react";
 import "@semantyk/app/layout.css";
 import { getMetadata } from "@semantyk/backend/logic/seo";
 import SessionProvider from "@semantyk/frontend/logic/SessionProvider";
-import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
 import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
+import ColorSchemeProvider from "@semantyk/frontend/logic/ColorSchemeProvider";
 
 
 //* Main
@@ -33,12 +34,12 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <Analytics/>
-        <body id="App" className={"bg-dark text-light"}>
-        <SessionProvider>
-            {children}
-            <Footer/>
-        </SessionProvider>
-        </body>
+        <ColorSchemeProvider>
+            <SessionProvider>
+                {children}
+                <Footer/>
+            </SessionProvider>
+        </ColorSchemeProvider>
         </html>
     );
 }

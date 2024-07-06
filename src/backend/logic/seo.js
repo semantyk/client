@@ -43,15 +43,45 @@ export async function getMetadata() {
         description: `${app.slogan} | ${app.description}`,
         href: "/",
         icons: {
-            apple: "/apple-icon.png",
-            icon: "/icon-dark.png",
-            shortcut: "/favicon.ico"
+            apple: [
+                {
+                    media: "(prefers-color-scheme: light)",
+                    url: "/images/apple-icon.jpg"
+                },
+                {
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/images/apple-icon-dark.jpg",
+                }
+            ],
+            icon: [{
+                media: "(prefers-color-scheme: light)",
+                url: "/images/icon.svg"
+            }, {
+                media: "(prefers-color-scheme: dark)",
+                url: "/images/icon-dark.svg"
+            }],
+            shortcut: [{
+                media: "(prefers-color-scheme: light)",
+                url: "/images/icon.svg"
+            }, {
+                media: "(prefers-color-scheme: dark)",
+                url: "/images/icon-dark.svg"
+            }],
         },
         keywords: app.keywords,
         lang: app.lang,
         openGraph: {
             description: `${app.slogan} | ${app.description}`,
-            images: ["/opengraph-image.png"],
+            images: [
+                {
+                    media: "(prefers-color-scheme: light)",
+                    url: "/images/seo.svg"
+                },
+                {
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/images/seo-dark.svg"
+                }
+            ],
             locale: app.lang,
             siteName: app.name,
             title: app.name,
@@ -67,7 +97,16 @@ export async function getMetadata() {
             creator: app.twitter,
             creatorId: "",
             description: `${app.slogan} | ${app.description}`,
-            images: ["/opengraph-image.png"],
+            images: [
+                {
+                    media: "(prefers-color-scheme: light)",
+                    url: "/images/seo.svg"
+                },
+                {
+                    media: "(prefers-color-scheme: dark)",
+                    url: "/images/seo-dark.svg"
+                }
+            ],
             siteId: "",
             title: app.name,
         }
