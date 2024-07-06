@@ -46,26 +46,26 @@ export async function getMetadata() {
             apple: [
                 {
                     media: "(prefers-color-scheme: light)",
-                    url: "/images/apple-icon.jpg"
+                    url: "/apple-icon.jpg"
                 },
                 {
                     media: "(prefers-color-scheme: dark)",
-                    url: "/images/apple-icon-dark.jpg",
+                    url: "/apple-icon-dark.jpg",
                 }
             ],
             icon: [{
                 media: "(prefers-color-scheme: light)",
-                url: "/images/icon.svg"
+                url: "/icon.svg"
             }, {
                 media: "(prefers-color-scheme: dark)",
-                url: "/images/icon-dark.svg"
+                url: "/icon-dark.svg"
             }],
             shortcut: [{
                 media: "(prefers-color-scheme: light)",
-                url: "/images/icon.svg"
+                url: "/icon.svg"
             }, {
                 media: "(prefers-color-scheme: dark)",
-                url: "/images/icon-dark.svg"
+                url: "/icon-dark.svg"
             }],
         },
         keywords: app.keywords,
@@ -75,11 +75,11 @@ export async function getMetadata() {
             images: [
                 {
                     media: "(prefers-color-scheme: light)",
-                    url: "/images/seo.svg"
+                    url: "/seo.svg"
                 },
                 {
                     media: "(prefers-color-scheme: dark)",
-                    url: "/images/seo-dark.svg"
+                    url: "/seo-dark.svg"
                 }
             ],
             locale: app.lang,
@@ -100,11 +100,11 @@ export async function getMetadata() {
             images: [
                 {
                     media: "(prefers-color-scheme: light)",
-                    url: "/images/seo.svg"
+                    url: "/seo.svg"
                 },
                 {
                     media: "(prefers-color-scheme: dark)",
-                    url: "/images/seo-dark.svg"
+                    url: "/seo-dark.svg"
                 }
             ],
             siteId: "",
