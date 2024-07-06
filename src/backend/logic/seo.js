@@ -61,9 +61,11 @@ export async function getMetadata() {
                 url: "/icon-dark.svg"
             }],
             shortcut: [{
+                type: "image/x-icon",
                 media: "(prefers-color-scheme: light)",
                 url: "/favicon.svg"
             }, {
+                type: "image/x-icon",
                 media: "(prefers-color-scheme: dark)",
                 url: "/favicon-dark.svg"
             }],
