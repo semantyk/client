@@ -15,6 +15,8 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Imports
+import React from "react";
 //* Local Imports
 import Page from "@semantyk/app/page";
 
