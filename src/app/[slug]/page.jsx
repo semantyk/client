@@ -20,6 +20,8 @@ import React from "react";
 //* Local Imports
 import "@semantyk/app/page.css";
 import Page from "@semantyk/app/page";
+import { getPages } from "@semantyk/frontend/logic/services/getPages";
+import NotFound from "@semantyk/app/not-found";
 import { getPage } from "@semantyk/frontend/logic/services/getPage";
 import {
     getKnowledge
@@ -30,7 +32,6 @@ export async function generateMetadata({ params }) {
     const { slug } = params;
     try {
         const { title, subtitle } = await getPage(slug);
-        // TODO: Remove when Template description is added to Next.js
         const { slogan } = await getKnowledge(fetch);
         const description = `${slogan} | ${subtitle}`;
         return { title, description };
@@ -40,7 +41,15 @@ export async function generateMetadata({ params }) {
 }
 
 //* Main
-export default function DynamicPage(props) {
+export default async function DynamicPage(props) {
+    // Props
+    const { params } = props;
+    const { slug } = params;
+    // Hooks
+    const pages = await getPages();
     // Return
-    return <Page {...props}/>;
+    if (slug in pages)
+        return <Page {...props} />;
+    else
+        return <NotFound {...props} />;
 }
