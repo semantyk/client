@@ -22,7 +22,7 @@ import Page from "@semantyk/app/page";
 export default function NotFound() {
     return (
         <Page>
-            <h2>404 - Not Found</h2>
+            <h1>404 - Not Found</h1>
             <p className="text-secondary">Could not find requested resource</p>
         </Page>
     );
