@@ -20,16 +20,5 @@ export async function getPages() {
     // Logic
     // TODO: Replace with API call
     // Return
-    return {
-        "archive": {
-            title: "Archive",
-            subtitle: "Knowledge Graph & File System",
-            path: "/archive"
-        },
-        "solid": {
-            title: "Solid",
-            subtitle: "Social Linked Data",
-            path: "/solid"
-        }
-    };
+    return {};
 }
