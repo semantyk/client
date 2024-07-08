@@ -6,7 +6,7 @@
  * This file contains the `NotFound` component.
  *
  * Created: Dec 6, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 7, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -22,6 +22,7 @@ import Page from "@semantyk/app/page";
 
 //* Main
 export default function NotFound() {
+    // Return
     return (
         <Page>
             <h1>404 - Not Found</h1>
