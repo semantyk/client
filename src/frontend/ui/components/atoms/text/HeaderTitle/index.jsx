@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getPage.js`
+ * # `index.jsx`
  * client | Semantyk
  *
- * This file contains the `getPage` service.
- *
- * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 9, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,12 +14,14 @@
  */
 
 //* Imports
-import { getPages } from "@semantyk/frontend/logic/services/getPages";
+import React from "react";
+//* Local Imports
+import usePage from "@semantyk/frontend/hooks/knowledge/usePage";
 
 //* Main
-export async function getPage(name) {
-    // Logic
-    const pages = await getPages();
+export default function HeaderTitle() {
+    // Hooks
+    const { name } = usePage();
     // Return
-    return pages[name];
+    return name && <h1>{name}</h1>;
 }

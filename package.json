@@ -15,6 +15,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@inrupt/solid-client": "^1.30.2",
+    "@inrupt/solid-client-authn-browser": "^2.2.4",
     "@inrupt/solid-ui-react": "^2.9.0",
     "bootstrap": "^5.3.3",
     "jsdom": "^23.0.1",

@@ -6,7 +6,7 @@
  * This file contains the logic for the footer.
  *
  * Created: Dec 5, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -21,14 +21,16 @@
 import React from "react";
 import Link from "next/link";
 //* Local Imports
-import useKnowledge from "@semantyk/frontend/hooks/useKnowledge";
+import useKnowledge from "@semantyk/frontend/hooks/knowledge/useKnowledge";
 import FooterLayout
     from "@semantyk/frontend/ui/components/molecules/Footer/layout";
 
 
 export default function Footer() {
     // Hooks
-    const { name, copyrightYear } = useKnowledge();
+    // - useState
+    const { app } = useKnowledge();
+    const { name, copyrightYear } = app;
     // Return
     const link = <Link className="text-secondary" href="/">{name}</Link>;
     return (

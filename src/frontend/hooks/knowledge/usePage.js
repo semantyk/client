@@ -1,11 +1,11 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `useNavLinks.js`
+ * # `usePage.js`
  * client | Semantyk
  *
- * This file contains the `useNavLinks` hook.
+ * This file contains the `usePageKnowledge` hook.
  *
- * Created: Dec 22, 2023
+ * Created: Dec 23, 2023
  * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
@@ -18,23 +18,27 @@
 //* Imports
 import { useEffect, useState } from "react";
 //* Local Imports
-import { getNavLinks } from "@semantyk/frontend/logic/services/getNavLinks";
 import usePages from "@semantyk/frontend/hooks/knowledge/usePages";
-import usePage from "@semantyk/frontend/hooks/knowledge/usePage";
+import { usePathname } from "next/navigation";
 
 //* Main
-export default function useNavLinks() {
+
+export default function usePage() {
     // Hooks
-    const [navLinks, setNavLinks] = useState([]);
-    // Logic
-    const { navBar } = usePage();
+    // - useState
+    const [page, setPage] = useState({});
+    // - usePages
     const pages = usePages();
+    // - usePathname
+    const pathname = usePathname();
     // - useEffect
     useEffect(() => {
-        if (!navBar || !pages) return;
-        const links = getNavLinks(navBar, pages);
-        setNavLinks(links);
-    }, [navBar, pages]);
+        const currentPage = pages[pathname];
+        const notFoundPage = pages["/404"];
+        const page = currentPage || notFoundPage;
+        if (!page) return;
+        setPage(page);
+    }, [pages, pathname]);
     // Return
-    return navLinks;
+    return page;
 }

@@ -6,7 +6,7 @@
  * This file is a template for dynamic pages in the Semantyk application.
  *
  * Created: Nov 30, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -20,27 +20,24 @@ import React from "react";
 //* Local Imports
 import "@semantyk/app/page.css";
 import Page from "@semantyk/app/page";
-import { getPage } from "@semantyk/frontend/logic/services/getPage";
-import {
-    getKnowledge
-} from "@semantyk/backend/api/knowledge/services/getKnowledge";
+import { getMetadata } from "@semantyk/backend/logic/seo";
 
 //* Metadata
 export async function generateMetadata({ params }) {
+    // Props
     const { slug } = params;
-    try {
-        const { title, subtitle } = await getPage(slug);
-        // TODO: Remove when Template description is added to Next.js
-        const { slogan } = await getKnowledge(fetch);
-        const description = `${slogan} | ${subtitle}`;
-        return { title, description };
-    } catch (e) {
-        console.log(`Error: ${slug} does not exist`);
-    }
+    // Return
+    return await getMetadata(slug);
 }
 
 //* Main
-export default function DynamicPage(props) {
+export default async function DynamicPage(props) {
+    // Props
+    const { children } = props;
     // Return
-    return <Page {...props}/>;
+    return (
+        <Page>
+            {children}
+        </Page>
+    );
 }

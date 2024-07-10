@@ -6,7 +6,7 @@
  * This file contains logic for generating metadata for SEO purposes.
  *
  * Created: Dec 5, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,14 +16,18 @@
  */
 
 //* Imports
-import {
-    getKnowledge
-} from "@semantyk/backend/api/knowledge/services/getKnowledge";
+import { getApp } from "@semantyk/backend/api/knowledge/services/getApp";
+import { getPage } from "@semantyk/backend/api/knowledge/services/getPage";
 
 //* Main
-export async function getMetadata() {
-    // Hooks
-    const app = await getKnowledge(fetch);
+export async function getMetadata(slug) {
+    // Logic
+    const app = await getApp();
+    const page = await getPage(slug);
+    const source = slug ? page : app;
+    // Props
+    const description = `${app.slogan} | ${source.description}`;
+    const title = slug ? `${source.name} | ${app.name}` : app.name;
     // Return
     return {
         // Base URL
@@ -32,15 +36,15 @@ export async function getMetadata() {
         alternates: {
             canonical: "/",
             languages: {
-                "en": "/en",
-                "es": "/es"
+                "en": "/",
+                "es": "/"
             }
         },
         applicationName: app.name,
         authors: [{ name: app.author }],
         category: "technology",
         creator: app.creator,
-        description: `${app.slogan} | ${app.description}`,
+        description,
         href: "/",
         icons: {
             apple: [
@@ -113,7 +117,7 @@ export async function getMetadata() {
         keywords: app.keywords,
         lang: app.lang,
         openGraph: {
-            description: `${app.slogan} | ${app.description}`,
+            description,
             images: [
                 {
                     type: "image/svg+xml",
@@ -138,19 +142,19 @@ export async function getMetadata() {
             ],
             locale: app.lang,
             siteName: app.name,
-            title: app.name,
+            title,
             type: "website",
             url: "/"
         },
         title: {
-            default: app.name,
+            default: source.name,
             template: `%s | ${app.name}`
         },
         twitter: {
             card: "summary_large_image",
             creator: app.twitter,
             creatorId: "",
-            description: `${app.slogan} | ${app.description}`,
+            description,
             images: [
                 {
                     type: "image/svg+xml",
@@ -174,7 +178,7 @@ export async function getMetadata() {
                 },
             ],
             siteId: "",
-            title: app.name,
+            title,
         }
     };
 }

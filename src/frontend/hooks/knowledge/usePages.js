@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getPages.js`
+ * # `usePages.js`
  * client | Semantyk
  *
- * This file contains the logic for fetching the pages.
+ * This file contains the `usePages` hook.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Created: July 8, 2023
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,21 +15,22 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Imports
+import { useEffect, useState } from "react";
+//* Local Imports
+import { getPages } from "@semantyk/backend/api/knowledge/services/getPages";
+import useLang from "@semantyk/frontend/hooks/useLang";
+
 //* Main
-export async function getPages() {
+export default function usePages() {
+    // Hooks
+    const [pages, setPages] = useState({});
     // Logic
-    // TODO: Replace with API call
+    const lang = useLang();
+    // - useEffect
+    useEffect(() => {
+        getPages(lang).then(pages => setPages(pages));
+    }, [lang]);
     // Return
-    return {
-        "archive": {
-            title: "Archive",
-            subtitle: "Knowledge Graph & File System",
-            path: "/archive"
-        },
-        "solid": {
-            title: "Solid",
-            subtitle: "Social Linked Data",
-            path: "/solid"
-        }
-    };
+    return pages;
 }

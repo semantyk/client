@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.jsx` | `Header`
+ * # `layout.jsx` | `Header`
  * client | Semantyk
  *
- * This file contains the logic for the header.
+ * This file contains the `HeaderLayout` component.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Created: Dec 4, 2023
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,29 +15,18 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
 import React from "react";
 //* Local Imports
-import HeaderLayout
-    from "@semantyk/frontend/ui/components/organisms/Header/layout";
-import usePage from "@semantyk/frontend/hooks/usePage";
-import NavBar from "@semantyk/frontend/ui/components/molecules/NavBar";
+import "@semantyk/frontend/ui/components/molecules/Header/index.css";
 
-
-export default function Header({ children, params }) {
-    // Props
-    const slug = params && params.slug;
-    // Hooks
-    const page = usePage(slug);
+//* Main
+export default function HeaderLayout({ children }) {
+    const position = "sticky-top";
     // Return
     return (
-        <HeaderLayout>
-            <NavBar/>
-            {page && <h1>{page.title}</h1>}
-            {page && <p className={"text-secondary"}>{page.subtitle}</p>}
+        <header id="Header" className={`${position}`}>
             {children}
-        </HeaderLayout>
+        </header>
     );
 }

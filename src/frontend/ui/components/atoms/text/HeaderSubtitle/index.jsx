@@ -1,11 +1,9 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Footer`
+ * # `index.jsx`
  * client | Semantyk
  *
- * This file contains the layout for the footer.
- *
- * Created: Dec 4, 2023
+ * Created: Jul 9, 2024
  * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
@@ -18,15 +16,12 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Footer/index.css";
+import usePage from "@semantyk/frontend/hooks/knowledge/usePage";
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
+export default function HeaderSubtitle() {
+    // Hooks
+    const { description } = usePage();
     // Return
-    return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
-    );
+    return description && <p className="text-secondary">{description}</p>;
 }

@@ -6,7 +6,7 @@
  * This file contains a function that retrieves a thing from a Solid document.
  *
  * Created: Dec 10, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -17,12 +17,13 @@
 
 //* Imports
 import { getThing as getSolidThing } from "@inrupt/solid-client";
+//* Local Imports
 import { getDataset } from "@semantyk/backend/api/solid/services/getDataset";
 
 //* Main
-export const getThing = async (fetch, document, uri) => {
-    // Project Dataset
+export async function getThing(fetch, document, uri) {
+    // Dataset
     const dataset = await getDataset(fetch, document);
     // Return
     return getSolidThing(dataset, uri);
-};
+}

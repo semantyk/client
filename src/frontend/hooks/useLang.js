@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `not-found.jsx`
+ * # `useLang.js`
  * client | Semantyk
  *
- * This file contains the `NotFound` component.
- *
- * Created: Dec 6, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 9, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,15 +13,17 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Local Imports
-import Page from "@semantyk/app/page";
+//* Imports
+import { useEffect, useState } from "react";
 
 //* Main
-export default function NotFound() {
-    return (
-        <Page>
-            <h2>404 - Not Found</h2>
-            <p className="text-secondary">Could not find requested resource</p>
-        </Page>
-    );
+export default function useLang() {
+    // Hooks
+    const [lang, setLang] = useState(navigator.language);
+    // - useEffect
+    useEffect(() => {
+        setLang(navigator.language);
+    }, []);
+    // Return
+    return lang;
 }
