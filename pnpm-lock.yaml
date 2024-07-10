@@ -11,6 +11,9 @@ importers:
       '@inrupt/solid-client':
         specifier: ^1.30.2
         version: 1.30.2
+      '@inrupt/solid-client-authn-browser':
+        specifier: ^2.2.4
+        version: 2.2.4
       '@inrupt/solid-ui-react':
         specifier: ^2.9.0
         version: 2.9.1(react@18.3.1)
@@ -426,15 +429,25 @@ packages:
   '@inrupt/oidc-client-ext@1.17.5':
     resolution: {integrity: sha512-vYnYbNW+EwDeAkzLzLF77PLXVeajhZ0IqocC5M2xM9aGc0JgRIy8lnrwxrV/VLf2AXRig9Aqlv/RmLY1VTz2eg==}
 
+  '@inrupt/oidc-client-ext@2.2.4':
+    resolution: {integrity: sha512-jQw7WgZdNC1xJxtMCN5sCLhf1//YWUNvylsNuOrrbTHTiY4dFq2A24k84eRXPYXQLoJ5i3cs3B5qlRdXBxy2MQ==}
+
   '@inrupt/oidc-client@1.11.6':
     resolution: {integrity: sha512-1rCTk1T6pdm/7gKozutZutk7jwmYBADlnkGGoI5ypke099NOCa5KFXjkQpbjsps0PRkKZ+0EaR70XN5+xqmViA==}
 
   '@inrupt/solid-client-authn-browser@1.17.5':
     resolution: {integrity: sha512-zjyXPmKACp7syNsctQfkFhYCwEQ5QoTStLMbBFhtqJAsoWpo+d/awI1nljTDKxlJtYnvEoYjl2pM2aZMJ7mtew==}
 
+  '@inrupt/solid-client-authn-browser@2.2.4':
+    resolution: {integrity: sha512-MByDT1KpiWI7BSnlTdKQnideO93IDuIOfz0C/GNJmiKpqwZ58rTu1+kr6AzcIpjI5HfqPfwQRCM6rgKM/5rOJg==}
+
   '@inrupt/solid-client-authn-core@1.17.5':
     resolution: {integrity: sha512-g3WShcPAqGuarPYlw12vUCo+et4elQLI+WYcHkCHGLuQQFF73r2iTicuKpkydQdIrZ5AZgxhwr315jmkx/vcFQ==}
     engines: {node: ^16.0.0 || ^18.0.0 || ^20.0.0}
+
+  '@inrupt/solid-client-authn-core@2.2.4':
+    resolution: {integrity: sha512-PpH6ftxdhFvbSs4Mo/YJ9RrTF5xg/g1DX4AAoZHWoEkrGmnMAfgkG2kpq9+5tvLG9N52ja+CGbUNy3lHfpt6vw==}
+    engines: {node: ^18.0.0 || ^20.0.0}
 
   '@inrupt/solid-client@1.30.2':
     resolution: {integrity: sha512-8Lwh0ZC1d9c939O+dAsT5oheSKIBX5A0uk7fhaJ0qDBFZGKT/jnIy6TrBpvn/nYZAvCA2XSvZHgBfEX7r0FCKw==}
@@ -1749,6 +1762,9 @@ packages:
   jose@4.15.5:
     resolution: {integrity: sha512-jc7BFxgKPKi94uOvEmzlSWFFe2+vASyXaKUpdQKatWAESU2MWjDfFf0fdfc83CDKcA5QecabZeNLyfhe3yKNkg==}
 
+  jose@5.6.3:
+    resolution: {integrity: sha512-1Jh//hEEwMhNYPDDLwXHa2ePWgWiFNNUadVmguAAw2IJ6sj9mNxV5tGXJNqlMkJAybF6Lgw1mISDxTePP/187g==}
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -2554,6 +2570,10 @@ packages:
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
 
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
@@ -3030,6 +3050,13 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@inrupt/oidc-client-ext@2.2.4':
+    dependencies:
+      '@inrupt/oidc-client': 1.11.6
+      '@inrupt/solid-client-authn-core': 2.2.4
+      jose: 5.6.3
+      uuid: 10.0.0
+
   '@inrupt/oidc-client@1.11.6':
     dependencies:
       acorn: 7.4.1
@@ -3049,6 +3076,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@inrupt/solid-client-authn-browser@2.2.4':
+    dependencies:
+      '@inrupt/oidc-client-ext': 2.2.4
+      '@inrupt/solid-client-authn-core': 2.2.4
+      events: 3.3.0
+      jose: 5.6.3
+      uuid: 10.0.0
+
   '@inrupt/solid-client-authn-core@1.17.5':
     dependencies:
       '@inrupt/universal-fetch': 1.0.3
@@ -3057,6 +3092,12 @@ snapshots:
       uuid: 9.0.1
     transitivePeerDependencies:
       - encoding
+
+  '@inrupt/solid-client-authn-core@2.2.4':
+    dependencies:
+      events: 3.3.0
+      jose: 5.6.3
+      uuid: 10.0.0
 
   '@inrupt/solid-client@1.30.2':
     dependencies:
@@ -4632,6 +4673,8 @@ snapshots:
 
   jose@4.15.5: {}
 
+  jose@5.6.3: {}
+
   js-tokens@4.0.0: {}
 
   js-tokens@9.0.0: {}
@@ -5531,6 +5574,8 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+
+  uuid@10.0.0: {}
 
   uuid@9.0.1: {}
 
