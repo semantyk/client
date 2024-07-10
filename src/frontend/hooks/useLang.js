@@ -15,11 +15,12 @@
 
 //* Imports
 import { useEffect, useState } from "react";
+import { getLang } from "@semantyk/frontend/logic/services/getLang";
 
 //* Main
 export default function useLang() {
     // Hooks
-    const [lang, setLang] = useState(navigator.language);
+    const [lang, setLang] = useState(getLang);
     // - useEffect
     useEffect(() => {
         setLang(navigator.language);
