@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Header`
+ * # `index.jsx`
  * client | Semantyk
  *
- * This file contains the `HeaderLayout` component.
- *
- * Created: Dec 4, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 9, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -18,15 +16,12 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/frontend/ui/components/organisms/Header/index.css";
+import usePage from "@semantyk/frontend/hooks/knowledge/usePage";
 
 //* Main
-export default function HeaderLayout({ children }) {
-    const position = "sticky-top";
+export default function HeaderTitle() {
+    // Hooks
+    const { name } = usePage();
     // Return
-    return (
-        <header id="Header" className={`${position}`}>
-            {children}
-        </header>
-    );
+    return name && <h1>{name}</h1>;
 }

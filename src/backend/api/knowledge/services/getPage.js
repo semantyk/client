@@ -1,11 +1,11 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Footer`
+ * # `getPage.js`
  * client | Semantyk
  *
- * This file contains the layout for the footer.
+ * This file contains the `getPage` service.
  *
- * Created: Dec 4, 2023
+ * Created: Dec 23, 2023
  * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
@@ -16,17 +16,16 @@
  */
 
 //* Imports
-import React from "react";
-//* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Footer/index.css";
+import { getPages } from "@semantyk/backend/api/knowledge/services/getPages";
+import { getLang } from "@semantyk/frontend/logic/services/getLang";
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
+export async function getPage(slug) {
+    // Logic
+    const lang = getLang();
+    const pages = await getPages(lang);
+    const path = `/${slug}`;
+    const page = path in pages ? pages[path] : pages["/404"];
     // Return
-    return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
-    );
+    return page;
 }

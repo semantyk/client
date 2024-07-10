@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `ColorSchemeProvider.jsx` | `logic`
+ * # `useLang.js`
  * client | Semantyk
  *
- * This file contains the `ColorSchemeProvider` component.
- *
- * Created: Dec 4, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 9, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,19 +13,17 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
-import React from "react";
-import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
+import { useEffect, useState } from "react";
 
-export default function ColorSchemeProvider({ children }) {
+//* Main
+export default function useLang() {
     // Hooks
-    const { colorScheme, textColorScheme } = useColorScheme();
+    const [lang, setLang] = useState(navigator.language);
+    // - useEffect
+    useEffect(() => {
+        setLang(navigator.language);
+    }, []);
     // Return
-    return (
-        <body id="App" className={`bg-${colorScheme} text-${textColorScheme}`}>
-        {children}
-        </body>
-    );
+    return lang;
 }

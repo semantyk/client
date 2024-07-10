@@ -6,7 +6,7 @@
  * This file contains a function that retrieves a dataset from a Solid document.
  *
  * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,8 +15,10 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+//* Imports
 import { getSolidDataset } from "@inrupt/solid-client";
 
+//* Main
 export const getDataset = async (fetch, uri, type = "solid") => {
     switch (type) {
         case "solid":

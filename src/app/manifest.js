@@ -3,8 +3,8 @@
  * # `manifest.js`
  * client | Semantyk
  *
- * Created: Jul 06, 2024
- * Modified: Jul 06, 2024
+ * Created: Jul 6, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,14 +14,12 @@
  */
 
 //* Imports
-import {
-    getKnowledge
-} from "@semantyk/backend/api/knowledge/services/getKnowledge";
+import { getApp } from "@semantyk/backend/api/knowledge/services/getApp";
 
 //* Main
 export default async function manifest() {
-    // Hooks
-    const app = await getKnowledge(fetch);
+    // Logic
+    const app = await getApp();
     // Return
     return {
         name: app.name,

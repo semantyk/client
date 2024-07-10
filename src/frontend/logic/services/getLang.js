@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.css` | `Header`
+ * # `getLang.js`
  * client | Semantyk
  *
- * This file contains the styles for the `Header` component.
+ * This file contains the `getLang` service.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Created: July 10, 2023
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,6 +15,9 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-#Header {
-    backdrop-filter: blur(33px);
+//* Main
+export function getLang() {
+    // Logic
+    // TODO: Add logic for dynamic language
+    return "es";
 }

@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `usePage.js`
+ * # `useApp.js`
  * client | Semantyk
  *
- * This file contains the `usePage` hook.
+ * This file contains the `useApp` hook.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 8, 2023
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -18,17 +18,16 @@
 //* Imports
 import { useEffect, useState } from "react";
 //* Local Imports
-import { getPage } from "@semantyk/frontend/logic/services/getPage";
+import { getApp } from "@semantyk/backend/api/knowledge/services/getApp";
 
 //* Main
-export default function usePage(slug) {
+export default function useApp() {
     // Hooks
-    // - useState
-    const [page, setPage] = useState({});
+    const [app, setApp] = useState({});
     // - useEffect
     useEffect(() => {
-        getPage(slug).then(setPage);
-    }, [slug]);
+        getApp().then(setApp);
+    }, []);
     // Return
-    return page;
+    return app;
 }

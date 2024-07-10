@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `not-found.jsx`
+ * # `HeadComponent.jsx`
  * client | Semantyk
  *
- * This file contains the `NotFound` component.
- *
- * Created: Dec 6, 2023
- * Modified: Jul 7, 2024
+ * Created: Jul 9, 2024
+ * Modified: Jul 10, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -17,16 +15,15 @@
 
 //* Imports
 import React from "react";
+import Head from "next/head";
+import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
 //* Local Imports
-import Page from "@semantyk/app/page";
 
-//* Main
-export default function NotFound() {
+export default function HeadComponent() {
     // Return
     return (
-        <Page>
-            <h1>404 - Not Found</h1>
-            <p className="text-secondary">Could not find requested resource</p>
-        </Page>
+        <Head>
+            <Analytics/>
+        </Head>
     );
 }
