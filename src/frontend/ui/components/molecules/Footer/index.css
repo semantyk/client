@@ -18,4 +18,5 @@
 /* Main */
 #Footer {
     backdrop-filter: blur(33px);
+    padding: 0.5rem;
 }

@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Footer`
+ * # `index.jsx` | `Content`
  * client | Semantyk
  *
- * This file contains the layout for the footer.
- *
- * Created: Dec 4, 2023
- * Modified: Jul 10, 2024
+ * Created: Jul 17, 2024
+ * Modified: Jul 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -18,15 +16,21 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Footer/index.css";
+import Header from "@semantyk/frontend/ui/components/molecules/Header";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
+import "@semantyk/frontend/ui/components/molecules/Content/index.css";
+import ContentLayout
+    from "@semantyk/frontend/ui/components/molecules/Content/layout";
+
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "fixed-bottom";
+export default function Content({ children }) {
     // Return
     return (
-        <footer id="Footer" className={`${position} text-center`}>
+        <ContentLayout>
+            <Header/>
             {children}
-        </footer>
+            <Footer/>
+        </ContentLayout>
     );
-}
+};

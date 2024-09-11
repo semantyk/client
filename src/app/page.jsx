@@ -17,7 +17,6 @@
 
 //* Imports
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 //* Local Imports
 import "@semantyk/app/page.css";
 
