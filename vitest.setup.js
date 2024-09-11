@@ -20,6 +20,14 @@
 import "@testing-library/jest-dom";
 
 //* Main
+// global.ResizeObserver
+global.ResizeObserver = class {
+    observe() {}
+
+    unobserve() {}
+
+    disconnect() {}
+};
 // window.matchMedia
 Object.defineProperty(window, "matchMedia", {
     writable: true,
