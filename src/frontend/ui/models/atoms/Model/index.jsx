@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.css` | `Header`
+ * # `index.jsx`
  * client | Semantyk
  *
- * This file contains the styles for the `Header` component.
+ * This file contains the logic for a generic Three.js model component.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 10, 2024
+ * Created: Jul 17, 2024
+ * Modified: Jul 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,9 +15,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-/* Main */
-#Header {
-    backdrop-filter: blur(33px);
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
+"use client";
+
+//* Imports
+import React from "react";
+import Canvas from "@semantyk/frontend/ui/models/atoms/Canvas";
+import ParticlesModel from "@semantyk/frontend/ui/models/molecule/Particles";
+
+//* Main
+export default function Model() {
+    // Return
+    return (
+        <Canvas>
+            <ParticlesModel/>
+        </Canvas>
+    );
+};

@@ -1,12 +1,12 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.css` | `Header`
+ * # `index.css` | `Content`
  * client | Semantyk
  *
- * This file contains the styles for the `Header` component.
+ * This file contains the styles for the Content component.
  *
- * Created: Dec 23, 2023
- * Modified: Jul 10, 2024
+ * Created: Jul 17, 2023
+ * Modified: Jul 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,10 +14,3 @@
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
-
-/* Main */
-#Header {
-    backdrop-filter: blur(33px);
-    padding-left: 1rem;
-    padding-right: 1rem;
-}

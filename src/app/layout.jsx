@@ -19,13 +19,15 @@
 import React from "react";
 //* Local Imports
 import "@semantyk/app/layout.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { getMetadata } from "@semantyk/backend/logic/seo";
 import HeadComponent
     from "@semantyk/frontend/ui/components/atoms/HeadComponent";
 import Body from "@semantyk/frontend/ui/components/molecules/Body";
-import Header from "@semantyk/frontend/ui/components/molecules/Header";
-import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
 import { getLang } from "@semantyk/frontend/logic/services/getLang";
+import Content from "@semantyk/frontend/ui/components/molecules/Content";
+import Model from "@semantyk/frontend/ui/models/atoms/Model";
+
 
 //* Main
 export async function generateMetadata() {return await getMetadata();}
@@ -39,9 +41,10 @@ export default function RootLayout({ children }) {
         <html lang={lang}>
         <HeadComponent/>
         <Body>
-            <Header/>
-            {children}
-            <Footer/>
+            <Content>
+                {children}
+                <Model/>
+            </Content>
         </Body>
         </html>
     );

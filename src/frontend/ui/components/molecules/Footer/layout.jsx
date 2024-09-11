@@ -22,7 +22,7 @@ import "@semantyk/frontend/ui/components/molecules/Footer/index.css";
 
 //* Main
 export default function FooterLayout({ children }) {
-    const position = "sticky-bottom";
+    const position = "fixed-bottom";
     // Return
     return (
         <footer id="Footer" className={`${position} text-center`}>

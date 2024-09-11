@@ -1,23 +1,34 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.css` | `Header`
+ * # `layout.jsx`
  * client | Semantyk
  *
- * This file contains the styles for the `Header` component.
- *
- * Created: Dec 23, 2023
- * Modified: Jul 10, 2024
+ * Created: Jul 17, 2024
+ * Modified: Jul 17, 2024
  *
  * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer:
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-/* Main */
-#Header {
-    backdrop-filter: blur(33px);
-    padding-left: 1rem;
-    padding-right: 1rem;
+//* Imports
+import React from "react";
+import { Canvas } from "@react-three/fiber";
+//* Local Imports
+import "@semantyk/frontend/ui/models/atoms/Canvas/index.css";
+
+//* Main
+export default function CanvasLayout(props) {
+    // Props
+    const { children, ...rest } = props;
+    // Return
+    return (
+        <div id="Canvas">
+            <Canvas {...rest}>
+                {children}
+            </Canvas>
+        </div>
+    );
 }

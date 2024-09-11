@@ -1,12 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx`
+ * # `index.jsx` | `Content`
  * client | Semantyk
  *
- * This file contains the test suite for the `RootLayout` component.
- *
- * Created: Nov 30, 2023
- * Modified: Jul 5, 2024
+ * Created: Jul 17, 2024
+ * Modified: Jul 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -17,19 +15,22 @@
 
 //* Imports
 import React from "react";
-import { render } from "@testing-library/react";
 //* Local Imports
-import RootLayout from "@semantyk/app/layout";
+import Header from "@semantyk/frontend/ui/components/molecules/Header";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
+import "@semantyk/frontend/ui/components/molecules/Content/index.css";
+import ContentLayout
+    from "@semantyk/frontend/ui/components/molecules/Content/layout";
 
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
 
 //* Main
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
+export default function Content({ children }) {
+    // Return
+    return (
+        <ContentLayout>
+            <Header/>
+            {children}
+            <Footer/>
+        </ContentLayout>
+    );
+};

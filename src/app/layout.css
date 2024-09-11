@@ -16,7 +16,10 @@
  */
 
 /* Main */
-#App {
-    padding-left: 1rem;
-    padding-right: 1rem;
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
 }
