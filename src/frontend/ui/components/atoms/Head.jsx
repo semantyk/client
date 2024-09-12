@@ -1,10 +1,10 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `HeadComponent.jsx`
+ * # `Head.jsx`
  * client | Semantyk
  *
  * Created: Jul 9, 2024
- * Modified: Jul 10, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,15 +15,13 @@
 
 //* Imports
 import React from "react";
-import Head from "next/head";
 import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
 //* Local Imports
 
-export default function HeadComponent() {
+//* Main
+export default function Head() {
     // Return
-    return (
-        <Head>
-            <Analytics/>
-        </Head>
-    );
+    return (<>
+        <Analytics/>
+    </>);
 }

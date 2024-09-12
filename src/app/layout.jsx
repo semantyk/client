@@ -6,7 +6,7 @@
  * This file contains the layout for the Page component.
  *
  * Created: Nov 30, 2023
- * Modified: Jul 10, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -21,8 +21,7 @@ import React from "react";
 import "@semantyk/app/layout.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getMetadata } from "@semantyk/backend/logic/seo";
-import HeadComponent
-    from "@semantyk/frontend/ui/components/atoms/HeadComponent";
+import Head from "@semantyk/frontend/ui/components/atoms/Head";
 import Body from "@semantyk/frontend/ui/components/molecules/Body";
 import { getLang } from "@semantyk/frontend/logic/services/getLang";
 import Content from "@semantyk/frontend/ui/components/molecules/Content";
@@ -39,7 +38,7 @@ export default function RootLayout({ children }) {
     return (
         // TODO: Add logic for dynamic language
         <html lang={lang}>
-        <HeadComponent/>
+        <Head/>
         <Body>
             <Content>
                 {children}
