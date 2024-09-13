@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Jul 17, 2024
- * Modified: Jul 17, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,7 +16,6 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import Header from "@semantyk/frontend/ui/components/molecules/Header";
 import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
 import "@semantyk/frontend/ui/components/molecules/Content/index.css";
 import ContentLayout
@@ -28,7 +27,7 @@ export default function Content({ children }) {
     // Return
     return (
         <ContentLayout>
-            <Header/>
+            {/*<Header/>*/}
             {children}
             <Footer/>
         </ContentLayout>

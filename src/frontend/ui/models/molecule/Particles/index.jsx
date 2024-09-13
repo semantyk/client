@@ -1,51 +1,72 @@
+/*
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `index.jsx` | `ParticlesModel`
+ * client | Semantyk
+ *
+ * This file contains the logic for the Particles model.
+ *
+ * Created: Sep 12, 2024
+ * Modified: Sep 12, 2024
+ *
+ * Author: Semantyk Team
+ * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ *
+ * Copyright © Semantyk 2024. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ */
+
+//* Imports
 import React, { useEffect, useRef } from "react";
-import { BufferAttribute, Color, TextureLoader } from "three";
+import { Color, TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { getParticles, props } from "./logic";
+//* Local Imports
+import {
+    animateAndInterpolateParticles,
+    getParticles,
+    props,
+    updateParticleGeometry
+} from "./logic";
 import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
+// Main
 export default function ParticlesModel() {
     // Props
-    const { entropy, particle, path } = props;
+    const { animation, entropy, particle, path } = props;
     // Hooks
     const { colorScheme } = useColorScheme();
     const { image } = useLoader(TextureLoader, path);
-    const particles = useRef();
+    const particlesRef = useRef();
+    const startTimeRef = useRef(null);
     // Logic
-    particle.color = (colorScheme === "light") ? (new Color(0, 0, 0)) : (new Color(1, 1, 1));
+    const color = (colorScheme === "light") ? 0 : 1;
+    particle.color = new Color(color, color, color);
     // useEffect
     useEffect(() => {
         if (!image) return;
 
         const { count, offsets, ideal } = getParticles(image, particle.density);
-        if (particles.current) {
-            const key = "position";
-            const value = new BufferAttribute(new Float32Array(ideal), 2);
-            particles.current.geometry.setAttribute(key, value);
+        const randomPositions = new Float32Array(count * 2);
+
+        for (let i = 0; i < count * 2; i += 2) {
+            randomPositions[i] = (Math.random() - 0.5) * window.innerWidth * 4;
+            randomPositions[i + 1] = (Math.random() - 0.5) * window.innerHeight * 4;
         }
 
-        particles.current.data = { ideal, offsets, count };
-    }, [image]);
+        if (particlesRef.current) {
+            updateParticleGeometry(particlesRef.current, randomPositions);
+        }
 
+        particlesRef.current.data = { ideal, offsets, count, randomPositions };
+        startTimeRef.current = performance.now();
+    }, [image]);
     // useFrame
     useFrame(({ clock }) => {
-        if (!particles.current) return;
-        const time = clock.getElapsedTime() * entropy.speed;
-        const newPositions = particles.current.geometry.attributes.position.array;
-        const { count, ideal, offsets } = particles.current.data;
-
-        for (let i = 0; i < count; i++) {
-            const index = i * 2;
-            newPositions[index] = ideal[index] +
-                Math.sin(time + offsets[i].x) * entropy.distance;
-            newPositions[index + 1] = ideal[index + 1] +
-                Math.cos(time + offsets[i].y) * entropy.distance;
-        }
-        particles.current.geometry.attributes.position.needsUpdate = true;
+        if (!particlesRef.current) return;
+        animateAndInterpolateParticles(clock, particlesRef.current, entropy, animation.scatterDuration);
     });
-
+    // Return
     return (
-        <points ref={particles} {...particle}>
+        <points ref={particlesRef} {...particle}>
             <bufferGeometry/>
             <pointsMaterial {...particle} />
         </points>

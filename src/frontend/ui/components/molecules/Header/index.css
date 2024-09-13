@@ -6,7 +6,7 @@
  * This file contains the styles for the `Header` component.
  *
  * Created: Dec 23, 2023
- * Modified: Jul 10, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -17,7 +17,7 @@
 
 /* Main */
 #Header {
-    backdrop-filter: blur(33px);
+    /*backdrop-filter: blur(33px);*/
     padding-left: 1rem;
     padding-right: 1rem;
 }
