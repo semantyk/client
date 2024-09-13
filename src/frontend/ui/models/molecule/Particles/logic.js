@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Jul 17, 2024
- * Modified: Jul 17, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -12,6 +12,9 @@
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
+
+//* Imports
+import { BufferAttribute } from "three";
 
 //* Main
 // props
@@ -27,7 +30,10 @@ export const props = {
         scale: [0.05, 0.05, 0.05],
         size: 0.5,
     },
-    path: "/favicon.png"
+    path: "/favicon.png",
+    animation: {
+        scatterDuration: 5
+    }
 };
 
 // getImageData
@@ -42,6 +48,7 @@ export function getImageData(image) {
 }
 
 // getParticles
+// src/frontend/ui/models/molecule/Particles/logic.js
 export function getParticles(image, density) {
     const { data } = getImageData(image);
     const particles = { count: 0, offsets: [], ideal: [] };
@@ -61,6 +68,31 @@ export function getParticles(image, density) {
             }
         }
     }
-
     return particles;
+}
+
+export function animateAndInterpolateParticles(clock, particles, entropy, animationDuration) {
+    const elapsedTime = clock.getElapsedTime();
+    const t = Math.min(elapsedTime / animationDuration, 1);
+    const easedT = easeInOutCubic(t);
+
+    const { count, ideal, randomPositions, offsets } = particles.data;
+    const newPositions = particles.geometry.attributes.position.array;
+
+    for (let i = 0; i < count * 2; i += 2) {
+        const x = randomPositions[i] * (1 - easedT) + ideal[i] * easedT;
+        const y = randomPositions[i + 1] * (1 - easedT) + ideal[i + 1] * easedT;
+        newPositions[i] = x + Math.sin(elapsedTime * entropy.speed + offsets[i / 2].x) * entropy.distance * easedT;
+        newPositions[i + 1] = y + Math.cos(elapsedTime * entropy.speed + offsets[i / 2].y) * entropy.distance * easedT;
+    }
+    particles.geometry.attributes.position.needsUpdate = true;
+}
+
+export function updateParticleGeometry(particles, idealPositions) {
+    const value = new BufferAttribute(new Float32Array(idealPositions), 2);
+    particles.geometry.setAttribute("position", value);
+}
+
+function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
