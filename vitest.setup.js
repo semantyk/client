@@ -7,7 +7,7 @@
  * is executed, often used for test initialization.
  *
  * Created: Dec 5, 2023
- * Modified: Jul 5, 2024
+ * Modified: Sep 12, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -20,6 +20,10 @@
 import "@testing-library/jest-dom";
 
 //* Main
+// canvas.getContext
+window.HTMLCanvasElement.prototype.getContext = () => {
+    return { fillRect: () => {} };
+};
 // global.ResizeObserver
 global.ResizeObserver = class {
     observe() {}
@@ -29,14 +33,10 @@ global.ResizeObserver = class {
     disconnect() {}
 };
 // window.matchMedia
-Object.defineProperty(window, "matchMedia", {
-    writable: true,
-    value: vi.fn().mockImplementation(query => ({
-        matches: false,
+window.matchMedia = function (query) {
+    return {
         media: query,
-        onchange: null,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
-    })),
-});
+        addEventListener: function () {},
+        removeEventListener: function () {}
+    };
+};
