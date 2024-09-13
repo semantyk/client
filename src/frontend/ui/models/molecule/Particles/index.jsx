@@ -58,7 +58,7 @@ export default function ParticlesModel() {
 
         particlesRef.current.data = { ideal, offsets, count, randomPositions };
         startTimeRef.current = performance.now();
-    }, [image]);
+    }, [image, particle]);
     // useFrame
     useFrame(({ clock }) => {
         if (!particlesRef.current) return;
