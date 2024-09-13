@@ -16,7 +16,7 @@
  */
 
 //* Imports
-import React, { useEffect } from "react";
+import React from "react";
 import { OrbitControls } from "@react-three/drei";
 //* Local Imports
 import CanvasLayout from "@semantyk/frontend/ui/models/atoms/Canvas/layout";
@@ -24,24 +24,7 @@ import CanvasLayout from "@semantyk/frontend/ui/models/atoms/Canvas/layout";
 //* Main
 export default function Canvas({ children }) {
     // Logic
-    const camera = {
-        fov: 75, // Field of view
-        aspect: window.innerWidth / window.innerHeight, // Aspect ratio based on window dimensions
-        near: 0.1, // Near clipping plane
-        far: 1000, // Far clipping plane
-        position: [0, 0, 100], // Camera position in the 3D space
-    };
-    // useEffect
-    useEffect(() => {
-        const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    const camera = { position: [0, 0, 100] };
     // Return
     return (
         <CanvasLayout camera={camera}>
