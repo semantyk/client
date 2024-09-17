@@ -4,7 +4,7 @@
  * client | Semantyk
  *
  * Created: Jul 17, 2024
- * Modified: Sep 12, 2024
+ * Modified: Sep 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,88 +14,139 @@
  */
 
 //* Imports
-import { BufferAttribute } from "three";
+import { Vector3 } from "three";
+//* Local Imports
+import {
+    updateObject
+} from "@semantyk/frontend/ui/models/molecule/Particles/updates";
+import {
+    setupObject
+} from "@semantyk/frontend/ui/models/molecule/Particles/setups";
 
 //* Main
 // props
 export const props = {
-    interpolation: {
-        duration: 5
+    // General
+    general: {
+        scale: 1,
+        size: 150,
     },
-    flotation: {
-        distance: 20,
-        speed: 1
+    // Camera
+    camera: {
+        makeDefault: true
     },
+    // Animations
+    animations: {
+        chaos: {
+            magnitude: 1,
+            radius: 0.1,
+            speed: 1
+        },
+        order: {
+            magnitude: 1,
+            speed: 0.01
+        },
+        flotation: {
+            magnitude: 0.01,
+            speed: 0.005
+        },
+        interpolation: {
+            duration: 8
+        }
+    },
+    // Image
+    image: {
+        path: "/favicon.png"
+    },
+    // Particles
     particle: {
-        density: 15,
-        opacity: 1,
-        position: [0, 0, 0],
-        scale: [0.05, 0.05, 0.05],
-        size: 0.5,
-    },
-    path: "/favicon.png"
+        density: 1,
+        size: 1,
+    }
 };
 
-// getImageData
-export function getImageData(image) {
-    const { width, height } = image;
+export function getImageData(unit, image) {
+    let { width, height } = image;
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
-    canvas.width = width;
-    canvas.height = height;
-    context.drawImage(image, 0, 0);
-    return context.getImageData(0, 0, width, height);
+    canvas.width = unit;
+    canvas.height = (height / width) * unit;
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    return context.getImageData(0, 0, canvas.width, canvas.height);
 }
 
-// getParticles
-export function getParticles(image, density) {
-    const { data } = getImageData(image);
-    const particles = { count: 0, offsets: [], ideal: [] };
-
-    for (let y = 0; y < image.height; y += density) {
-        for (let x = 0; x < image.width; x += density) {
-            const alpha = data[(x + y * image.width) * 4 + 3];
-            if (alpha > 128) {
-                const vx = x - image.width / 2;
-                const vy = -y + image.height / 2;
-                particles.ideal.push(vx, vy);
-                particles.offsets.push({
-                    x: Math.random() * Math.PI * 2,
-                    y: Math.random() * Math.PI * 2
-                });
-                particles.count++;
-            }
-        }
-    }
-    return particles;
-}
-
-// animateParticles
-export function animateParticles(clock, particles) {
-    // Props
-    const { flotation, interpolation } = props;
-    // Logic
-    const elapsedTime = clock.getElapsedTime();
-    const t = Math.min(elapsedTime / interpolation.duration, 1);
-    const easedT = easeInOutCubic(t);
-
-    const { count, ideal, initialPositions, offsets } = particles.data;
-    const newPositions = particles.geometry.attributes.position.array;
-
-    for (let i = 0; i < count * 2; i += 2) {
-        const x = initialPositions[i] * (1 - easedT) + ideal[i] * easedT;
-        const y = initialPositions[i + 1] * (1 - easedT) + ideal[i + 1] * easedT;
-        newPositions[i] = x + Math.sin(elapsedTime * flotation.speed + offsets[i / 2].x) * flotation.distance * easedT;
-        newPositions[i + 1] = y + Math.cos(elapsedTime * flotation.speed + offsets[i / 2].y) * flotation.distance * easedT;
-    }
-    particles.geometry.attributes.position.needsUpdate = true;
-}
-
-export function updateParticles(particles, idealPositions) {
-    const value = new BufferAttribute(new Float32Array(idealPositions), 2);
-    particles.geometry.setAttribute("position", value);
-}
-
-function easeInOutCubic(t) {
+export function ease(time, duration) {
+    const t = Math.min(time / duration, 1);
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+export function addEventListeners(args) {
+    // Args
+    const { handleMouseMove } = args;
+    // Listeners
+    window.addEventListener("mousemove", handleMouseMove);
+}
+
+export function removeEventListeners(args) {
+    // Args
+    const { handleMouseMove } = args;
+    // Listeners
+    window.removeEventListener("mousemove", handleMouseMove);
+}
+
+export function setupObjects(args) {
+    // Args
+    const {
+        data: { color, unit },
+        refs: { particles, plane },
+        objects: { raycaster },
+        loaders: { image },
+    } = args;
+    // Setup
+    // - plane
+    setupObject("plane", plane, { unit });
+    // - particles
+    setupObject("particles", particles.current, {
+        color,
+        image,
+        unit
+    });
+    // - raycaster
+    setupObject("raycaster", raycaster, { unit });
+}
+
+export function updateObjects(args) {
+    // Args
+    const {
+        data: { unit },
+        objects: { clock, raycaster },
+        refs: { particles }
+    } = args;
+    // - particles
+    updateObject("particles", particles.current, {
+        clock,
+        raycaster,
+        unit
+    });
+}
+
+export function updateOnMouseMove(args) {
+    // Args
+    const { events, objects, refs } = args;
+    // Logic
+    const target = new Vector3();
+    updateObject("circle", refs.circle.current, {
+        plane: refs.plane.current,
+        raycaster: objects.raycaster,
+        target
+    });
+    updateObject("mouse", refs.mouse.current, { event: events.mousemove });
+    updateObject("raycaster", objects.raycaster, {
+        camera: refs.camera.current,
+        mouse: refs.mouse.current
+    });
+    updateObject("line", refs.rayLine.current, {
+        raycaster: objects.raycaster,
+        target
+    });
 }

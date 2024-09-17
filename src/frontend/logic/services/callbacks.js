@@ -1,25 +1,26 @@
 /*
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.css` | `Canvas`
+ * # `callbacks.js`
  * client | Semantyk
  *
- * This file contains the styles for the Canvas component.
- *
- * Created: Jul 17, 2024
- * Modified: Jul 17, 2024
+ * Created: Sep 16, 2024
+ * Modified: Sep 16, 2024
  *
  * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer:
  *
  * Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-/* Main */
-#Canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+// onMouseMove
+export const onMouseMove = (event) => {
+    // Props
+    const { clientX, clientY } = event;
+    const { innerWidth, innerHeight } = window;
+    // Logic
+    const x = clientX / innerWidth;
+    const y = clientY / innerHeight;
+    // Return
+    return { clientX, clientY, x, y };
+};
