@@ -6,7 +6,7 @@
  * This file contains the logic for the Particles model.
  *
  * Created: Sep 12, 2024
- * Modified: Sep 12, 2024
+ * Modified: Sep 17, 2024
  *
  * Author: Semantyk Team
  * Maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,58 +16,112 @@
  */
 
 //* Imports
-import React, { useEffect, useRef } from "react";
-import { Color, TextureLoader } from "three";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useEffect } from "react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 //* Local Imports
 import {
-    animateParticles,
-    getParticles,
+    addEventListeners,
     props,
-    updateParticles
-} from "./logic";
-import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
+    removeEventListeners,
+    setupObjects,
+    updateObjects,
+    updateOnMouseMove,
+} from "@semantyk/frontend/ui/models/molecule/Particles/logic";
+import { useData } from "@semantyk/frontend/ui/models/molecule/Particles/hooks";
 
-// Main
+//* Main
 export default function ParticlesModel() {
     // Props
-    const { particle, path } = props;
+    const { animations: { chaos: { radius } } } = props;
     // Hooks
-    const { colorScheme } = useColorScheme();
-    const { image } = useLoader(TextureLoader, path);
-    const particlesRef = useRef();
+    // - useData
+    const { data, loaders, objects, refs } = useData();
     // Logic
-    const color = (colorScheme === "light") ? 0 : 1;
-    particle.color = new Color(color, color, color);
-    // useEffect
+    // Listeners
+    const handleMouseMove = (event) => {
+        updateOnMouseMove({ events: { mousemove: event }, objects, refs });
+    };
+    // Hooks
+    // - useEffect
     useEffect(() => {
-        if (!image) return;
-
-        const { count, offsets, ideal } = getParticles(image, particle.density);
-        const initialPositions = new Float32Array(count * 2);
-        const initialEntropy = 5;
-
-        for (let i = 0; i < count * 2; i += 2) {
-            initialPositions[i] = (Math.random() - 0.5) * window.innerWidth * initialEntropy;
-            initialPositions[i + 1] = (Math.random() - 0.5) * window.innerHeight * initialEntropy;
-        }
-
-        if (particlesRef.current) {
-            updateParticles(particlesRef.current, initialPositions);
-        }
-
-        particlesRef.current.data = { ideal, offsets, count, initialPositions };
-    }, [image, particle]);
-    // useFrame
+        // Setup Objects
+        setupObjects({ data, loaders, objects, refs });
+        // Listeners
+        // - add
+        addEventListeners({ handleMouseMove });
+        // - remove
+        return () => removeEventListeners({ handleMouseMove });
+    }, [handleMouseMove, loaders, refs, objects, data]);
+    // - useFrame
     useFrame(({ clock }) => {
-        if (!particlesRef.current) return;
-        animateParticles(clock, particlesRef.current);
+        updateObjects({ data, objects: { clock, ...objects }, refs });
     });
+    // - useHelper
+    // useHelper(refs.camera, CameraHelper);
     // Return
     return (
-        <points ref={particlesRef} {...particle}>
-            <bufferGeometry/>
-            <pointsMaterial {...particle} />
-        </points>
+        <>
+            {/* Camera */}
+            <PerspectiveCamera
+                ref={refs.camera}
+                fov={data.unit * 2}
+                position={[0, 0, data.unit / 2]}
+                {...props.camera}
+            />
+            {/* Orbit Controls */}
+            <OrbitControls/>
+            {/* Box */}
+            <mesh ref={refs.box} visible={false}>
+                <boxGeometry args={[data.unit, data.unit, data.unit]}/>
+                <meshBasicMaterial
+                    color={-data.color.r}
+                    opacity={0.1}
+                    transparent
+                    wireframe
+                />
+            </mesh>
+            {/* Circle */}
+            <mesh
+                ref={refs.circle}
+                position={[0, 0, -data.unit / 2]}
+                visible={false}
+            >
+                <circleGeometry args={[data.unit * radius, 32]}/>
+                <meshBasicMaterial
+                    color="red"
+                    opacity={1}
+                    transparent
+                    wireframe
+                />
+            </mesh>
+            {/* Particles */}
+            <points ref={refs.particles}>
+                <bufferGeometry/>
+                <pointsMaterial
+                    sizeAttenuation={true}
+                    vertexColors
+                    {...props.particle}
+                />
+            </points>
+            {/* Plane */}
+            <mesh
+                ref={refs.plane}
+                position={[0, 0, -data.unit / 2]}
+                visible={false}
+            >
+                <planeGeometry args={[data.unit, data.unit]}/>
+                <meshBasicMaterial
+                    opacity={1}
+                    transparent
+                    wireframe
+                />
+            </mesh>
+            {/* RayLine */}
+            <line ref={refs.rayLine} visible={false}>
+                <bufferGeometry/>
+                <lineBasicMaterial color="red"/>
+            </line>
+        </>
     );
 }

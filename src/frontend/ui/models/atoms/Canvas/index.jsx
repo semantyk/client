@@ -17,7 +17,6 @@
 
 //* Imports
 import React from "react";
-import { OrbitControls } from "@react-three/drei";
 //* Local Imports
 import CanvasLayout from "@semantyk/frontend/ui/models/atoms/Canvas/layout";
 
@@ -28,8 +27,6 @@ export default function Canvas({ children }) {
     // Return
     return (
         <CanvasLayout camera={camera}>
-            <OrbitControls/>
-            <ambientLight intensity={1}/>
             {children}
         </CanvasLayout>
     );
