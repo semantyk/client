@@ -17,7 +17,7 @@
 
 //* Imports
 import { useEffect } from "react";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { PerspectiveCamera } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 //* Local Imports
 import {
@@ -70,7 +70,7 @@ export default function ParticlesModel() {
                 {...props.camera}
             />
             {/* Orbit Controls */}
-            <OrbitControls/>
+            {/* <OrbitControls/> */}
             {/* Box */}
             <mesh ref={refs.box} visible={false}>
                 <boxGeometry args={[data.unit, data.unit, data.unit]}/>
