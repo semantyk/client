@@ -3,7 +3,7 @@
  * # `getResponse.js`
  * client | Semantyk
  *
- * This file contains a function that retrieves the response object based on
+ * This file contains a function that retrieves the response particles based on
  * the request headers.
  *
  * Created: Dec 23, 2023

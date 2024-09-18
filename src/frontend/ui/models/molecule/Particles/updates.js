@@ -19,123 +19,163 @@ import {
     addEffect
 } from "@semantyk/frontend/ui/models/molecule/Particles/effects";
 import { onMouseMove } from "@semantyk/frontend/logic/services/callbacks";
+//* ----------------------------------------------------------------------------
+// Particle Updates
+// - particle.chaos
 import { props } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
 
 //* Main
-export function updateObject(type, object, args) {
-    switch (type) {
-        case "circle":
-            return updateCircle(object, args);
-        case "line":
-            return updateLine(object, args);
-        case "mouse":
-            return updateMouse(object, args);
-        case "particles":
-            return updateParticles(object, args);
-        case "raycaster":
-            return updateRaycaster(object, args);
-        default:
-            return;
-    }
+//* ----------------------------------------------------------------------------
+// Update Factories
+// - particles
+export function updateObject(type, args) {
+    // Logic
+    // - declare options
+    const options = {
+        circle: updateCircle,
+        line: updateLine,
+        mouse: updateMouse,
+        particles: updateParticles,
+        raycaster: updateRaycaster,
+    };
+    // - select option
+    let option = options[type];
+    // Update
+    if (option)
+        option(args);
 }
 
-// - circle
-export const updateCircle = (circle, args) => {
-    const { plane, raycaster, target } = args;
-    raycaster.ray.intersectPlane(plane, target);
-    circle.position.copy(target);
-};
+// - attribute
+export function updateAttribute(type, args) {
+    // Logic
+    // - declare options
+    const options = {
+        chaos: updateChaos,
+        color: updateColor,
+        position: updatePosition
+    };
+    // - select option
+    let option = options[type];
+    // Update
+    if (option)
+        option(args);
+}
 
-// - line
-export const updateLine = (line, args) => {
-    const { raycaster, target } = args;
-    const { origin } = raycaster.ray;
+//* ----------------------------------------------------------------------------
+// Object Updates
+// - circle
+export function updateCircle({ objects, refs, target }) {
+    // Logic
+    objects.raycaster.ray.intersectPlane(refs.plane.current, target);
+    refs.circle.current.position.copy(target);
+}
+
+// - particles
+export const updateLine = ({ objects, refs, target }) => {
+    // Logic
+    const { origin } = objects.raycaster.ray;
     const points = [origin, target];
     const geometry = new BufferGeometry().setFromPoints(points);
-    line.geometry.dispose();
-    line.geometry = geometry;
+    refs.rayLine.current.geometry.dispose();
+    // Update
+    refs.rayLine.current.geometry = geometry;
 };
 
 // - mouse
-export const updateMouse = (mouse, args) => {
-    const { event } = args;
-    const { x, y } = onMouseMove(event);
-    mouse.x = x * 2 - 1;
-    mouse.y = -y * 2 + 1;
+export const updateMouse = ({ refs, events }) => {
+    const { x, y } = onMouseMove(events.mousemove);
+    refs.mouse.current.x = x * 2 - 1;
+    refs.mouse.current.y = -y * 2 + 1;
 };
 
 // - particles
-export const updateParticles = (particles, args) => {
-    const { unit, clock, raycaster } = args;
+export const updateParticles = ({
+                                    objects,
+                                    refs: { mouse, particles },
+                                    ...args
+                                }) => {
+    // Props
+    let { clock } = objects;
+    const { interpolation } = props.animations;
     // Logic
-    let intersects = raycaster.intersectObject(particles);
+    const object = particles.current;
+    const time = clock.current.getElapsedTime();
+    const intersects = objects.raycaster.intersectObject(object);
     const idxs = new Set(intersects.map(({ index }) => index));
+    const colors = object.geometry.attributes.color.array;
+    const positions = object.geometry.attributes.position.array;
     // Update
     // - each particle
-    for (let i = 0; i < particles.data.count; i++) {
-        updateChaos(particles, { i, idxs });
-        // updateColor(particles, { i });
-        updatePosition(particles, { i, clock, unit });
+    for (let i = 0; i < object.data.count; i++) {
+        if (time >= interpolation.duration) {
+            updateAttribute("chaos", {
+                i,
+                idxs,
+                mouse,
+                particles: object,
+                ...args
+            });
+            updateAttribute("color", { i, colors, particles: object, ...args });
+        }
+        updateAttribute("position", {
+            i,
+            idxs,
+            object,
+            positions,
+            particles,
+            time,
+            ...args
+        });
     }
     // - all particles
-    particles.geometry.attributes.color.needsUpdate = true;
-    particles.geometry.attributes.position.needsUpdate = true;
+    object.geometry.attributes.color.needsUpdate = true;
+    object.geometry.attributes.position.needsUpdate = true;
 };
 
 // - raycaster
-export function updateRaycaster(raycaster, args) {
-    const { camera, mouse } = args;
+export function updateRaycaster({ objects, refs }) {
+    // Args
+    const { raycaster } = objects;
+    const camera = refs.camera.current;
+    const mouse = refs.mouse.current;
     const coords = new Vector2(mouse.x, mouse.y);
     raycaster.setFromCamera(coords, camera);
 }
 
-//* ----------------------------------------------------------------------------
-
-// - particle.chaos
-function updateChaos(particles, args) {
-    const { i, idxs } = args;
+const updateChaos = ({ data, i, idxs, mouse, particles }) => {
     // Props
-    const { chaos, order } = props.animations;
-    let currentChaotic = particles.data.chaotic[i];
+    const { unit } = data;
+    const { animations: { chaos, order } } = props;
     // Logic
-    if (idxs.has(i)) {
-        currentChaotic += chaos.speed;
-        particles.data.chaotic[i] = Math.min(chaos.magnitude, currentChaotic);
+    let magnitude;
+    let currentChaos = particles.data.chaotic[i];
+    if (idxs.has(i) && mouse.current.isMoving) {
+        currentChaos += chaos.magnitude;
+        magnitude = Math.min(currentChaos, 1);
     } else {
-        currentChaotic -= order.speed;
-        particles.data.chaotic[i] = Math.max(0, currentChaotic);
+        // magnitude over time
+        currentChaos -= order.magnitude / unit;
+        magnitude = Math.max(currentChaos, 0);
     }
-}
+    particles.data.chaotic[i] = magnitude;
+};
 
 // - particle.color
-const updateColor = (particles, args) => {
-    // Args
-    const { i } = args;
-    // Props
-    const { color } = particles.data;
-    const colors = particles.geometry.attributes.color.array;
+const updateColor = ({ i, colors, particles, ...args }) => {
     // Logic
-    const chaoticValue = particles.data.chaotic[i];
-    const target = new Color(1, 0, 0);
-    const final = color.clone();
-    // Transform
-    final.lerp(target, chaoticValue);
+    let final = new Color();
+    // Effects
+    addEffect("color", { colors, particles, i, final, ...args });
     // Update
     colors.set(final.toArray(), i * 3);
 };
 
 // - particle.position
-function updatePosition(particles, args) {
-    const { i, clock, unit } = args;
+function updatePosition({ object, positions, i, ...args }) {
     // Logic
-    let finalV3 = new Vector3();
-    const positions = particles.geometry.attributes.position.array;
-    const time = clock.getElapsedTime();
+    let final = new Vector3();
     // Effects
-    // - interpolation
-    addEffect("interpolation", { particles, i, final: finalV3, time });
-    addEffect("chaos", { particles, i, finalV3, time, unit });
-    addEffect("flotation", { particles, i, final: finalV3, time, unit });
+    addEffect("position", { positions, object, i, final, ...args });
     // Update
-    positions.set(finalV3.toArray(), i * 3);
+    positions.set(final.toArray(), i * 3);
 }

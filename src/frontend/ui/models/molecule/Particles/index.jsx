@@ -17,7 +17,7 @@
 
 //* Imports
 import { useEffect } from "react";
-import { PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 //* Local Imports
 import {
@@ -28,51 +28,65 @@ import {
     updateObjects,
     updateOnMouseMove,
 } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
-import { useData } from "@semantyk/frontend/ui/models/molecule/Particles/hooks";
+import { useArgs } from "@semantyk/frontend/ui/models/molecule/Particles/hooks";
+import { CameraHelper } from "three";
 
 //* Main
 export default function ParticlesModel() {
     // Props
     const { animations: { chaos: { radius } } } = props;
     // Hooks
-    // - useData
-    const { data, loaders, objects, refs } = useData();
+    // - useArgs
+    const args = useArgs();
+    const { data, objects, refs } = args;
     // Logic
+    const showHelpers = true;
+    let moveMouseTimeout;
     // Listeners
     const handleMouseMove = (event) => {
-        updateOnMouseMove({ events: { mousemove: event }, objects, refs });
+        const { mouse } = refs;
+        clearTimeout(moveMouseTimeout);
+        mouse.current.isMoving = true;
+        moveMouseTimeout = setTimeout(() => mouse.current.isMoving = false, 1);
+        updateOnMouseMove({
+            events: { mousemove: event },
+            data,
+            objects,
+            refs
+        });
     };
     // Hooks
     // - useEffect
     useEffect(() => {
         // Setup Objects
-        setupObjects({ data, loaders, objects, refs });
+        setupObjects({ data, objects, refs });
         // Listeners
         // - add
         addEventListeners({ handleMouseMove });
         // - remove
         return () => removeEventListeners({ handleMouseMove });
-    }, [handleMouseMove, loaders, refs, objects, data]);
+    }, [handleMouseMove, data, objects, refs]);
     // - useFrame
     useFrame(({ clock }) => {
-        updateObjects({ data, objects: { clock, ...objects }, refs });
+        objects.clock.current = clock;
+        updateObjects(args);
     });
-    // - useHelper
-    // useHelper(refs.camera, CameraHelper);
+    // - useHelpers
+    useHelper(showHelpers && refs.camera, CameraHelper);
     // Return
     return (
         <>
             {/* Camera */}
             <PerspectiveCamera
                 ref={refs.camera}
-                fov={data.unit * 2}
+                fov={-data.unit * 2}
                 position={[0, 0, data.unit / 2]}
                 {...props.camera}
             />
             {/* Orbit Controls */}
-            {/* <OrbitControls/> */}
+            {showHelpers && <OrbitControls/>}
             {/* Box */}
-            <mesh ref={refs.box} visible={false}>
+            <mesh ref={refs.box} visible={showHelpers}>
                 <boxGeometry args={[data.unit, data.unit, data.unit]}/>
                 <meshBasicMaterial
                     color={-data.color.r}
@@ -85,7 +99,7 @@ export default function ParticlesModel() {
             <mesh
                 ref={refs.circle}
                 position={[0, 0, -data.unit / 2]}
-                visible={false}
+                visible={showHelpers}
             >
                 <circleGeometry args={[data.unit * radius, 32]}/>
                 <meshBasicMaterial
@@ -99,7 +113,6 @@ export default function ParticlesModel() {
             <points ref={refs.particles}>
                 <bufferGeometry/>
                 <pointsMaterial
-                    sizeAttenuation={true}
                     vertexColors
                     {...props.particle}
                 />
@@ -108,7 +121,7 @@ export default function ParticlesModel() {
             <mesh
                 ref={refs.plane}
                 position={[0, 0, -data.unit / 2]}
-                visible={false}
+                visible={showHelpers}
             >
                 <planeGeometry args={[data.unit, data.unit]}/>
                 <meshBasicMaterial
@@ -118,7 +131,7 @@ export default function ParticlesModel() {
                 />
             </mesh>
             {/* RayLine */}
-            <line ref={refs.rayLine} visible={false}>
+            <line ref={refs.rayLine} visible={showHelpers}>
                 <bufferGeometry/>
                 <lineBasicMaterial color="red"/>
             </line>

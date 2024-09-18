@@ -22,7 +22,7 @@ import { props } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
 import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
 //* Main
-export function useData() {
+export function useArgs() {
     // Props
     const { general: { scale, size }, image: { path } } = props;
     // Hooks
@@ -38,12 +38,10 @@ export function useData() {
             color: colorV3,
             unit: scale * size
         },
-        // Loaders
-        loaders: {
-            image,
-        },
         // Objects
         objects: {
+            clock: useRef(),
+            image,
             raycaster: new Raycaster()
         },
         // Refs
