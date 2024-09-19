@@ -1,18 +1,18 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `vitest.config.js`
- * client | Semantyk
+ * @organization: Semantyk
  *
- * This file contains global configurations for Vitest, setting up how tests
+ * @file: This file contains global configurations for Vitest, setting up how tests
  * are run across the entire project.
  *
- * Created: Dec 5, 2023
- * Modified: Jul 5, 2024
+ * @created: Dec 5, 2023
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

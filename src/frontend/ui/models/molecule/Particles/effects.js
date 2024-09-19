@@ -1,59 +1,104 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `effects.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * Created: Sep 17, 2024
- * Modified: Sep 17, 2024
+ * @created: Sep 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer:
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+// - expansion
 import {
     ease,
     props,
 } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
-import { Vector3 } from "three";
+import { Color, Vector3 } from "three";
 
 //* Main
+//* ----------------------------------------------------------------------------
+// Effect Builder
 export function addEffect(type, args) {
-    switch (type) {
-        case "chaos":
-            return addChaosEffect(args);
-        case "flotation":
-            return addFlotationEffect(args);
-        case "interpolation":
-            return addInterpolationEffect(args);
-        default:
-            return;
-    }
+    // Logic
+    // - declare options
+    const options = {
+        // - THREE.point
+        color: addPointColorEffect,
+        position: addPointPositionEffect,
+        // - custom
+        expansion: addExpansionEffect,
+        flotation: addFlotationEffect,
+        interpolation: addInterpolationEffect,
+    };
+    // - select option
+    let option = options[type];
+    // Update
+    if (option)
+        option(args);
 }
 
-// - chaos
-export function addChaosEffect(args) {
-    // TODO: Implement chaos effect
+//* ----------------------------------------------------------------------------
+// THREE.point Effects
+// - color
+export function addPointColorEffect({ particles, i, final, colors }) {
+    // Logic
+    const chaoticValue = particles.data.chaotic[i];
+    const target = new Color(1, 0, 0);
+    // Transform
+    final.lerp(target, chaoticValue);
+    // Update
+    colors.set(final.toArray(), i * 3);
+}
+
+// - position
+export function addPointPositionEffect(args) {
+    // Props
+    const { animations: { interpolation } } = props;
+    // Effects
+    addEffect("interpolation", args);
+    addEffect("flotation", args);
+    if (args.time >= interpolation.duration)
+        addEffect("expansion", args);
+}
+
+//* ----------------------------------------------------------------------------
+// Custom Effects
+// - expansion
+export function addExpansionEffect({ object, i, final }) {
+    // Props
+    const { expansion } = props.animations;
+    const chaosValue = object.data.chaotic[i];
+    const { ideal } = object.data.positions;
+    const positions = object.geometry.attributes.position.array;
+    // Logic
+    const source = new Vector3().fromArray(positions, i * 3);
+    const target = new Vector3().fromArray(ideal, i * 3);
+    const effect = new Vector3().subVectors(source, target);
+    effect.multiplyScalar(chaosValue);
+    effect.multiplyScalar(expansion.magnitude);
+    // Add Effect
+    final.add(effect);
 }
 
 // - flotation
-export function addFlotationEffect(args) {
-    const { particles, i, final, time, unit } = args;
+export function addFlotationEffect({ object, i, final, time }) {
     // Props
-    const { offsets } = particles.data.positions;
+    const { offsets } = object.data.positions;
     const { animations: { flotation } } = props;
     // Logic
     const vector = new Vector3().fromArray(offsets, i * 3);
-    vector.addScalar(time * flotation.speed * unit);
+    vector.addScalar(time * flotation.speed);
     const effect = new Vector3(
         Math.sin(vector.x),
-        Math.sin(vector.y),
-        Math.sin(vector.z)
+        Math.sin(vector.y)
     );
     effect.multiplyScalar(flotation.magnitude);
-    effect.multiplyScalar(unit);
     // Prepare for Update
     final.add(effect);
 }
@@ -61,14 +106,14 @@ export function addFlotationEffect(args) {
 // - interpolation
 export function addInterpolationEffect(args) {
     // Args
-    const { particles, i, final, time } = args;
+    const { time, object, i, final } = args;
     // Props
-    const { ideal, initial } = particles.data.positions;
+    const { ideal, initial } = object.data.positions;
     const { interpolation: { duration } } = props.animations;
     // Logic
     const source = new Vector3().fromArray(initial, i * 3);
     const target = new Vector3().fromArray(ideal, i * 3);
-    // - ease time
+    // - ease timeease
     const easedTime = ease(time, duration);
     // - interpolate
     source.multiplyScalar(1 - easedTime);

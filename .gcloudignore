@@ -1,19 +1,18 @@
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  # # `.gcloudignore`
- # client | Semantyk
+ # @organization: Semantyk
+ * @project: Client
  #
  # This file contains the list of files and folders that are ignored by
  # Google Cloud.
  #
- # Note: Manually removed Next.js related files from the original.
+ # @created: Nov 28, 2023
+ # @@modified: Sep 18,2024
  #
- # Created: Nov 28, 2023
- # Modified: Jul 5, 2024
+ # @author: Semantyk Team
+ # @maintainer: Daniel Bakas <https://id.danielbakas.com>
  #
- # Author: Semantyk Team
- # Maintainer: Daniel Bakas <https://id.danielbakas.com>
- #
- # Copyright © Semantyk 2024. All rights reserved.
+ # @copyright: Copyright © Semantyk 2024. All rights reserved.
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
@@ -151,7 +150,7 @@ web_modules/
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
+# Comment in the public particles in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
@@ -284,3 +283,7 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
+
+/**
+ * @note Manually removed Next.js related files from the original.
+ */

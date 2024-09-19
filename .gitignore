@@ -1,16 +1,18 @@
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  # # `.gitignore`
- # client | Semantyk
+ # @organization: Semantyk
+ # @project: client
  #
- # This file contains the list of files and folders that are ignored by Git.
+ # @file: This file contains the list of files and folders that are ignored by
+ # Git.
  #
- # Created: Nov 28, 2023
- # Modified: Jul 5, 2024
+ # @created: Nov 28, 2023
+ # @modified: Sep 18,2024
  #
- # Author: Semantyk Team
- # Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ # @author: Semantyk Team
+ # @maintainer: Daniel Bakas <https://id.danielbakas.com>
  #
- # Copyright © Semantyk 2024. All rights reserved.
+ # @copyright: Copyright © Semantyk 2024. All rights reserved.
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
@@ -156,7 +158,7 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
+# Comment in the public particles in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 

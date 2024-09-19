@@ -1,15 +1,16 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `setups.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * Created: Sep 17, 2024
- * Modified: Sep 17, 2024
+ * @created: Sep 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
@@ -21,25 +22,26 @@ import {
 import { Float32BufferAttribute, Plane, Vector3 } from "three";
 
 //* Main
-export function setupObject(type, object, args) {
+export function setupObject(type, args) {
     switch (type) {
         case "particles":
-            return setupParticles(object, args);
+            setupParticles(args);
         case "plane":
-            return setupPlane(object, args);
+            setupPlane(args);
         case "raycaster":
-            return setupRaycaster(object, args);
+            setupRaycaster(args);
         default:
             return;
     }
 }
 
 // - particles
-export function setupParticles(particles, args) {
+export function setupParticles(args) {
     // Args
-    const { color, unit, image } = args;
+    const { data: { color, unit }, objects: { image }, refs } = args;
+    const particles = refs.particles.current;
     let { particle: { density } } = props;
-    const { data } = getImageData(unit, image);
+    const { data } = getImageData(args);
     particles.data = {
         label: "particles",
         count: 0,
@@ -91,17 +93,19 @@ export function setupParticles(particles, args) {
 }
 
 // - plane
-export function setupPlane(plane, args) {
+export function setupPlane(args) {
     // Args
-    const { unit } = args;
+    const { data: { unit }, refs: { plane } } = args;
     const normal = new Vector3(0, 0, 1);
     plane.current = new Plane(normal, unit / 2);
 }
 
 // - raycaster
-export function setupRaycaster(raycaster, args) {
+export function setupRaycaster(args) {
     // Args
-    const { unit } = args;
-    const { radius } = props.animations.chaos;
+    const { data: { unit }, objects: { raycaster } } = args;
+    // Props
+    const { animations: { chaos: { radius } } } = props;
+    // Logic
     raycaster.params.Points.threshold = radius * unit;
 }

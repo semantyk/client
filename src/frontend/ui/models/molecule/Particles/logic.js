@@ -1,15 +1,16 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `logic.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * Created: Jul 17, 2024
- * Modified: Sep 17, 2024
+ * @created: Jul 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
@@ -28,6 +29,7 @@ import {
 export const props = {
     // General
     general: {
+        showHelpers: false,
         scale: 1,
         size: 150,
     },
@@ -38,20 +40,21 @@ export const props = {
     // Animations
     animations: {
         chaos: {
-            magnitude: 1,
-            radius: 0.1,
-            speed: 1
+            magnitude: 0.25,
+            radius: 0.10
         },
         order: {
+            magnitude: 0.25
+        },
+        expansion: {
             magnitude: 1,
-            speed: 0.01
         },
         flotation: {
-            magnitude: 0.01,
-            speed: 0.005
+            magnitude: 1,
+            speed: 1
         },
         interpolation: {
-            duration: 8
+            duration: 5
         }
     },
     // Image
@@ -65,13 +68,17 @@ export const props = {
     }
 };
 
-export function getImageData(unit, image) {
+export function getImageData(args) {
+    // Args
+    const { data: { unit }, objects: { image } } = args;
+    // Logic
     let { width, height } = image;
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     canvas.width = unit;
     canvas.height = (height / width) * unit;
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    // Return
     return context.getImageData(0, 0, canvas.width, canvas.height);
 }
 
@@ -85,6 +92,9 @@ export function addEventListeners(args) {
     const { handleMouseMove } = args;
     // Listeners
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleMouseMove);
+
+
 }
 
 export function removeEventListeners(args) {
@@ -92,61 +102,28 @@ export function removeEventListeners(args) {
     const { handleMouseMove } = args;
     // Listeners
     window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("touchmove", handleMouseMove);
 }
 
 export function setupObjects(args) {
-    // Args
-    const {
-        data: { color, unit },
-        refs: { particles, plane },
-        objects: { raycaster },
-        loaders: { image },
-    } = args;
     // Setup
     // - plane
-    setupObject("plane", plane, { unit });
+    setupObject("plane", args);
     // - particles
-    setupObject("particles", particles.current, {
-        color,
-        image,
-        unit
-    });
+    setupObject("particles", args);
     // - raycaster
-    setupObject("raycaster", raycaster, { unit });
+    setupObject("raycaster", args);
 }
 
 export function updateObjects(args) {
-    // Args
-    const {
-        data: { unit },
-        objects: { clock, raycaster },
-        refs: { particles }
-    } = args;
-    // - particles
-    updateObject("particles", particles.current, {
-        clock,
-        raycaster,
-        unit
-    });
+    updateObject("particles", args);
 }
 
 export function updateOnMouseMove(args) {
-    // Args
-    const { events, objects, refs } = args;
     // Logic
     const target = new Vector3();
-    updateObject("circle", refs.circle.current, {
-        plane: refs.plane.current,
-        raycaster: objects.raycaster,
-        target
-    });
-    updateObject("mouse", refs.mouse.current, { event: events.mousemove });
-    updateObject("raycaster", objects.raycaster, {
-        camera: refs.camera.current,
-        mouse: refs.mouse.current
-    });
-    updateObject("line", refs.rayLine.current, {
-        raycaster: objects.raycaster,
-        target
-    });
+    updateObject("raycaster", args);
+    updateObject("mouse", args);
+    updateObject("circle", { target, ...args });
+    updateObject("line", { target, ...args });
 }

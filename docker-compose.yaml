@@ -1,17 +1,18 @@
 # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 # # `docker-compose.yaml`
-# client | Semantyk
+# @organization: Semantyk
+# @project: client
 #
-# This file defines the services that will be run in the development,
+# @file: This file defines the services that will be run in the development,
 # staging, and test environments.
 #
-# Created: Nov 29, 2023
-# Modified: Jul 5, 2024
+# @created: Nov 29, 2023
+# @modified: Sep 18,2024
 #
-# Author: Semantyk Team
-# Maintainer: Daniel Bakas <https://id.danielbakas.com>
+# @author: Semantyk Team
+# @maintainer: Daniel Bakas <https://id.danielbakas.com>
 #
-# Copyright © Semantyk 2024. All rights reserved.
+# @copyright: Copyright © Semantyk 2024. All rights reserved.
 # ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 version: '3.8'
