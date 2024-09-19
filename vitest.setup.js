@@ -1,18 +1,19 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `vitest.setup.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * This file is used to specify setup code that runs before each test file
+ * @file: This file is used to specify setup code that runs before each test file
  * is executed, often used for test initialization.
  *
- * Created: Dec 5, 2023
- * Modified: Sep 12, 2024
+ * @created: Dec 5, 2023
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

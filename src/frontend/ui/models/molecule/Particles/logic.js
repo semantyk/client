@@ -1,15 +1,16 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `logic.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * Created: Jul 17, 2024
- * Modified: Sep 17, 2024
+ * @created: Jul 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
@@ -28,6 +29,7 @@ import {
 export const props = {
     // General
     general: {
+        showHelpers: false,
         scale: 1,
         size: 150,
     },
@@ -90,6 +92,9 @@ export function addEventListeners(args) {
     const { handleMouseMove } = args;
     // Listeners
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleMouseMove);
+
+
 }
 
 export function removeEventListeners(args) {
@@ -97,6 +102,7 @@ export function removeEventListeners(args) {
     const { handleMouseMove } = args;
     // Listeners
     window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("touchmove", handleMouseMove);
 }
 
 export function setupObjects(args) {

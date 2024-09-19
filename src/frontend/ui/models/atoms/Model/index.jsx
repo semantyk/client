@@ -1,17 +1,18 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `index.jsx`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * This file contains the logic for a generic Three.js model component.
+ * @file: This file contains the logic for a generic Three.js model component.
  *
- * Created: Jul 17, 2024
- * Modified: Jul 17, 2024
+ * @created: Jul 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

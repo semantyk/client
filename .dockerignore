@@ -1,16 +1,18 @@
  # -----------------------------------------------------------------------------
  # # `.dockerignore`
- # client | Semantyk
+ # @organization: Semantyk
+ # @project: client
  #
- # This file contains the list of files and folders that are ignored by Git.
+ # @file: This file contains the list of files and folders that are ignored by
+ # Git.
  #
- # Created: Dec 14, 2023
- # Modified: Jul 5, 2024
+ # @created: Dec 14, 2023
+ # @@modified: Sep 18,2024
  #
- # Author: Semantyk Team
- # Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ # @author: Semantyk Team
+ # @maintainer: Daniel Bakas <https://id.danielbakas.com>
  #
- # Copyright Semantyk 2024. All rights reserved.
+ # @copyright: Copyright - Semantyk 2024. All rights reserved.
  # -----------------------------------------------------------------------------
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all

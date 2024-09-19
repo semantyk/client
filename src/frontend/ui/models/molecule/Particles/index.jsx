@@ -1,17 +1,18 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `index.jsx` | `ParticlesModel`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * This file contains the logic for the Particles model.
+ * @file: This file contains the logic for the Particles model.
  *
- * Created: Sep 12, 2024
- * Modified: Sep 17, 2024
+ * @created: Sep 12, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
@@ -34,13 +35,15 @@ import { CameraHelper } from "three";
 //* Main
 export default function ParticlesModel() {
     // Props
-    const { animations: { chaos: { radius } } } = props;
+    const {
+        general: { showHelpers },
+        animations: { chaos: { radius } }
+    } = props;
     // Hooks
     // - useArgs
     const args = useArgs();
     const { data, objects, refs } = args;
     // Logic
-    const showHelpers = true;
     let moveMouseTimeout;
     // Listeners
     const handleMouseMove = (event) => {
@@ -48,8 +51,16 @@ export default function ParticlesModel() {
         clearTimeout(moveMouseTimeout);
         mouse.current.isMoving = true;
         moveMouseTimeout = setTimeout(() => mouse.current.isMoving = false, 1);
+        let clientX, clientY;
+        if (event.type === "mousemove") {
+            clientX = event.clientX;
+            clientY = event.clientY;
+        } else if (event.type === "touchmove") {
+            clientX = event.touches[0].clientX;
+            clientY = event.touches[0].clientY;
+        }
         updateOnMouseMove({
-            events: { mousemove: event },
+            events: { mousemove: { clientX, clientY } },
             data,
             objects,
             refs

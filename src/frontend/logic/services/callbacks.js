@@ -1,15 +1,15 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `callbacks.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @client: client
  *
- * Created: Sep 16, 2024
- * Modified: Sep 16, 2024
+ * @created: Sep 16, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer:
- *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

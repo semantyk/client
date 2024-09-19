@@ -1,15 +1,16 @@
-/*
+/**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  * # `setups.js`
- * client | Semantyk
+ * @organization: Semantyk
+ * @project: Client
  *
- * Created: Sep 17, 2024
- * Modified: Sep 17, 2024
+ * @created: Sep 17, 2024
+ * @modified: Sep 18,2024
  *
- * Author: Semantyk Team
- * Maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Copyright © Semantyk 2024. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

@@ -1,17 +1,19 @@
 [//]: # (
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 \ # `AUTHORS.md`
-\ client | Semantyk
+\ @organization: Semantyk
+\ @project: client
 \ 
-\ This file lists all individuals having contributed content to the project.
+\ @file: This file lists all individuals having contributed content to the 
+\ project.
 \
-\ Created: Nov 28, 2023
-\ Modified: Jul 5, 2024
+\ @created: Nov 28, 2023
+\ @modified: Sep 18,2024
 \
-\ Author: Semantyk Team
-\ Maintainer: Daniel Bakas <https://id.danielbakas.com>
+\ @author: Semantyk Team
+\ @maintainer: Daniel Bakas <https://id.danielbakas.com>
 \
-\ Copyright © Semantyk 2024. All rights reserved.
+\ @copyright: Copyright © Semantyk 2024. All rights reserved.
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 )
 
@@ -22,7 +24,7 @@
 This file lists all individuals having contributed content to the project.
 
 * **Created:** Nov 28, 2023
-* **Modified:** July 5, 2024
+* **@modified: Sep 18,2024
 * **Author:** [Semantyk Team](https://github.com/orgs/semantyk/people)
 * **Maintainer:** [Daniel Bakas](https://id.danielbakas.com)
 
@@ -33,4 +35,5 @@ This file lists all individuals having contributed content to the project.
 | [**Daniel Bakas**](https://id.danielbakas.com) | <a href="https://github.danielbakas.com">`danielbakas` | Founder | <a href="https://id.danielbakas.com">`https://id.danielbakas.com`</a> | <a href="mailto:daniel@semantyk.com">`daniel@semantyk.com`</a> |
 
 ---
-*Copyright © [Semantyk](https://www.semantyk.com/) 2024. All rights reserved.*
+*@copyright: Copyright © [Semantyk](https://www.semantyk.com/) 2024. All rights
+reserved.*
