@@ -1,7 +1,7 @@
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  # # `.gcloudignore`
  # @organization: Semantyk
- * @project: Client
+ # @project: Client
  #
  # This file contains the list of files and folders that are ignored by
  # Google Cloud.
