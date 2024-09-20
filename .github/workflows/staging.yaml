@@ -20,6 +20,11 @@ on:
   push:
     branches:
       - staging
+  # TODO: Remove when separation of workflows is implemented.
+  workflow_run:
+    workflows: [ "Development CI Workflow" ]
+    types:
+      - completed
 
 jobs:
   deploy:
