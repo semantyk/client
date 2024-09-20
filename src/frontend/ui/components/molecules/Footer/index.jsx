@@ -37,7 +37,7 @@ export default function Footer() {
     return (
         <FooterLayout>
             <small className="text-secondary">
-                @copyright: Copyright © {link} {copyrightYear}
+                Copyright © {link} {copyrightYear}
             </small>
         </FooterLayout>
     );
