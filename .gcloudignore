@@ -1,19 +1,19 @@
- # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- # # `.gcloudignore`
- # @organization: Semantyk
- # @project: Client
- #
- # This file contains the list of files and folders that are ignored by
- # Google Cloud.
- #
- # @created: Nov 28, 2023
- # @@modified: Sep 18,2024
- #
- # @author: Semantyk Team
- # @maintainer: Daniel Bakas <https://id.danielbakas.com>
- #
- # @copyright: Copyright © Semantyk 2024. All rights reserved.
- # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+# # `.gcloudignore`
+# @organization: Semantyk
+# @project: Client
+#
+# This file contains the list of files and folders that are ignored by
+# Google Cloud.
+#
+# @created: Nov 28, 2023
+# @@modified: Sep 18,2024
+#
+# @author: Semantyk Team
+# @maintainer: Daniel Bakas <https://id.danielbakas.com>
+#
+# @copyright: Copyright © Semantyk 2024. All rights reserved.
+# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,node,macos,webstorm+all
@@ -38,6 +38,10 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Icon must end with two \r
+Icon
+
 
 # Thumbnails
 ._*
@@ -148,9 +152,17 @@ web_modules/
 .cache
 .parcel-cache
 
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
 # Gatsby files
 .cache/
-# Comment in the public particles in if your project uses Gatsby and not Next.js
+# Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
@@ -283,7 +295,3 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all
-
-/**
- * @note Manually removed Next.js related files from the original.
- */
