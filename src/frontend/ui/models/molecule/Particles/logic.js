@@ -5,7 +5,7 @@
  * @project: Client
  *
  * @created: Jul 17, 2024
- * @modified: Sep 18,2024
+ * @modified: Sep 21,2024
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -35,6 +35,7 @@ export const props = {
     },
     // Camera
     camera: {
+        margin: 1 / 3,
         makeDefault: true
     },
     // Animations
@@ -64,7 +65,7 @@ export const props = {
     // Particles
     particle: {
         density: 1,
-        size: 1,
+        size: 0.75
     }
 };
 
@@ -89,27 +90,29 @@ export function ease(time, duration) {
 
 export function addEventListeners(args) {
     // Args
-    const { handleMouseMove } = args;
+    const { handleMouseMove, handleResize } = args;
     // Listeners
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchmove", handleMouseMove);
-
-
+    window.addEventListener("resize", handleResize);
 }
 
 export function removeEventListeners(args) {
     // Args
-    const { handleMouseMove } = args;
+    const { handleMouseMove, handleResize } = args;
     // Listeners
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("touchmove", handleMouseMove);
+    window.removeEventListener("resize", handleResize);
 }
 
 export function setupObjects(args) {
     // Setup
+    // - camera
+    setupObject("camera", args);
     // - plane
     setupObject("plane", args);
-    // - particles
+    // - object
     setupObject("particles", args);
     // - raycaster
     setupObject("raycaster", args);
@@ -122,6 +125,7 @@ export function updateObjects(args) {
 export function updateOnMouseMove(args) {
     // Logic
     const target = new Vector3();
+    updateObject("camera", args);
     updateObject("raycaster", args);
     updateObject("mouse", args);
     updateObject("circle", { target, ...args });

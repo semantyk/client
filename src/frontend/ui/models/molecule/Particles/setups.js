@@ -5,7 +5,7 @@
  * @project: Client
  *
  * @created: Sep 17, 2024
- * @modified: Sep 18,2024
+ * @modified: Sep 21,2024
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -19,11 +19,14 @@ import {
     getImageData,
     props
 } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
+// - plane
 import { Float32BufferAttribute, Plane, Vector3 } from "three";
 
 //* Main
 export function setupObject(type, args) {
     switch (type) {
+        case "camera":
+            setupCamera(args);
         case "particles":
             setupParticles(args);
         case "plane":
@@ -35,12 +38,27 @@ export function setupObject(type, args) {
     }
 }
 
-// - particles
+export function setupCamera(args) {
+    // Args
+    const { data: { unit }, refs: { camera } } = args;
+    let { camera: { margin } } = props;
+    // Logic
+    // - camera
+    const aspectRatio = window.innerWidth / window.innerHeight;
+    let x = (1 + margin) / ((aspectRatio >= 1) ? 2 : (2 * aspectRatio));
+    const fx = 2 * Math.atan(x) * (180 / Math.PI);
+    camera.current.fov = fx;
+    camera.current.aspect = aspectRatio;
+    camera.current.position.z = unit / 2;
+    camera.current.updateProjectionMatrix();
+}
+
+// - object
 export function setupParticles(args) {
     // Args
     const { data: { color, unit }, objects: { image }, refs } = args;
+    const { particle } = props;
     const particles = refs.particles.current;
-    let { particle: { density } } = props;
     const { data } = getImageData(args);
     particles.data = {
         label: "particles",
@@ -49,7 +67,6 @@ export function setupParticles(args) {
         color,
         colors: [],
         positions: { ideal: [], initial: [], offsets: [] },
-        sizes: []
     };
 
     const dimensions = {
@@ -57,8 +74,8 @@ export function setupParticles(args) {
         y: (image.height / image.width) * unit,
         z: unit
     };
-    for (let y = 0; y < dimensions.y; y += density) {
-        for (let x = 0; x < dimensions.x; x += density) {
+    for (let y = 0; y < dimensions.y; y += particle.density) {
+        for (let x = 0; x < dimensions.x; x += particle.density) {
             const alpha = data[(x + y * dimensions.x) * 4 + 3];
             if (alpha > 128) {
                 particles.data.chaotic.push(0);
@@ -89,7 +106,10 @@ export function setupParticles(args) {
     const positionsArray = particles.data.positions.ideal;
     const positionsValue = new Float32BufferAttribute(positionsArray, 3);
     particles.geometry.setAttribute("position", positionsValue);
-
+    // - size
+    const ratio = window.innerWidth / window.innerHeight;
+    const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);
+    particles.material.size = size;
 }
 
 // - plane
