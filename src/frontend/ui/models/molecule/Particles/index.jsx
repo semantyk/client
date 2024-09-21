@@ -7,7 +7,7 @@
  * @file: This file contains the logic for the Particles model.
  *
  * @created: Sep 12, 2024
- * @modified: Sep 18,2024
+ * @modified: Sep 21,2024
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -18,6 +18,7 @@
 
 //* Imports
 import { useEffect } from "react";
+import { CameraHelper } from "three";
 import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 //* Local Imports
@@ -30,7 +31,9 @@ import {
     updateOnMouseMove,
 } from "@semantyk/frontend/ui/models/molecule/Particles/logic";
 import { useArgs } from "@semantyk/frontend/ui/models/molecule/Particles/hooks";
-import { CameraHelper } from "three";
+import {
+    setupCamera
+} from "@semantyk/frontend/ui/models/molecule/Particles/setups";
 
 //* Main
 export default function ParticlesModel() {
@@ -45,38 +48,48 @@ export default function ParticlesModel() {
     const { data, objects, refs } = args;
     // Logic
     let moveMouseTimeout;
-    // Listeners
-    const handleMouseMove = (event) => {
-        const { mouse } = refs;
-        clearTimeout(moveMouseTimeout);
-        mouse.current.isMoving = true;
-        moveMouseTimeout = setTimeout(() => mouse.current.isMoving = false, 1);
-        let clientX, clientY;
-        if (event.type === "mousemove") {
-            clientX = event.clientX;
-            clientY = event.clientY;
-        } else if (event.type === "touchmove") {
-            clientX = event.touches[0].clientX;
-            clientY = event.touches[0].clientY;
-        }
-        updateOnMouseMove({
-            events: { mousemove: { clientX, clientY } },
-            data,
-            objects,
-            refs
-        });
-    };
     // Hooks
     // - useEffect
     useEffect(() => {
         // Setup Objects
         setupObjects({ data, objects, refs });
         // Listeners
+        // - mousemove/touchmove
+        const handleMouseMove = (event) => {
+            const { mouse } = refs;
+            clearTimeout(moveMouseTimeout);
+            mouse.current.isMoving = true;
+            moveMouseTimeout = setTimeout(() => mouse.current.isMoving = false, 1);
+            let clientX, clientY;
+            if (event.type === "mousemove") {
+                clientX = event.clientX;
+                clientY = event.clientY;
+            } else if (event.type === "touchmove") {
+                clientX = event.touches[0].clientX;
+                clientY = event.touches[0].clientY;
+            }
+            updateOnMouseMove({
+                events: { mousemove: { clientX, clientY } },
+                data,
+                objects,
+                refs
+            });
+        };
+        // - resize
+        const handleResize = () => {
+            const { particles } = refs;
+            setupCamera(args);
+            // Resize Particles
+            const { particle } = props;
+            const ratio = window.innerWidth / window.innerHeight;
+            const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);
+            particles.current.material.size = size;
+        };
         // - add
-        addEventListeners({ handleMouseMove });
+        addEventListeners({ handleMouseMove, handleResize });
         // - remove
-        return () => removeEventListeners({ handleMouseMove });
-    }, [handleMouseMove, data, objects, refs]);
+        return () => removeEventListeners({ handleMouseMove, handleResize });
+    }, [data, objects, refs]);
     // - useFrame
     useFrame(({ clock }) => {
         objects.clock.current = clock;
@@ -88,12 +101,7 @@ export default function ParticlesModel() {
     return (
         <>
             {/* Camera */}
-            <PerspectiveCamera
-                ref={refs.camera}
-                fov={-data.unit * 2}
-                position={[0, 0, data.unit / 2]}
-                {...props.camera}
-            />
+            <PerspectiveCamera ref={refs.camera} {...props.camera}/>
             {/* Orbit Controls */}
             {showHelpers && <OrbitControls/>}
             {/* Box */}
@@ -136,6 +144,7 @@ export default function ParticlesModel() {
             >
                 <planeGeometry args={[data.unit, data.unit]}/>
                 <meshBasicMaterial
+                    color={data.color}
                     opacity={1}
                     transparent
                     wireframe
