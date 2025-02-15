@@ -54,5 +54,5 @@ For inquiries or support regarding this project, please reach out to us:
 Your feedback and questions are greatly appreciated!
 
 ---
-<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2024. All rights
+<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2025. All rights
 reserved.</i>
