@@ -8,12 +8,12 @@
 \ project.
 \
 \ @created: Nov 28, 2023
-\ @modified: Sep 18,2024
+\ @modified: Mar 7, 2025
 \
 \ @author: Semantyk Team
 \ @maintainer: Daniel Bakas <https://id.danielbakas.com>
 \
-\ @copyright: Copyright © Semantyk 2024. All rights reserved.
+\ @copyright: Semantyk © 2025. All rights reserved.
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 )
 
@@ -24,7 +24,7 @@
 This file lists all individuals having contributed content to the project.
 
 * **Created:** Nov 28, 2023
-* **@modified: Sep 18,2024
+* **Modified**: Mar 7, 2025
 * **Author:** [Semantyk Team](https://github.com/orgs/semantyk/people)
 * **Maintainer:** [Daniel Bakas](https://id.danielbakas.com)
 
