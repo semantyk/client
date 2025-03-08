@@ -35,5 +35,4 @@ This file lists all individuals having contributed content to the project.
 | [**Daniel Bakas**](https://id.danielbakas.com) | <a href="https://github.danielbakas.com">`danielbakas` | Founder | <a href="https://id.danielbakas.com">`https://id.danielbakas.com`</a> | <a href="mailto:daniel@semantyk.com">`daniel@semantyk.com`</a> |
 
 ---
-*@copyright: Copyright © [Semantyk](https://www.semantyk.com/) 2024. All rights
-reserved.*
+*[Semantyk](https://www.semantyk.com/) © 2025. All rights reserved.*
