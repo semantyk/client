@@ -7,12 +7,12 @@
  * @file: This file contains the logic for the footer.
  *
  * @created: Dec 5, 2023
- * @modified: Sep 18,2024
+ * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Semantyk © 2025. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
@@ -37,7 +37,7 @@ export default function Footer() {
     return (
         <FooterLayout>
             <small className="text-secondary">
-                Copyright © {link} {copyrightYear}
+                {link} © {copyrightYear}
             </small>
         </FooterLayout>
     );

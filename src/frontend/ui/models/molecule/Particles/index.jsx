@@ -7,17 +7,17 @@
  * @file: This file contains the logic for the Particles model.
  *
  * @created: Sep 12, 2024
- * @modified: Sep 21,2024
+ * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Copyright © Semantyk 2024. All rights reserved.
+ * @copyright: Semantyk © 2025. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { CameraHelper } from "three";
 import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
@@ -47,7 +47,7 @@ export default function ParticlesModel() {
     const args = useArgs();
     const { data, objects, refs } = args;
     // Logic
-    let moveMouseTimeout;
+    const moveMouseTimeoutRef = useRef(null);
     // Hooks
     // - useEffect
     useEffect(() => {
@@ -57,9 +57,9 @@ export default function ParticlesModel() {
         // - mousemove/touchmove
         const handleMouseMove = (event) => {
             const { mouse } = refs;
-            clearTimeout(moveMouseTimeout);
+            clearTimeout(moveMouseTimeoutRef.current);
             mouse.current.isMoving = true;
-            moveMouseTimeout = setTimeout(() => mouse.current.isMoving = false, 1);
+            moveMouseTimeoutRef.current = setTimeout(() => mouse.current.isMoving = false, 1);
             let clientX, clientY;
             if (event.type === "mousemove") {
                 clientX = event.clientX;
@@ -89,7 +89,7 @@ export default function ParticlesModel() {
         addEventListeners({ handleMouseMove, handleResize });
         // - remove
         return () => removeEventListeners({ handleMouseMove, handleResize });
-    }, [data, objects, refs]);
+    }, [args, data, objects, refs]);
     // - useFrame
     useFrame(({ clock }) => {
         objects.clock.current = clock;
