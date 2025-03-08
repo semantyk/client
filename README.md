@@ -1,17 +1,18 @@
 [//]: # (
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 \ # `README.md`
-\ client | Semantyk
+\ @organization: Semantyk
+\ @project: Client
 \ 
-\ This is the main README file for the client project.
+\ @file: This is the main README file for the client project.
 \
-\ Created: Nov 28, 2023
-\ Modified: Jul 5, 2024
+\ @created: Nov 28, 2023
+\ @modified: Mar 7, 2025
 \
-\ Author: Semantyk Team
-\ Maintainer: Daniel Bakas <https://id.danielbakas.com>
+\ @author: Semantyk Team
+\ @maintainer: Daniel Bakas <https://id.danielbakas.com>
 \
-\ Copyright © Semantyk 2024. All rights reserved.
+\ @copyright: Semantyk © 2025. All rights reserved.
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 )
 
@@ -23,7 +24,7 @@
 (prefers-color-scheme: dark)" />
     <source srcset="https://www.semantyk.com/favicon.svg" media="
 (prefers-color-scheme: light)" />
-    <img src="https://www.semantyk.com/icon.png" alt="Semantyk" 
+    <img src="https://www.semantyk.com/favicon.svg" alt="Semantyk" 
 width="250" />
   </picture>
 </p>
@@ -54,5 +55,4 @@ For inquiries or support regarding this project, please reach out to us:
 Your feedback and questions are greatly appreciated!
 
 ---
-<i>Copyright © <a href="https://www.semantyk.com">Semantyk</a> 2025. All rights
-reserved.</i>
+*[Semantyk](https://www.semantyk.com/) © 2025. All rights reserved.*
