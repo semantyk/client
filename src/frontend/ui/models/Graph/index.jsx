@@ -1,11 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `index.jsx` | `GraphModel`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
- * @modified: Mar 7, 2025
+ * @file: This file contains the logic for the Graph model.
+ *
+ * @created: Mar 13, 2025
+ * @modified: Mar 13, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,13 +16,6 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
-//* Local Imports
-
 //* Main
-export default function Head() {
-    // Return
-    return <Analytics />;
-}
+export default function GraphModel() {
+};

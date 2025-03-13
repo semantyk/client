@@ -1,11 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `index.jsx` | `ParticlesModel`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
- * @modified: Mar 7, 2025
+ * @file: This file contains the main entry point for the Particles model.
+ *
+ * @created: Sep 12, 2024
+ * @modified: Mar 12, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,13 +16,8 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
-//* Local Imports
+import ParticlesScene from "./components/organisms/ParticlesScene";
 
-//* Main
-export default function Head() {
-    // Return
-    return <Analytics />;
+export default function ParticlesModel() {
+    return <ParticlesScene />;
 }

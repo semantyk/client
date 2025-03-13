@@ -1,11 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `index.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
- * @modified: Mar 7, 2025
+ * @file: This file contains the logic for a generic Three.js model component.
+ *
+ * @created: Jul 17, 2024
+ * @modified: Mar 12, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -14,13 +16,24 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
-//* Local Imports
+import Canvas from "@semantyk/frontend/ui/components/molecules/Canvas";
+import ParticlesModel from "@semantyk/frontend/ui/models/Particles";
+import GraphModel from "@semantyk/frontend/ui/models/Graph";
+import { usePathname } from "next/navigation";
 
 //* Main
-export default function Head() {
+export default function Model() {
+    // Logic
+    const pathname = usePathname();
     // Return
-    return <Analytics />;
-}
+    return (
+        <Canvas>
+            {pathname === "/" && <ParticlesModel />}
+            {pathname === "/knowledge" && <GraphModel />}
+        </Canvas>
+    );
+};
