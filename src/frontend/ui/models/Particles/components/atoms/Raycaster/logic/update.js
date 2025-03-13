@@ -1,8 +1,8 @@
 import { Vector2 } from 'three';
-import { UpdateStrategy } from '../../../../logic/updates/strategy';
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
-export class RaycasterUpdate extends UpdateStrategy {
-    apply({ objects, refs }) {
+export class RaycasterUpdate extends ModelStrategy {
+    execute({ objects, refs }) {
         const { raycaster } = objects;
         const camera = refs.camera.current;
         const mouse = refs.mouse.current;

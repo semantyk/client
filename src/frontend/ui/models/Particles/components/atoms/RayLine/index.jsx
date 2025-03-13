@@ -3,6 +3,11 @@
  * Atom component for the ray line in the Particles model
  */
 
+//* Imports
+import { LineUpdate } from './logic/update';
+
+export { LineUpdate };
+
 //* Main
 export default function RayLine({ config, refs }) {
     // Props

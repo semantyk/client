@@ -1,11 +1,11 @@
 import { Vector3 } from 'three';
-import { EffectManager } from '../../../../../logic/effects/manager';
-import { UpdateStrategy } from '../../../../../logic/updates/strategy';
+import { ParticleManager } from '../../../../../logic/manager';
+import { ParticleStrategy } from '../../../../../logic/strategy';
 
-export class PositionUpdate extends UpdateStrategy {
+export class PositionUpdate extends ParticleStrategy {
     apply({ object, positions, i, ...args }) {
         const final = new Vector3();
-        EffectManager.addEffect("position", { positions, object, i, final, ...args });
+        ParticleManager.addEffect("position", { positions, object, i, final, ...args });
         positions.set(final.toArray(), i * 3);
     }
 }

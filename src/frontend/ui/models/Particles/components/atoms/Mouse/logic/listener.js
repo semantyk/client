@@ -1,6 +1,6 @@
-import { ListenerStrategy } from '../../../../logic/listeners/strategy';
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
-export class MouseListener extends ListenerStrategy {
+export class MouseListener extends ModelStrategy {
     add({ handleMouseMove }) {
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("touchmove", handleMouseMove);

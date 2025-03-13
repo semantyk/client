@@ -21,9 +21,9 @@
 //* Imports
 import React from "react";
 import Canvas from "@semantyk/frontend/ui/components/molecules/Canvas";
-import ParticlesModel from "@semantyk/frontend/ui/models/Particles";
 import GraphModel from "@semantyk/frontend/ui/models/Graph";
 import { usePathname } from "next/navigation";
+import ParticlesModel from "@semantyk/frontend/ui/models/Particles";
 
 //* Main
 export default function Model() {

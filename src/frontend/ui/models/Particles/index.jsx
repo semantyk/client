@@ -1,13 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.jsx` | `ParticlesModel`
+ * # `ParticlesScene.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the main entry point for the Particles model.
+ * @file: This file contains the logic for the ParticlesScene component.
  *
- * @created: Sep 12, 2024
- * @modified: Mar 12, 2025
+ * @created: Mar 13, 2025
+ * @modified: Mar 13, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,8 +16,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-import ParticlesScene from "./components/organisms/ParticlesScene";
+//* Imports
+import { useArgs } from "@semantyk/frontend/ui/models/Particles/hooks/useArgs";
+import Controls from "./components/molecules/Controls";
+import ParticlesSystem from "./components/molecules/ParticlesSystem";
+import Camera from "./components/atoms/Camera";
 
+//* Main
 export default function ParticlesModel() {
-    return <ParticlesScene />;
+    // Hooks
+    const args = useArgs();
+    // Return
+    return (<>
+        <Controls {...args} />
+        <ParticlesSystem {...args} />
+    </>);
 }

@@ -6,6 +6,9 @@
 import { PerspectiveCamera } from "@react-three/drei";
 import { CameraHelper } from "three";
 import { useHelper } from "@react-three/drei";
+import { CameraSetup } from './logic/setup';
+
+export { CameraSetup };
 
 export default function Camera({ config, refs }) {
     // Props

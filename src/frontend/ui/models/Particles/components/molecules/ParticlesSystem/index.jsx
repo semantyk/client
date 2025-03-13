@@ -6,31 +6,29 @@
 //* Imports
 import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import Particles from "../atoms/Particles";
+import Particles from "../../atoms/Particles/index.jsx";
 import {
     setupObjects,
     updateObjects,
 } from "@semantyk/frontend/ui/models/Particles/logic";
-import { SetupManager } from "../../logic/setups/manager";
-import { ListenerManager } from "../../logic/listeners/manager";
-import { HandlerManager } from "../../logic/handlers/manager";
+import { ParticlesModelManager } from "../../../logic/manager.js";
 
 //* Main
-export default function ParticleSystem(args) {
+export default function ParticlesSystem(args) {
     // Logic
     useEffect(() => {
         setupObjects(args);
 
         const handleMouseMove = (event) => {
-            HandlerManager.handleMouseMove(event, args);
+            ParticlesModelManager.execute('handleEvent', 'mouse', event, args);
         };
 
         const handleResize = (event) => {
-            HandlerManager.handleResize(event, args);
+            ParticlesModelManager.execute('handleEvent', 'resize', event, args);
         };
 
-        ListenerManager.addEventListeners({ handleMouseMove, handleResize });
-        return () => ListenerManager.removeEventListeners({ handleMouseMove, handleResize });
+        ParticlesModelManager.execute('addEventListeners', { handleMouseMove, handleResize });
+        return () => ParticlesModelManager.execute('removeEventListeners', { handleMouseMove, handleResize });
     }, [args]);
 
     useFrame(({ clock }) => {

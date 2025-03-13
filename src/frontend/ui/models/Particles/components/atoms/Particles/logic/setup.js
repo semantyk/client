@@ -1,20 +1,25 @@
+/**
+ * Particles setup strategy for particle system
+ */
+
 import { Float32BufferAttribute } from 'three';
 
-import { SetupStrategy } from '../../../../logic/setups/strategy';
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 import { getImageData } from '../../../../logic';
 
-
-export class ParticlesSetup extends SetupStrategy {
-    apply({ config, data: { color, unit }, objects: { image }, refs }) {
+export class ParticlesSetup extends ModelStrategy {
+    /**
+     * Execute particles setup
+     * @param {Object} args - Arguments containing config, data, objects, and refs
+     */
+    execute({ config, data: { color, unit }, objects: { image }, refs }) {
         const { particle } = config;
         const particles = refs.particles.current;
         const { data } = getImageData({ data: { unit }, objects: { image } });
 
         particles.data = {
-            label: "particles",
             count: 0,
             chaotic: [],
-            color,
             colors: [],
             positions: { ideal: [], initial: [], offsets: [] },
         };

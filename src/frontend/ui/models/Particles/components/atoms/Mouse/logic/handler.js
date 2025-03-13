@@ -2,16 +2,16 @@
  * Mouse handler strategy for particle system
  */
 
-import { HandlerStrategy } from '../../../../logic/handlers/strategy';
+import { Vector2 } from 'three';
+import { ModelStrategy } from '@semantyk/frontend/ui/components/molecules/Model/logic/strategy';
 import { updateOnMouseMove } from '../../../../logic/index';
 
-export class MouseHandler extends HandlerStrategy {
+export class MouseHandler extends ModelStrategy {
     /**
-     * Handle mouse/touch move events
-     * @param {MouseEvent|TouchEvent} event - Mouse or touch event
-     * @param {Object} args - Particle system arguments
+     * Execute mouse/touch move events
+     * @param {Object} args - Arguments containing event and particle system data
      */
-    handle(event, args) {
+    execute({ event, ...args }) {
         const { mouse, moveMouseTimeout } = args.refs;
         clearTimeout(moveMouseTimeout.current);
         mouse.current.isMoving = true;

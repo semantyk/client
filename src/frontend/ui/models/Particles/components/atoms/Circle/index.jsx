@@ -3,6 +3,11 @@
  * Atom component for the circle in the Particles model
  */
 
+//* Imports
+import { CircleUpdate } from './logic/update';
+
+export { CircleUpdate };
+
 //* Main
 export default function Circle({ config, data, refs }) {
     // Props

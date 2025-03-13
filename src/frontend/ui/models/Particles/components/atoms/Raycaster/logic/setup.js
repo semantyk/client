@@ -1,7 +1,15 @@
-import { SetupStrategy } from '../../../../logic/setups/strategy';
+/**
+ * Raycaster setup strategy for particle system
+ */
 
-export class RaycasterSetup extends SetupStrategy {
-    apply({ config, data: { unit }, objects: { raycaster } }) {
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
+
+export class RaycasterSetup extends ModelStrategy {
+    /**
+     * Execute raycaster setup
+     * @param {Object} args - Arguments containing config, data, and objects
+     */
+    execute({ config, data: { unit }, objects: { raycaster } }) {
         const { animations: { chaos: { radius } } } = config;
         raycaster.params.Points.threshold = radius * unit;
     }

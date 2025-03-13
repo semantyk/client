@@ -1,8 +1,8 @@
 import { BufferGeometry } from 'three';
-import { UpdateStrategy } from '../../../../logic/updates/strategy';
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
-export class LineUpdate extends UpdateStrategy {
-    apply({ objects, refs, target }) {
+export class LineUpdate extends ModelStrategy {
+    execute({ objects, refs, target }) {
         const { origin } = objects.raycaster.ray;
         const points = [origin, target];
         const geometry = new BufferGeometry().setFromPoints(points);

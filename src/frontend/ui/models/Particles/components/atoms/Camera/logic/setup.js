@@ -1,7 +1,15 @@
-import { SetupStrategy } from '../../../../logic/setups/strategy';
+/**
+ * Camera setup strategy for particle system
+ */
 
-export class CameraSetup extends SetupStrategy {
-    apply({ config, data: { unit }, refs: { camera } }) {
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
+
+export class CameraSetup extends ModelStrategy {
+    /**
+     * Execute camera setup
+     * @param {Object} args - Arguments containing config, data, and refs
+     */
+    execute({ config, data: { unit }, refs: { camera } }) {
         const { camera: { margin } } = config;
 
         const aspectRatio = window.innerWidth / window.innerHeight;

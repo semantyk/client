@@ -1,6 +1,6 @@
-import { ListenerStrategy } from './strategy';
+import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
-export class ResizeListener extends ListenerStrategy {
+export class ResizeListener extends ModelStrategy {
     add({ handleResize }) {
         window.addEventListener("resize", handleResize);
     }

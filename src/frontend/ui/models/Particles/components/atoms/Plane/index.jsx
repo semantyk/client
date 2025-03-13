@@ -1,3 +1,8 @@
+//* Imports
+import { PlaneSetup } from './logic/setup';
+
+export { PlaneSetup };
+
 //* Main
 export default function Plane({ config, data, refs }) {
     // Props
