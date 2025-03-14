@@ -27,8 +27,8 @@ export default function ParticlesSystem(args) {
             ParticlesManager.handle('resize', { event, ...args });
         };
 
-        ParticlesManager.execute('addAll', 'listener', { handleMouseMove, handleResize });
-        return () => ParticlesManager.execute('removeAll', 'listener', { handleMouseMove, handleResize });
+        ParticlesManager.executeAll('add', { handleMouseMove, handleResize });
+        return () => ParticlesManager.executeAll('remove', { handleMouseMove, handleResize });
     }, [args]);
 
     useFrame(({ clock }) => {

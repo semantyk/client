@@ -20,62 +20,60 @@ import { ParticlesUpdate } from '../components/atoms/Particles/logic/update';
 export class ParticlesManager extends ModelManager {
     static instance = new ParticlesManager();
 
-    static execute(method, item, ...args) {
-        return this.instance[method](item, ...args);
+    static effects = {
+        chaos: new ChaosEffect(),
+        color: new ColorEffect(),
+        entropy: new EntropyEffect(),
+        position: new PositionEffect()
+    };
+
+    static handlers = {
+        mouseMove: new MouseHandler(),
+        resize: new ResizeHandler()
+    };
+
+    static setups = {
+        camera: new CameraSetup(),
+        particles: new ParticlesSetup(),
+        plane: new PlaneSetup(),
+        raycaster: new RaycasterSetup()
+    };
+
+    static listeners = {
+        mouse: new MouseListener(),
+        resize: new ResizeListener()
+    };
+
+    static updates = {
+        circle: new CircleUpdate(),
+        line: new LineUpdate(),
+        mouse: new MouseUpdate(),
+        particles: new ParticlesUpdate(),
+        raycaster: new RaycasterUpdate(),
+    };
+
+    static affect(item, ...args) {
+        const collection = this.effects;
+        return super.execute(collection, item, 'execute', ...args);
     }
 
-    static add(collectionName, item, args) {
-        const collection = this.instance[collectionName];
-        return this.instance.execute(collection, item, args);
+    static handle(item, ...args) {
+        const collection = this.handlers;
+        return super.execute(collection, item, 'execute', ...args);
     }
 
-    static handle(item, args) {
-        const collection = this.instance.handlers;
-        return this.instance.execute(collection, item, args);
+    static setup(item, ...args) {
+        const collection = this.setups;
+        return super.execute(collection, item, 'execute', ...args);
     }
 
-    static setup(item, args) {
-        const collection = this.instance.setups;
-        return this.instance.execute(collection, item, args);
+    static update(item, ...args) {
+        const collection = this.updates;
+        return super.execute(collection, item, 'execute', ...args);
     }
 
-    static update(item, args) {
-        const collection = this.instance.updates;
-        return this.instance.execute(collection, item, args);
-    }
-
-    constructor() {
-        super();
-        this.effects = {
-            chaos: new ChaosEffect(),
-            color: new ColorEffect(),
-            entropy: new EntropyEffect(),
-            position: new PositionEffect()
-        };
-
-        this.handlers = {
-            mouseMove: new MouseHandler(),
-            resize: new ResizeHandler()
-        };
-
-        this.setups = {
-            camera: new CameraSetup(),
-            particles: new ParticlesSetup(),
-            plane: new PlaneSetup(),
-            raycaster: new RaycasterSetup()
-        };
-
-        this.listener = {
-            mouse: new MouseListener(),
-            resize: new ResizeListener()
-        };
-
-        this.updates = {
-            circle: new CircleUpdate(),
-            line: new LineUpdate(),
-            mouse: new MouseUpdate(),
-            particles: new ParticlesUpdate(),
-            raycaster: new RaycasterUpdate(),
-        };
+    static executeAll(member, ...args) {
+        const collection = this.listeners;
+        return super.executeAll(collection, member, ...args);
     }
 }

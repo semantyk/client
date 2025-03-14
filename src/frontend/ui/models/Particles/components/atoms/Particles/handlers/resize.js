@@ -12,7 +12,7 @@ export class ResizeHandler extends ModelStrategy {
      */
     execute({ event, ...args }) {
         const { particles } = args.refs;
-        ParticlesManager.execute('setupObject', "camera", args);
+        ParticlesManager.setup('camera', args);
         const { particle } = args.config;
         const ratio = window.innerWidth / window.innerHeight;
         const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);

@@ -7,8 +7,8 @@ export class ParticlesUpdate extends ModelStrategy {
         const idxs = new Set(intersects.map(({ index }) => index));
 
         for (let i = 0; i < args.refs.particles.current.data.count; i++) {
-            ParticlesManager.add('effects', "color", { i, ...args });
-            ParticlesManager.add('effects', "position", { i, idxs, ...args });
+            ParticlesManager.affect('color', { i, ...args });
+            ParticlesManager.affect('position', { i, idxs, ...args });
         }
 
         args.refs.particles.current.geometry.attributes.color.needsUpdate = true;

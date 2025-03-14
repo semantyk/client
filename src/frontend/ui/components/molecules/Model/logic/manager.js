@@ -8,28 +8,20 @@ export class ModelManager {
         }
     }
 
-    // Generic method to handle operations on collections
-    execute(collection, key, args) {
-        const item = collection[key];
-        if (item) {
-            return item.execute(args);
-        }
+    static call(object, member, ...args) {
+        if (!object) return;
+        else object[member](...args);
     }
 
-    // TODO: Add a method for `add` and `remove`
-
-    // Event listener methods
-    addAll(collectionName, args) {
-        const collection = this[collectionName];
-        Object.values(collection).forEach(item => {
-            item.add(args);
-        });
+    static execute(collection, item, member, ...args) {
+        const object = collection[item];
+        if (!object) return;
+        else this.call(object, member, ...args);
     }
 
-    removeAll(collectionName, args) {
-        const collection = this[collectionName];
-        Object.values(collection).forEach(item => {
-            item.remove(args);
+    static executeAll(collection, member, ...args) {
+        Object.values(collection).forEach(object => {
+            this.call(object, member, ...args);
         });
     }
 }

@@ -51,7 +51,7 @@ export function update(args) {
 }
 
 export function updateOnMouseMove(args) {
-    const target = new Vector3();
+    const target = new Vector3()
     ParticlesManager.update("circle", { target, ...args });
     ParticlesManager.update("line", { target, ...args });
     ParticlesManager.update("mouse", args);
