@@ -17,11 +17,31 @@ import { ParticlesUpdate } from '../components/atoms/Particles/logic/update';
 /**
  * Manager class for particle strategies using the Strategy pattern
  */
-export class ParticlesModelManager extends ModelManager {
-    static instance = new ParticlesModelManager();
+export class ParticlesManager extends ModelManager {
+    static instance = new ParticlesManager();
 
-    static execute(type, method, ...args) {
-        return this.instance[type](method, ...args);
+    static execute(method, item, ...args) {
+        return this.instance[method](item, ...args);
+    }
+
+    static add(collectionName, item, args) {
+        const collection = this.instance[collectionName];
+        return this.instance.execute(collection, item, args);
+    }
+
+    static handle(item, args) {
+        const collection = this.instance.handlers;
+        return this.instance.execute(collection, item, args);
+    }
+
+    static setup(item, args) {
+        const collection = this.instance.setups;
+        return this.instance.execute(collection, item, args);
+    }
+
+    static update(item, args) {
+        const collection = this.instance.updates;
+        return this.instance.execute(collection, item, args);
     }
 
     constructor() {
@@ -34,7 +54,7 @@ export class ParticlesModelManager extends ModelManager {
         };
 
         this.handlers = {
-            mouse: new MouseHandler(),
+            mouseMove: new MouseHandler(),
             resize: new ResizeHandler()
         };
 
@@ -45,44 +65,17 @@ export class ParticlesModelManager extends ModelManager {
             raycaster: new RaycasterSetup()
         };
 
-        this.listeners = {
+        this.listener = {
             mouse: new MouseListener(),
             resize: new ResizeListener()
         };
 
         this.updates = {
-            objects: {
-                circle: new CircleUpdate(),
-                line: new LineUpdate(),
-                mouse: new MouseUpdate(),
-                particles: new ParticlesUpdate(),
-                raycaster: new RaycasterUpdate(),
-            },
-            attributes: {
-                color: this.effects.color,
-                position: this.effects.position
-            }
+            circle: new CircleUpdate(),
+            line: new LineUpdate(),
+            mouse: new MouseUpdate(),
+            particles: new ParticlesUpdate(),
+            raycaster: new RaycasterUpdate(),
         };
-    }
-
-    // Instance methods
-    addEffect(type, args) {
-        return this.execute(this.effects, type, args);
-    }
-
-    handleEvent(type, event, args) {
-        return this.execute(this.handlers, type, { event, ...args });
-    }
-
-    setupObject(type, args) {
-        return this.execute(this.setups, type, args);
-    }
-
-    updateObject(type, args) {
-        return this.execute(this.updates.objects, type, args);
-    }
-
-    updateAttribute(type, args) {
-        return this.execute(this.updates.attributes, type, args);
     }
 }

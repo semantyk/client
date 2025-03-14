@@ -17,7 +17,7 @@
 //* Imports
 import { Vector3 } from "three";
 //* Local Imports
-import { ParticlesModelManager } from "./manager";
+import { ParticlesManager } from "./manager";
 
 //* Main
 export function getImageData(args) {
@@ -39,22 +39,21 @@ export function ease(time, duration) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-export function setupObjects(args) {
-    ParticlesModelManager.execute('setupObject', "camera", args);
-    ParticlesModelManager.execute('setupObject', "plane", args);
-    ParticlesModelManager.execute('setupObject', "particles", args);
-    ParticlesModelManager.execute('setupObject', "raycaster", args);
+export function setup(args) {
+    ParticlesManager.setup('camera', args);
+    ParticlesManager.setup('particles', args);
+    ParticlesManager.setup('plane', args);
+    ParticlesManager.setup('raycaster', args);
 }
 
-export function updateObjects(args) {
-    ParticlesModelManager.execute('updateObject', "particles", args);
+export function update(args) {
+    ParticlesManager.update("particles", args);
 }
 
 export function updateOnMouseMove(args) {
     const target = new Vector3();
-    ParticlesModelManager.execute('updateObject', "camera", args);
-    ParticlesModelManager.execute('updateObject', "raycaster", args);
-    ParticlesModelManager.execute('updateObject', "mouse", args);
-    ParticlesModelManager.execute('updateObject', "circle", { target, ...args });
-    ParticlesModelManager.execute('updateObject', "line", { target, ...args });
+    ParticlesManager.update("circle", { target, ...args });
+    ParticlesManager.update("line", { target, ...args });
+    ParticlesManager.update("mouse", args);
+    ParticlesManager.update("raycaster", args);
 }

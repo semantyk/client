@@ -1,4 +1,4 @@
-import { ParticlesModelManager } from '../../../../logic/manager';
+import { ParticlesManager } from '../../../../logic/manager';
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export class ParticlesUpdate extends ModelStrategy {
@@ -7,8 +7,8 @@ export class ParticlesUpdate extends ModelStrategy {
         const idxs = new Set(intersects.map(({ index }) => index));
 
         for (let i = 0; i < args.refs.particles.current.data.count; i++) {
-            ParticlesModelManager.execute('updateAttribute', "color", { i, ...args });
-            ParticlesModelManager.execute('updateAttribute', "position", { i, idxs, ...args });
+            ParticlesManager.add('effects', "color", { i, ...args });
+            ParticlesManager.add('effects', "position", { i, idxs, ...args });
         }
 
         args.refs.particles.current.geometry.attributes.color.needsUpdate = true;

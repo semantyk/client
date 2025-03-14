@@ -8,32 +8,32 @@ import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import Particles from "../../atoms/Particles/index.jsx";
 import {
-    setupObjects,
-    updateObjects,
+    setup,
+    update,
 } from "@semantyk/frontend/ui/models/Particles/logic";
-import { ParticlesModelManager } from "../../../logic/manager.js";
+import { ParticlesManager } from "../../../logic/manager.js";
 
 //* Main
 export default function ParticlesSystem(args) {
     // Logic
     useEffect(() => {
-        setupObjects(args);
+        setup(args);
 
         const handleMouseMove = (event) => {
-            ParticlesModelManager.execute('handleEvent', 'mouse', event, args);
+            ParticlesManager.handle('mouseMove', { event, ...args });
         };
 
         const handleResize = (event) => {
-            ParticlesModelManager.execute('handleEvent', 'resize', event, args);
+            ParticlesManager.handle('resize', { event, ...args });
         };
 
-        ParticlesModelManager.execute('addEventListeners', { handleMouseMove, handleResize });
-        return () => ParticlesModelManager.execute('removeEventListeners', { handleMouseMove, handleResize });
+        ParticlesManager.execute('addAll', 'listener', { handleMouseMove, handleResize });
+        return () => ParticlesManager.execute('removeAll', 'listener', { handleMouseMove, handleResize });
     }, [args]);
 
     useFrame(({ clock }) => {
         args.objects.clock.current = clock;
-        updateObjects(args);
+        update(args);
     });
 
     return <Particles {...args} />;

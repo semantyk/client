@@ -3,7 +3,7 @@
  */
 
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
-import { ParticlesModelManager } from '../../../../logic/manager';
+import { ParticlesManager } from '../../../../logic/manager';
 
 export class ResizeHandler extends ModelStrategy {
     /**
@@ -12,7 +12,7 @@ export class ResizeHandler extends ModelStrategy {
      */
     execute({ event, ...args }) {
         const { particles } = args.refs;
-        ParticlesModelManager.execute('setupObject', "camera", args);
+        ParticlesManager.execute('setupObject', "camera", args);
         const { particle } = args.config;
         const ratio = window.innerWidth / window.innerHeight;
         const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);

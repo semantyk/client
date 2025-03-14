@@ -9,48 +9,27 @@ export class ModelManager {
     }
 
     // Generic method to handle operations on collections
-    execute(collection, type, args) {
-        const item = collection[type];
+    execute(collection, key, args) {
+        const item = collection[key];
         if (item) {
             return item.execute(args);
         }
     }
 
+    // TODO: Add a method for `add` and `remove`
+
     // Event listener methods
-    addEventListeners(args) {
-        Object.values(this.listeners).forEach(listener => {
-            listener.add(args);
+    addAll(collectionName, args) {
+        const collection = this[collectionName];
+        Object.values(collection).forEach(item => {
+            item.add(args);
         });
     }
 
-    removeEventListeners(args) {
-        Object.values(this.listeners).forEach(listener => {
-            listener.remove(args);
+    removeAll(collectionName, args) {
+        const collection = this[collectionName];
+        Object.values(collection).forEach(item => {
+            item.remove(args);
         });
-    }
-
-    // Static helper method that automatically uses the correct instance
-    static execute(methodName, type, ...args) {
-        const instance = this.instance;
-        if (!instance) {
-            throw new Error(`No instance found for ${this.name}. Make sure to initialize the static instance property.`);
-        }
-
-        switch (methodName) {
-            case 'addEffect':
-                return instance.addEffect(type, args[0]);
-            case 'handleEvent':
-                return instance.handleEvent(type, args[0], args[1]);
-            case 'setupObject':
-                return instance.setupObject(type, args[0]);
-            case 'updateObject':
-                return instance.updateObject(type, args[0]);
-            case 'addEventListeners':
-                return instance.addEventListeners(type);
-            case 'removeEventListeners':
-                return instance.removeEventListeners(type);
-            default:
-                throw new Error(`Unknown method ${methodName}`);
-        }
     }
 }
