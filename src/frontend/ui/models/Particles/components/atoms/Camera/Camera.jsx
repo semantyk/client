@@ -10,10 +10,10 @@ import CameraLogic from "./Camera.logic";
 function Camera({ config, refs }) {
     // Props
     const {
-        general: { showHelpers }
+        general: { showControls }
     } = config;
     // Logic
-    useHelper(showHelpers && refs.camera, CameraHelper);
+    useHelper(showControls && refs.camera, CameraHelper);
 
     return (
         <PerspectiveCamera

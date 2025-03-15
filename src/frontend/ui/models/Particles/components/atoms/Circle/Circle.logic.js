@@ -1,8 +1,8 @@
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export default class CircleLogic extends ModelStrategy {
-    static update({ objects, refs, target }) {
-        objects.raycaster.ray.intersectPlane(refs.plane.current, target);
-        refs.circle.current.position.copy(target);
+    static update({ objects: { raycaster }, refs: { circle, plane }, target }) {
+        raycaster.ray.intersectPlane(plane.current, target);
+        circle.current.position.copy(target);
     }
 }

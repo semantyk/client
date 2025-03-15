@@ -10,11 +10,11 @@ import RayLineLogic from './RayLine.logic';
 function RayLine({ config, refs }) {
     // Props
     const {
-        general: { showHelpers }
+        general: { showControls }
     } = config;
     // Return
     return (
-        <line ref={refs.rayLine} visible={showHelpers}>
+        <line ref={refs.rayLine} visible={showControls}>
             <bufferGeometry />
             <lineBasicMaterial color="red" />
         </line>

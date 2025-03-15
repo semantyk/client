@@ -20,7 +20,7 @@
 export const config = {
     // General
     general: {
-        showHelpers: true,
+        showControls: false,
         scale: 1,
         size: 150,
     },
@@ -48,10 +48,6 @@ export const config = {
         interpolation: {
             duration: 5
         }
-    },
-    // Image
-    image: {
-        path: "/favicon.png"
     },
     // Particles
     particle: {

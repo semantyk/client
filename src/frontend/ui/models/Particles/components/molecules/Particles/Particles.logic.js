@@ -1,19 +1,10 @@
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 import { getImageData } from "../../../utils/image";
 import { Float32BufferAttribute } from "three";
-import { ParticlesManager } from "../../../logic/manager";
+import { ParticlesManager } from "../../../Particles.logic";
 import { ColorEffect, PositionEffect } from "./effects";
 
 export default class ParticlesLogic extends ModelStrategy {
-    static handle({ event, ...args }) {
-        const { particles } = args.refs;
-        ParticlesManager.setup('camera', args);
-        const { particle } = args.config;
-        const ratio = window.innerWidth / window.innerHeight;
-        const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);
-        particles.current.material.size = size;
-    }
-
     static setup({ config, data: { color, unit }, objects: { image }, refs }) {
         const { particle } = config;
         const particles = refs.particles.current;
@@ -75,11 +66,11 @@ export default class ParticlesLogic extends ModelStrategy {
         const idxs = new Set(intersects.map(({ index }) => index));
 
         for (let i = 0; i < args.refs.particles.current.data.count; i++) {
-            ColorEffect.execute({ i, ...args });
+            // ColorEffect.execute({ i, ...args });
             PositionEffect.execute({ i, idxs, ...args });
         }
 
-        args.refs.particles.current.geometry.attributes.color.needsUpdate = true;
+        // args.refs.particles.current.geometry.attributes.color.needsUpdate = true;
         args.refs.particles.current.geometry.attributes.position.needsUpdate = true;
     }
 }

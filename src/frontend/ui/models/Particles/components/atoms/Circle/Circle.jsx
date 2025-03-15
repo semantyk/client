@@ -9,7 +9,7 @@ import CircleLogic from "./Circle.logic";
 function Circle({ config, data, refs }) {
     // Props
     const {
-        general: { showHelpers },
+        general: { showControls },
         animations: { chaos: { radius } }
     } = config;
     // Return
@@ -17,7 +17,7 @@ function Circle({ config, data, refs }) {
         <mesh
             ref={refs.circle}
             position={[0, 0, -data.unit / 2]}
-            visible={showHelpers}
+            visible={showControls}
         >
             <circleGeometry args={[data.unit * radius, 32]} />
             <meshBasicMaterial

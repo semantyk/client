@@ -5,14 +5,14 @@ import PlaneLogic from "./Plane.logic";
 function Plane({ config, data, refs }) {
     // Props
     const {
-        general: { showHelpers }
+        general: { showControls }
     } = config;
     // Return
     return (
         <mesh
             ref={refs.plane}
             position={[0, 0, -data.unit / 2]}
-            visible={showHelpers}
+            visible={showControls}
         >
             <planeGeometry args={[data.unit, data.unit]} />
             <meshBasicMaterial

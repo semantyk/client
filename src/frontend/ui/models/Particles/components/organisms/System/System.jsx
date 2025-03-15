@@ -6,17 +6,15 @@
 //* Imports
 import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import Particles from "../../atoms/Particles/Particles.jsx";
-import {
-    update,
-} from "@semantyk/frontend/ui/models/Particles/logic";
-import { ParticlesManager } from "../../../logic/manager.js";
+import Particles from "../../molecules/Particles/Particles.jsx";
+import { ParticlesManager } from "../../../Particles.logic.js";
+import ParticlesSystemLogic from "./System.logic.js";
 
 //* Main
-function ParticlesSystem(args) {
+function System(args) {
     // Logic
     useEffect(() => {
-        ParticlesManager.setup('particlesSystem', args);
+        ParticlesSystemLogic.setup(args);
 
         const handleMouseMove = (event) => {
             ParticlesManager.handle('mouseMove', { event, ...args });
@@ -28,10 +26,10 @@ function ParticlesSystem(args) {
 
     useFrame(({ clock }) => {
         args.objects.clock.current = clock;
-        update(args);
+        ParticlesManager.update("particles", args);
     });
 
     return <Particles {...args} />;
 }
 
-export default ParticlesSystem;
+export default System;

@@ -6,10 +6,10 @@
 //* Main
 export default function Box({ config, data, refs }) {
     // Props
-    const { general: { showHelpers } } = config;
+    const { general: { showControls } } = config;
     // Return
     return (
-        <mesh ref={refs.box} visible={showHelpers}>
+        <mesh ref={refs.box} visible={showControls}>
             <boxGeometry args={[data.unit, data.unit, data.unit]} />
             <meshBasicMaterial
                 color={-data.color.r}

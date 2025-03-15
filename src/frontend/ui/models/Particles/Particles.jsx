@@ -18,15 +18,17 @@
 
 //* Imports
 import { useArgs } from "@semantyk/frontend/ui/models/Particles/hooks/useArgs";
-import { Controls, ParticlesSystem } from "./components/molecules";
+import { Controls } from "./components/molecules";
+import { System } from "./components/organisms";
+
 
 //* Main
-export default function ParticlesModel() {
+export default function Particles({ path }) {
     // Hooks
-    const args = useArgs();
+    const args = useArgs({ path });
     // Return
     return (<>
         <Controls {...args} />
-        <ParticlesSystem {...args} />
+        <System {...args} />
     </>);
 }

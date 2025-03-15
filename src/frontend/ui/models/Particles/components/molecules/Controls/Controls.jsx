@@ -9,7 +9,7 @@ import Camera from "../../atoms/Camera/Camera";
 //* Main
 export default function Controls(args) {
     // Props
-    const { general: { showHelpers } } = args.config;
+    const { general: { showControls } } = args.config;
     // Return
     return (<>
         <Box {...args} />
@@ -17,6 +17,6 @@ export default function Controls(args) {
         <Circle {...args} />
         <Plane {...args} />
         <RayLine {...args} />
-        {showHelpers && <OrbitControls />}
+        {showControls && <OrbitControls />}
     </>);
 }

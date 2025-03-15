@@ -22,18 +22,28 @@
 import React from "react";
 import Canvas from "@semantyk/frontend/ui/components/molecules/Canvas";
 import GraphModel from "@semantyk/frontend/ui/models/Graph";
-import { usePathname } from "next/navigation";
-import ParticlesModel from "@semantyk/frontend/ui/models/Particles";
+import { usePathname, useRouter } from "next/navigation";
+import Particles from "@semantyk/frontend/ui/models/Particles/Particles";
 
 //* Main
 export default function Model() {
-    // Logic
+    // Hooks
     const pathname = usePathname();
+    // Logic
+    const model = () => {
+        switch (pathname) {
+            case "/":
+                return <Particles path={"/favicon.svg"} />;
+            case "/knowledge":
+                return <GraphModel />;
+            default:
+                return <Particles path={"/404.svg"} />;
+        }
+    };
     // Return
     return (
         <Canvas>
-            {pathname === "/" && <ParticlesModel />}
-            {pathname === "/knowledge" && <GraphModel />}
+            {model()}
         </Canvas>
     );
-};
+}

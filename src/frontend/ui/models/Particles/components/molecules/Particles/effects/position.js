@@ -6,7 +6,7 @@ import { Vector3 } from 'three';
 import { ChaosEffect } from "./chaos";
 
 export class PositionEffect extends ModelStrategy {
-    static execute({ i, idxs, ...args }) {
+    static execute({ object, i, idxs, ...args }) {
         const { particles } = args.refs;
         const final = new Vector3()
 

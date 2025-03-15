@@ -23,9 +23,9 @@ import { config } from "@semantyk/frontend/ui/models/Particles/config";
 import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
 //* Main
-export function useArgs() {
+export function useArgs({ path }) {
     // Props
-    const { general: { scale, size }, image: { path } } = config;
+    const { general: { scale, size } } = config;
     // Hooks
     const { colorScheme } = useColorScheme();
     const { image } = useLoader(TextureLoader, path);
@@ -53,7 +53,7 @@ export function useArgs() {
             camera: useRef(),
             circle: useRef(),
             mouse: useRef({ current: { x: 0, y: 0, isMoving: false } }),
-            moveMouseTimeout: useRef(null),
+            moveMouseTimeout: useRef(),
             particles: useRef(),
             plane: useRef(),
             rayLine: useRef(),

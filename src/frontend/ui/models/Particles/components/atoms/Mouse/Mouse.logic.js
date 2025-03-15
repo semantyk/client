@@ -1,6 +1,7 @@
 import { onMouseMove } from "@semantyk/frontend/logic/services/callbacks";
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
-import { updateOnMouseMove } from "../../../logic";
+import { Vector3 } from "three";
+import { ParticlesManager } from "../../../Particles.logic";
 
 export default class MouseLogic extends ModelStrategy {
     static add({ handleMouseMove }) {
@@ -28,10 +29,12 @@ export default class MouseLogic extends ModelStrategy {
             clientY = event.touches[0].clientY;
         }
 
-        updateOnMouseMove({
-            events: { mousemove: { clientX, clientY } },
-            ...args
-        });
+        const target = new Vector3()
+        const events = { mousemove: { clientX, clientY } }
+        ParticlesManager.update("circle", { events, target, ...args });
+        ParticlesManager.update("rayLine", { events, target, ...args });
+        ParticlesManager.update("mouse", { events, ...args });
+        ParticlesManager.update("raycaster", { events, ...args });
     }
 
     static update({ refs, events }) {
