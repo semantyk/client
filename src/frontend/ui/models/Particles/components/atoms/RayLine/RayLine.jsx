@@ -21,6 +21,6 @@ function RayLine({ config, refs }) {
     );
 }
 
-RayLine.logic = new RayLineLogic();
+RayLine.logic = RayLineLogic;
 
 export default RayLine;

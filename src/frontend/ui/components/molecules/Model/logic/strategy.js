@@ -7,8 +7,17 @@ export class ModelStrategy {
      * @param {Object} args - Event arguments
      * @throws {Error} Must be implemented by child classes
      */
-    add(args) {
+    static add(args) {
         throw new Error('Strategy must implement add method');
+    }
+
+    /**
+     * Handle the event
+     * @param {Object} args - Event arguments
+     * @throws {Error} Must be implemented by child classes
+     */
+    static handle(args) {
+        throw new Error('Strategy must implement handle method');
     }
 
     /**
@@ -16,7 +25,7 @@ export class ModelStrategy {
      * @param {Object} args - Strategy arguments
      * @throws {Error} Must be implemented by child classes
      */
-    execute(args) {
+    static execute(args) {
         throw new Error('Strategy must implement execute method');
     }
 
@@ -25,7 +34,7 @@ export class ModelStrategy {
      * @param {Object} args - Event arguments
      * @throws {Error} Must be implemented by child classes
      */
-    remove(args) {
+    static remove(args) {
         throw new Error('Strategy must implement remove method');
     }
 }

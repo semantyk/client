@@ -3,17 +3,17 @@ import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/
 import { updateOnMouseMove } from "../../../logic";
 
 export default class MouseLogic extends ModelStrategy {
-    add({ handleMouseMove }) {
+    static add({ handleMouseMove }) {
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("touchmove", handleMouseMove);
     }
 
-    remove({ handleMouseMove }) {
+    static remove({ handleMouseMove }) {
         window.removeEventListener("mousemove", handleMouseMove);
         window.removeEventListener("touchmove", handleMouseMove);
     }
 
-    handle({ event, ...args }) {
+    static handle({ event, ...args }) {
         const { mouse, moveMouseTimeout } = args.refs;
         clearTimeout(moveMouseTimeout.current);
         mouse.current.isMoving = true;
@@ -34,7 +34,7 @@ export default class MouseLogic extends ModelStrategy {
         });
     }
 
-    update({ refs, events }) {
+    static update({ refs, events }) {
         const { x, y } = onMouseMove(events.mousemove);
         refs.mouse.current.x = x * 2 - 1;
         refs.mouse.current.y = -y * 2 + 1;

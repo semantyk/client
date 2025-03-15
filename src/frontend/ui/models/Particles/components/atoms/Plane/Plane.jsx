@@ -25,6 +25,6 @@ function Plane({ config, data, refs }) {
     );
 }
 
-Plane.logic = new PlaneLogic();
+Plane.logic = PlaneLogic;
 
 export default Plane;

@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import Particles from "../../atoms/Particles/Particles.jsx";
 import {
-    setup,
     update,
 } from "@semantyk/frontend/ui/models/Particles/logic";
 import { ParticlesManager } from "../../../logic/manager.js";
@@ -23,12 +22,8 @@ function ParticlesSystem(args) {
             ParticlesManager.handle('mouseMove', { event, ...args });
         };
 
-        const handleResize = (event) => {
-            ParticlesManager.handle('resize', { event, ...args });
-        };
-
-        ParticlesManager.addAll({ handleMouseMove, handleResize });
-        return () => ParticlesManager.removeAll({ handleMouseMove, handleResize });
+        ParticlesManager.addAll({ handleMouseMove });
+        return () => ParticlesManager.removeAll({ handleMouseMove });
     }, [args]);
 
     useFrame(({ clock }) => {

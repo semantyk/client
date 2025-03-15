@@ -6,7 +6,7 @@
 import RaycasterLogic from "./Raycaster.logic";
 
 const Raycaster = {
-    logic: new RaycasterLogic()
+    logic: RaycasterLogic
 };
 
 export default Raycaster;

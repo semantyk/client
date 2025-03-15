@@ -23,6 +23,6 @@ function Camera({ config, refs }) {
     );
 }
 
-Camera.logic = new CameraLogic();
+Camera.logic = CameraLogic;
 
 export default Camera;

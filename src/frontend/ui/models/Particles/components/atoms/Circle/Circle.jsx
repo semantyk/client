@@ -30,6 +30,6 @@ function Circle({ config, data, refs }) {
     );
 }
 
-Circle.logic = new CircleLogic();
+Circle.logic = CircleLogic;
 
 export default Circle;

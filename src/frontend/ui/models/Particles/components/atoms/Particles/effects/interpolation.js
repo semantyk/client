@@ -3,7 +3,7 @@ import { ease } from "@semantyk/frontend/ui/models/Particles/utils/ease";
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export class InterpolationEffect extends ModelStrategy {
-    execute({ config, i, final, objects: { clock }, refs: { particles } }) {
+    static execute({ config, i, final, objects: { clock }, refs: { particles } }) {
         const { ideal, initial } = particles.current.data.positions;
         const { animations: { interpolation: { duration } } } = config;
 

@@ -2,7 +2,7 @@ import { Color } from 'three';
 import { ModelStrategy } from '@semantyk/frontend/ui/components/molecules/Model/logic/strategy';
 
 export class ColorEffect extends ModelStrategy {
-    execute({ data: { color }, i, ...args }) {
+    static execute({ data: { color }, i, ...args }) {
         const chaoticValue = args.refs.particles.current.data.chaotic[i];
         const final = color.clone();
         const target = new Color(1, 0, 0);

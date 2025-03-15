@@ -1,7 +1,5 @@
 import MouseLogic from './Mouse.logic';
 
-const Mouse = {
-    logic: new MouseLogic()
-};
+const Mouse = { logic: MouseLogic };
 
 export default Mouse;

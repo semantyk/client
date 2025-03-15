@@ -15,27 +15,26 @@ export class ParticlesManager extends ModelManager {
         circle: Circle.logic,
         mouse: Mouse.logic,
         plane: Plane.logic,
-        particles: new ParticlesLogic(), // TODO: Remove hack to get logic to work
-        particlesSystem: new ParticlesSystemLogic(), // TODO: Remove hack to get logic to work
+        particles: ParticlesLogic, // TODO: Improve this fix
+        particlesSystem: ParticlesSystemLogic, // TODO: Improve this fix
         raycaster: Raycaster.logic,
         rayLine: RayLine.logic
     }
 
     static effects = {
-        chaos: new ChaosEffect(),
-        color: new ColorEffect(),
-        entropy: new EntropyEffect(),
-        position: new PositionEffect()
+        chaos: ChaosEffect,
+        color: ColorEffect,
+        entropy: EntropyEffect,
+        position: PositionEffect
     };
 
     static handlers = {
-        mouseMove: Mouse.logic,
-        resize: Particles.logic
+        mouseMove: Mouse.logic
     };
 
     static listeners = {
         mouse: Mouse.logic,
-        resize: new ParticlesSystemLogic()
+        resize: ParticlesSystemLogic
     };
 
     static affect(item, ...args) {

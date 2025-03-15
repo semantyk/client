@@ -1,7 +1,7 @@
 import { ModelStrategy } from '@semantyk/frontend/ui/components/molecules/Model/logic/strategy';
 
 export class ChaosEffect extends ModelStrategy {
-    execute({ config, data, i, idxs, final, objects: { clock }, refs: { mouse, particles } }) {
+    static execute({ config, data, i, idxs, final, objects: { clock }, refs: { mouse, particles } }) {
         const { unit } = data;
         const { animations: { chaos, order, interpolation } } = config;
         const elapsedTime = clock.current.getElapsedTime();

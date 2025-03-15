@@ -2,7 +2,7 @@ import { Vector3 } from 'three';
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export class EntropyEffect extends ModelStrategy {
-    execute({ config, i, idxs, final, ...args }) {
+    static execute({ config, i, idxs, final, ...args }) {
         const { animations: { expansion, interpolation } } = config;
         const elapsedTime = args.objects.clock.current.getElapsedTime();
 

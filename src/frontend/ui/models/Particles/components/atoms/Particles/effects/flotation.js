@@ -2,7 +2,7 @@ import { Vector3 } from 'three';
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export class FlotationEffect extends ModelStrategy {
-    execute({ config, i, final, objects: { clock }, refs: { particles } }) {
+    static execute({ config, i, final, objects: { clock }, refs: { particles } }) {
         const { offsets } = particles.current.data.positions;
         const { animations: { flotation } } = config;
         const elapsedTime = clock.current.getElapsedTime();

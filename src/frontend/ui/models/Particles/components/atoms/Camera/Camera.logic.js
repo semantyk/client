@@ -1,7 +1,7 @@
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export default class CameraLogic extends ModelStrategy {
-    setup({ config, data: { unit }, refs: { camera } }) {
+    static setup({ config, data: { unit }, refs: { camera } }) {
         const { camera: { margin } } = config;
 
         const aspectRatio = window.innerWidth / window.innerHeight;
