@@ -1,10 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `Canvas.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
+ * @file: This file contains the logic for the canvas component.
+ *
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,11 +18,17 @@
 
 //* Imports
 import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
 //* Local Imports
+import CanvasLayout from "@semantyk/frontend/ui/components/molecules/Canvas/layout";
 
 //* Main
-export default function Head() {
+export default function Canvas({ children }) {
+    // Logic
+    const camera = { position: [0, 0, 100] };
     // Return
-    return <Analytics />;
-}
+    return (
+        <CanvasLayout camera={camera}>
+            {children}
+        </CanvasLayout>
+    );
+};

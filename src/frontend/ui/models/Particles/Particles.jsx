@@ -1,11 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `ParticlesScene.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
- * @modified: Mar 7, 2025
+ * @file: This file contains the logic for the ParticlesScene component.
+ *
+ * @created: Mar 13, 2025
+ * @modified: Mar 13, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -15,12 +17,18 @@
  */
 
 //* Imports
-import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
-//* Local Imports
+import { useArgs } from "@semantyk/frontend/ui/models/Particles/hooks/useArgs";
+import { Controls } from "./components/molecules";
+import { System } from "./components/organisms";
+
 
 //* Main
-export default function Head() {
+export default function Particles({ path }) {
+    // Hooks
+    const args = useArgs({ path });
     // Return
-    return <Analytics />;
+    return (<>
+        <Controls {...args} />
+        <System {...args} />
+    </>);
 }

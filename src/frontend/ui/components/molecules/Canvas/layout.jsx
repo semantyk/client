@@ -1,14 +1,14 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Head.jsx`
+ * # `layout.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 9, 2024
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
- * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer:
  *
  * @copyright: Semantyk © 2025. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -16,11 +16,20 @@
 
 //* Imports
 import React from "react";
-import Analytics from "@semantyk/frontend/logic/analytics/Analytics";
+import { Canvas } from "@react-three/fiber";
 //* Local Imports
+import "@semantyk/frontend/ui/components/molecules/Canvas/index.css";
 
 //* Main
-export default function Head() {
+export default function CanvasLayout(props) {
+    // Props
+    const { children, ...rest } = props;
     // Return
-    return <Analytics />;
+    return (
+        <div id="Canvas">
+            <Canvas {...rest}>
+                {children}
+            </Canvas>
+        </div>
+    );
 }

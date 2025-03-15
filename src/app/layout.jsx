@@ -26,11 +26,11 @@ import Head from "@semantyk/frontend/ui/components/atoms/Head";
 import Body from "@semantyk/frontend/ui/components/molecules/Body";
 import { getLang } from "@semantyk/frontend/logic/services/getLang";
 import Content from "@semantyk/frontend/ui/components/molecules/Content";
-import Model from "@semantyk/frontend/ui/models/atoms/Model";
+import Model from "@semantyk/frontend/ui/components/molecules/Model/Model";
 
 
 //* Main
-export async function generateMetadata() {return await getMetadata();}
+export async function generateMetadata() { return await getMetadata(); }
 
 export default function RootLayout({ children }) {
     // Logic
@@ -39,13 +39,13 @@ export default function RootLayout({ children }) {
     return (
         // TODO: Add logic for dynamic language
         <html lang={lang}>
-        <Head/>
-        <Body>
-            <Content>
-                <Model/>
-                {children}
-            </Content>
-        </Body>
+            <Head />
+            <Body>
+                <Content>
+                    <Model />
+                    {children}
+                </Content>
+            </Body>
         </html>
     );
 }
