@@ -6,7 +6,7 @@
 //* Imports
 import { useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import Particles from "../../atoms/Particles/index.jsx";
+import Particles from "../../atoms/Particles/Particles.jsx";
 import {
     setup,
     update,
@@ -14,10 +14,10 @@ import {
 import { ParticlesManager } from "../../../logic/manager.js";
 
 //* Main
-export default function ParticlesSystem(args) {
+function ParticlesSystem(args) {
     // Logic
     useEffect(() => {
-        setup(args);
+        ParticlesManager.setup('particlesSystem', args);
 
         const handleMouseMove = (event) => {
             ParticlesManager.handle('mouseMove', { event, ...args });
@@ -27,8 +27,8 @@ export default function ParticlesSystem(args) {
             ParticlesManager.handle('resize', { event, ...args });
         };
 
-        ParticlesManager.executeAll('add', { handleMouseMove, handleResize });
-        return () => ParticlesManager.executeAll('remove', { handleMouseMove, handleResize });
+        ParticlesManager.addAll({ handleMouseMove, handleResize });
+        return () => ParticlesManager.removeAll({ handleMouseMove, handleResize });
     }, [args]);
 
     useFrame(({ clock }) => {
@@ -38,3 +38,5 @@ export default function ParticlesSystem(args) {
 
     return <Particles {...args} />;
 }
+
+export default ParticlesSystem;

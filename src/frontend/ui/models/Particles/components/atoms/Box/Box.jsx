@@ -6,9 +6,7 @@
 //* Main
 export default function Box({ config, data, refs }) {
     // Props
-    const {
-        general: { showHelpers }
-    } = config;
+    const { general: { showHelpers } } = config;
     // Return
     return (
         <mesh ref={refs.box} visible={showHelpers}>

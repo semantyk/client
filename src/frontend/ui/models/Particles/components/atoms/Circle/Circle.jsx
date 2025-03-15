@@ -4,12 +4,9 @@
  */
 
 //* Imports
-import { CircleUpdate } from './logic/update';
-
-export { CircleUpdate };
-
+import CircleLogic from "./Circle.logic";
 //* Main
-export default function Circle({ config, data, refs }) {
+function Circle({ config, data, refs }) {
     // Props
     const {
         general: { showHelpers },
@@ -32,3 +29,7 @@ export default function Circle({ config, data, refs }) {
         </mesh>
     );
 }
+
+Circle.logic = new CircleLogic();
+
+export default Circle;

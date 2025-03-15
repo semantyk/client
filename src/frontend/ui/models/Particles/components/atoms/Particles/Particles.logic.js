@@ -1,18 +1,19 @@
-/**
- * Particles setup strategy for particle system
- */
-
-import { Float32BufferAttribute } from 'three';
-
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
-import { getImageData } from '../../../../logic';
+import { getImageData } from "../../../utils/image";
+import { Float32BufferAttribute } from "three";
+import { ParticlesManager } from "../../../logic/manager";
 
-export class ParticlesSetup extends ModelStrategy {
-    /**
-     * Execute particles setup
-     * @param {Object} args - Arguments containing config, data, objects, and refs
-     */
-    execute({ config, data: { color, unit }, objects: { image }, refs }) {
+export default class ParticlesLogic extends ModelStrategy {
+    handle({ event, ...args }) {
+        const { particles } = args.refs;
+        ParticlesManager.setup('camera', args);
+        const { particle } = args.config;
+        const ratio = window.innerWidth / window.innerHeight;
+        const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);
+        particles.current.material.size = size;
+    }
+
+    setup({ config, data: { color, unit }, objects: { image }, refs }) {
         const { particle } = config;
         const particles = refs.particles.current;
         const { data } = getImageData({ data: { unit }, objects: { image } });
@@ -66,5 +67,18 @@ export class ParticlesSetup extends ModelStrategy {
         const ratio = window.innerWidth / window.innerHeight;
         const size = Math.min(Math.max(particle.size * ratio, 0), particle.size);
         particles.material.size = size;
+    }
+
+    update(args) {
+        const intersects = args.objects.raycaster.intersectObject(args.refs.particles.current);
+        const idxs = new Set(intersects.map(({ index }) => index));
+
+        for (let i = 0; i < args.refs.particles.current.data.count; i++) {
+            ParticlesManager.affect('color', { i, ...args });
+            ParticlesManager.affect('position', { i, idxs, ...args });
+        }
+
+        args.refs.particles.current.geometry.attributes.color.needsUpdate = true;
+        args.refs.particles.current.geometry.attributes.position.needsUpdate = true;
     }
 }

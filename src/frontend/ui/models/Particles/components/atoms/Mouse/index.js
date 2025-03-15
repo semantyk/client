@@ -1,3 +1,2 @@
-export { MouseHandler } from './logic/handler';
-export { MouseListener } from './logic/listener';
-export { MouseUpdate } from './logic/update';
+export { default } from './Mouse';
+export { default as Mouse } from './Mouse';

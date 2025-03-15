@@ -1,8 +1,13 @@
-import { Vector2 } from 'three';
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
+import { Vector2 } from "three";
 
-export class RaycasterUpdate extends ModelStrategy {
-    execute({ objects, refs }) {
+export default class RaycasterLogic extends ModelStrategy {
+    setup({ config, data: { unit }, objects: { raycaster } }) {
+        const { animations: { chaos: { radius } } } = config;
+        raycaster.params.Points.threshold = radius * unit;
+    }
+
+    update({ objects, refs }) {
         const { raycaster } = objects;
         const camera = refs.camera.current;
         const mouse = refs.mouse.current;

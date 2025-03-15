@@ -3,7 +3,8 @@
  * Atom component for the particles in the Particles model
  */
 
-export default function Particles({ config, refs }) {
+//* Main
+function Particles({ config, refs }) {
     return (
         <points ref={refs.particles}>
             <bufferGeometry />
@@ -14,3 +15,5 @@ export default function Particles({ config, refs }) {
         </points>
     );
 }
+
+export default Particles;

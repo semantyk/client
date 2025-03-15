@@ -1,5 +1,5 @@
 import { Vector3 } from 'three';
-import { ease } from "@semantyk/frontend/ui/models/Particles/logic";
+import { ease } from "@semantyk/frontend/ui/models/Particles/utils/ease";
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 
 export class InterpolationEffect extends ModelStrategy {

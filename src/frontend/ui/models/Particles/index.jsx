@@ -18,9 +18,7 @@
 
 //* Imports
 import { useArgs } from "@semantyk/frontend/ui/models/Particles/hooks/useArgs";
-import Controls from "./components/molecules/Controls";
-import ParticlesSystem from "./components/molecules/ParticlesSystem";
-import Camera from "./components/atoms/Camera";
+import { Controls, ParticlesSystem } from "./components/molecules";
 
 //* Main
 export default function ParticlesModel() {

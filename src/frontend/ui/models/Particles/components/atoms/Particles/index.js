@@ -1,3 +1,3 @@
 export * from './effects';
-export * from './handlers';
-export * from './logic';
+export { default } from './Particles'
+export { default as Particles } from './Particles';

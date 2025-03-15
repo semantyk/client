@@ -20,25 +20,6 @@ import { Vector3 } from "three";
 import { ParticlesManager } from "./manager";
 
 //* Main
-export function getImageData(args) {
-    // Args
-    const { data: { unit }, objects: { image } } = args;
-    // Logic
-    let { width, height } = image;
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d");
-    canvas.width = unit;
-    canvas.height = (height / width) * unit;
-    context.drawImage(image, 0, 0, canvas.width, canvas.height);
-    // Return
-    return context.getImageData(0, 0, canvas.width, canvas.height);
-}
-
-export function ease(time, duration) {
-    const t = Math.min(time / duration, 1);
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
 export function setup(args) {
     ParticlesManager.setup('camera', args);
     ParticlesManager.setup('particles', args);
@@ -53,7 +34,7 @@ export function update(args) {
 export function updateOnMouseMove(args) {
     const target = new Vector3()
     ParticlesManager.update("circle", { target, ...args });
-    ParticlesManager.update("line", { target, ...args });
+    ParticlesManager.update("rayLine", { target, ...args });
     ParticlesManager.update("mouse", args);
     ParticlesManager.update("raycaster", args);
 }

@@ -1,10 +1,8 @@
 //* Imports
-import { PlaneSetup } from './logic/setup';
-
-export { PlaneSetup };
+import PlaneLogic from "./Plane.logic";
 
 //* Main
-export default function Plane({ config, data, refs }) {
+function Plane({ config, data, refs }) {
     // Props
     const {
         general: { showHelpers }
@@ -26,3 +24,7 @@ export default function Plane({ config, data, refs }) {
         </mesh>
     );
 }
+
+Plane.logic = new PlaneLogic();
+
+export default Plane;

@@ -20,7 +20,7 @@
 export const config = {
     // General
     general: {
-        showHelpers: false,
+        showHelpers: true,
         scale: 1,
         size: 150,
     },

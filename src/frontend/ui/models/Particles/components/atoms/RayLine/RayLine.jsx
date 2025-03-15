@@ -4,12 +4,10 @@
  */
 
 //* Imports
-import { LineUpdate } from './logic/update';
-
-export { LineUpdate };
+import RayLineLogic from './RayLine.logic';
 
 //* Main
-export default function RayLine({ config, refs }) {
+function RayLine({ config, refs }) {
     // Props
     const {
         general: { showHelpers }
@@ -22,3 +20,7 @@ export default function RayLine({ config, refs }) {
         </line>
     );
 }
+
+RayLine.logic = new RayLineLogic();
+
+export default RayLine;

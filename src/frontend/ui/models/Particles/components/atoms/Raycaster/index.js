@@ -1,2 +1,2 @@
-export { RaycasterSetup } from './logic/setup';
-export { RaycasterUpdate } from './logic/update';
+export { default as Raycaster } from './Raycaster';
+export { default as RaycasterLogic } from './Raycaster.logic';

@@ -1,1 +1,0 @@
-export { ResizeHandler } from './resize';
