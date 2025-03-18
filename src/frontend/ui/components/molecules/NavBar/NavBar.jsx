@@ -22,7 +22,7 @@ import Link from "next/link";
 import { Nav, Navbar } from "react-bootstrap";
 //* Local Imports
 import useNavLinks from "@semantyk/frontend/hooks/useNavLinks";
-import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
+import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon/Icon";
 import useColorScheme from "@semantyk/frontend/hooks/useColorScheme";
 
 //* Main
@@ -34,9 +34,9 @@ export default function NavBar() {
     return (
         <Navbar expand="sm" variant={colorScheme}>
             <Navbar.Brand as={Link} href={"/"}>
-                <Icon height={40} width={40}/>
+                <Icon height={40} width={40} />
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse className="justify-content-between">
                 <Nav className="mr-auto">
                     {navLinks}

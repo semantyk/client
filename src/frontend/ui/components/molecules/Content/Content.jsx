@@ -17,10 +17,10 @@
 //* Imports
 import React from "react";
 //* Local Imports
-import Footer from "@semantyk/frontend/ui/components/molecules/Footer";
-import "@semantyk/frontend/ui/components/molecules/Content/index.css";
+import Footer from "@semantyk/frontend/ui/components/molecules/Footer/Footer";
+import "@semantyk/frontend/ui/components/molecules/Content/Content.styles.css";
 import ContentLayout
-    from "@semantyk/frontend/ui/components/molecules/Content/layout";
+    from "@semantyk/frontend/ui/components/molecules/Content/Content.layout";
 
 
 //* Main
@@ -30,7 +30,7 @@ export default function Content({ children }) {
         <ContentLayout>
             {/*<Header/>*/}
             {children}
-            <Footer/>
+            <Footer />
         </ContentLayout>
     );
 };

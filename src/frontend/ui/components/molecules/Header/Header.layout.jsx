@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.jsx` | `AuthButton`
+ * # `layout.jsx` | `Header`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the logic for the authentication button.
+ * @file: This file contains the `HeaderLayout` component.
  *
- * @created: Dec 5, 2023
+ * @created: Dec 4, 2023
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,23 +16,18 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
 import React from "react";
 //* Local Imports
-import { useSession } from "@inrupt/solid-ui-react";
-import LogoutButton
-    from "@semantyk/frontend/ui/components/atoms/buttons/LogoutButton";
-import LoginButton
-    from "@semantyk/frontend/ui/components/atoms/buttons/LoginButton";
+import "@semantyk/frontend/ui/components/molecules/Header/Header.styles.css";
 
 //* Main
-export default function AuthButton() {
-    // Hooks
-    const { session } = useSession();
-    // Logic
-    const { isLoggedIn } = session.info;
+export default function HeaderLayout({ children }) {
+    const position = "sticky-top";
     // Return
-    return !isLoggedIn ? <LoginButton/> : <LogoutButton/>;
+    return (
+        <header id="Header" className={`${position}`}>
+            {children}
+        </header>
+    );
 }

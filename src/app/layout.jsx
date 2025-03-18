@@ -25,7 +25,7 @@ import { getMetadata } from "@semantyk/backend/logic/seo";
 import Head from "@semantyk/frontend/ui/components/atoms/Head";
 import Body from "@semantyk/frontend/ui/components/molecules/Body";
 import { getLang } from "@semantyk/frontend/logic/services/getLang";
-import Content from "@semantyk/frontend/ui/components/molecules/Content";
+import Content from "@semantyk/frontend/ui/components/molecules/Content/Content";
 import Model from "@semantyk/frontend/ui/components/molecules/Model/Model";
 
 
