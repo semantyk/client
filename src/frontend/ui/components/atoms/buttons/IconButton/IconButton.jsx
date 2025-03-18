@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Footer`
+ * # `index.jsx` | `IconButton`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the layout for the footer.
+ * @file: This file contains the logic for the icon button.
  *
- * @created: Dec 4, 2023
+ * @created: Dec 5, 2023
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,18 +16,23 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
+import Link from "next/link";
 //* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Footer/index.css";
+import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon/Icon";
+
 
 //* Main
-export default function FooterLayout({ children }) {
-    const position = "fixed-bottom";
+export default function IconButton(props) {
+    // Props
+    const { href, ...rest } = props;
     // Return
     return (
-        <footer id="Footer" className={`${position} text-center`}>
-            {children}
-        </footer>
+        <Link href={href}>
+            <Icon {...rest} />
+        </Link>
     );
 }

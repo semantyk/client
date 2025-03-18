@@ -1,10 +1,10 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.jsx` | `IconButton`
+ * # `index.jsx` | `AuthButton`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the logic for the icon button.
+ * @file: This file contains the logic for the authentication button.
  *
  * @created: Dec 5, 2023
  * @modified: Mar 7, 2025
@@ -20,19 +20,19 @@
 
 //* Imports
 import React from "react";
-import Link from "next/link";
 //* Local Imports
-import Icon from "@semantyk/frontend/ui/components/atoms/icons/Icon";
-
+import { useSession } from "@inrupt/solid-ui-react";
+import LogoutButton
+    from "@semantyk/frontend/ui/components/atoms/buttons/LogoutButton/LogoutButton";
+import LoginButton
+    from "@semantyk/frontend/ui/components/atoms/buttons/LoginButton/LoginButton";
 
 //* Main
-export default function IconButton(props) {
-    // Props
-    const { href, ...rest } = props;
+export default function AuthButton() {
+    // Hooks
+    const { session } = useSession();
+    // Logic
+    const { isLoggedIn } = session.info;
     // Return
-    return (
-        <Link href={href}>
-            <Icon {...rest}/>
-        </Link>
-    );
+    return !isLoggedIn ? <LoginButton /> : <LogoutButton />;
 }

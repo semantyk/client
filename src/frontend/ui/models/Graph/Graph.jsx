@@ -1,13 +1,13 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `Canvas.jsx`
+ * # `index.jsx` | `GraphModel`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the logic for the canvas component.
+ * @file: This file contains the logic for the Graph model.
  *
- * @created: Jul 17, 2024
- * @modified: Mar 7, 2025
+ * @created: Mar 13, 2025
+ * @modified: Mar 13, 2025
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
@@ -16,19 +16,6 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-//* Imports
-import React from "react";
-//* Local Imports
-import CanvasLayout from "@semantyk/frontend/ui/components/molecules/Canvas/layout";
-
 //* Main
-export default function Canvas({ children }) {
-    // Logic
-    const camera = { position: [0, 0, 100] };
-    // Return
-    return (
-        <CanvasLayout camera={camera}>
-            {children}
-        </CanvasLayout>
-    );
+export default function Graph() {
 };

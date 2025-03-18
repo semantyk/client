@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `index.jsx`
+ * # `Canvas.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the logic for the footer.
+ * @file: This file contains the logic for the canvas component.
  *
- * @created: Dec 5, 2023
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,29 +16,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
-"use client";
-
 //* Imports
 import React from "react";
-import Link from "next/link";
 //* Local Imports
-import useKnowledge from "@semantyk/frontend/hooks/knowledge/useKnowledge";
-import FooterLayout
-    from "@semantyk/frontend/ui/components/molecules/Footer/layout";
+import CanvasLayout from "@semantyk/frontend/ui/components/molecules/Canvas/Canvas.layout";
 
-
-export default function Footer() {
-    // Hooks
-    // - useState
-    const { app } = useKnowledge();
-    const { name, copyrightYear } = app;
+//* Main
+export default function Canvas({ children }) {
+    // Logic
+    const camera = { position: [0, 0, 100] };
     // Return
-    const link = <Link className="text-secondary" href="/">{name}</Link>;
     return (
-        <FooterLayout>
-            <small className="text-secondary">
-                {link} © {copyrightYear}
-            </small>
-        </FooterLayout>
+        <CanvasLayout camera={camera}>
+            {children}
+        </CanvasLayout>
     );
-}
+};

@@ -20,8 +20,8 @@
 
 //* Imports
 import React from "react";
-import Canvas from "@semantyk/frontend/ui/components/molecules/Canvas";
-import GraphModel from "@semantyk/frontend/ui/models/Graph";
+import Canvas from "@semantyk/frontend/ui/components/molecules/Canvas/Canvas";
+import Graph from "@semantyk/frontend/ui/models/Graph/Graph";
 import { usePathname, useRouter } from "next/navigation";
 import Particles from "@semantyk/frontend/ui/models/Particles/Particles";
 
@@ -32,12 +32,9 @@ export default function Model() {
     // Logic
     const model = () => {
         switch (pathname) {
-            case "/":
-                return <Particles path={"/favicon.svg"} />;
-            case "/knowledge":
-                return <GraphModel />;
-            default:
-                return <Particles path={"/404.svg"} />;
+            case "/": return <Particles path={"/favicon.svg"} />;
+            case "/knowledge": return <Graph />;
+            default: return <Particles path={"/404.svg"} />;
         }
     };
     // Return

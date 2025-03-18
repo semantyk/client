@@ -22,21 +22,21 @@
 import React from "react";
 //* Local Imports
 import HeaderLayout
-    from "@semantyk/frontend/ui/components/molecules/Header/layout";
+    from "@semantyk/frontend/ui/components/molecules/Header/Header.layout";
 import HeaderTitle
-    from "@semantyk/frontend/ui/components/atoms/text/HeaderTitle";
+    from "@semantyk/frontend/ui/components/atoms/text/HeaderTitle/HeaderTitle";
 import HeaderSubtitle
-    from "@semantyk/frontend/ui/components/atoms/text/HeaderSubtitle";
-import NavBar from "@semantyk/frontend/ui/components/molecules/NavBar";
+    from "@semantyk/frontend/ui/components/atoms/text/HeaderSubtitle/HeaderSubtitle";
+import NavBar from "@semantyk/frontend/ui/components/molecules/NavBar/NavBar";
 
 // Main
 export default function Header() {
     // Return
     return (
         <HeaderLayout>
-            <NavBar/>
-            <HeaderTitle/>
-            <HeaderSubtitle/>
+            <NavBar />
+            <HeaderTitle />
+            <HeaderSubtitle />
         </HeaderLayout>
     );
 }

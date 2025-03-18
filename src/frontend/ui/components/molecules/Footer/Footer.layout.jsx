@@ -1,14 +1,16 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx`
+ * # `layout.jsx` | `Footer`
  * @organization: Semantyk
  * @project: Client
  *
- * @created: Jul 17, 2024
+ * @file: This file contains the layout for the footer.
+ *
+ * @created: Dec 4, 2023
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
- * Maintainer:
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
  * @copyright: Semantyk © 2025. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -16,20 +18,16 @@
 
 //* Imports
 import React from "react";
-import { Canvas } from "@react-three/fiber";
 //* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Canvas/index.css";
+import "@semantyk/frontend/ui/components/molecules/Footer/Footer.styles.css";
 
 //* Main
-export default function CanvasLayout(props) {
-    // Props
-    const { children, ...rest } = props;
+export default function FooterLayout({ children }) {
+    const position = "fixed-bottom";
     // Return
     return (
-        <div id="Canvas">
-            <Canvas {...rest}>
-                {children}
-            </Canvas>
-        </div>
+        <footer id="Footer" className={`${position} text-center`}>
+            {children}
+        </footer>
     );
 }

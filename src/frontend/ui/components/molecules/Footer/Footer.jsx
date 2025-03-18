@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx` | `Header`
+ * # `index.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the `HeaderLayout` component.
+ * @file: This file contains the logic for the footer.
  *
- * @created: Dec 4, 2023
+ * @created: Dec 5, 2023
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,18 +16,29 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
+import Link from "next/link";
 //* Local Imports
-import "@semantyk/frontend/ui/components/molecules/Header/index.css";
+import useKnowledge from "@semantyk/frontend/hooks/knowledge/useKnowledge";
+import FooterLayout
+    from "@semantyk/frontend/ui/components/molecules/Footer/Footer.layout";
 
-//* Main
-export default function HeaderLayout({ children }) {
-    const position = "sticky-top";
+
+export default function Footer() {
+    // Hooks
+    // - useState
+    const { app } = useKnowledge();
+    const { name, copyrightYear } = app;
     // Return
+    const link = <Link className="text-secondary" href="/">{name}</Link>;
     return (
-        <header id="Header" className={`${position}`}>
-            {children}
-        </header>
+        <FooterLayout>
+            <small className="text-secondary">
+                {link} © {copyrightYear}
+            </small>
+        </FooterLayout>
     );
 }
