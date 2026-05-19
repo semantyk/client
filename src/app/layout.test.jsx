@@ -27,10 +27,3 @@ describe("Root Layout", () => {
         render(<RootLayout/>);
     });
 });
-
-//* Main
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});

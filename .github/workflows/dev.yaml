@@ -38,7 +38,7 @@ jobs:
       - run: bun install --frozen-lockfile
         name: 3. Install Dependencies
       # 4. Run Tests
-      - run: bun test
+      - run: bun run test --run
         name: 4. Run Tests
   build:
     runs-on: ubuntu-latest
