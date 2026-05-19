@@ -1,18 +1,18 @@
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  # # `.gitignore`
  # @organization: Semantyk
- # @project: client
+ # @project: Client
  #
  # @file: This file contains the list of files and folders that are ignored by
  # Git.
  #
  # @created: Nov 28, 2023
- # @modified: Mar 7, 2025
+ # @modified: May 19, 2026
  #
  # @author: Semantyk Team
  # @maintainer: Daniel Bakas <https://id.danielbakas.com>
  #
- # @copyright: Semantyk © 2025. All rights reserved.
+ # @copyright: Semantyk © 2026. All rights reserved.
  # –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,macos,webstorm+all

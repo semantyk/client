@@ -1,18 +1,18 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `getNavLinks.js`
+ * # `NavLink.jsx`
  * @organization: Semantyk
  * @project: Client
  *
  * @file: This file contains the logic for navigation links.
  *
  * @created: Dec 22, 2023
- * @modified: Mar 7, 2025
+ * @modified: May 19, 2026
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Semantyk © 2025. All rights reserved.
+ * @copyright: Semantyk © 2026. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
