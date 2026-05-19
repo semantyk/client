@@ -1,16 +1,18 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.jsx`
+ * # `Canvas.layout.jsx`
  * @organization: Semantyk
  * @project: Client
  *
+ * @file: Layout wrapper for the Canvas molecule with React Three Fiber.
+ *
  * @created: Jul 17, 2024
- * @modified: Mar 7, 2025
+ * @modified: May 19, 2026
  *
  * @author: Semantyk Team
- * Maintainer:
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Semantyk © 2025. All rights reserved.
+ * @copyright: Semantyk © 2026. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

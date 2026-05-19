@@ -1,6 +1,21 @@
 /**
- * Base manager class for models using the Strategy pattern
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `manager.js`
+ * @organization: Semantyk
+ * @project: Client
+ *
+ * @file: Base manager class for UI models using the Strategy pattern.
+ *
+ * @created: Mar 13, 2025
+ * @modified: May 19, 2026
+ *
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ *
+ * @copyright: Semantyk © 2026. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
+
 export class ModelManager {
     constructor() {
         if (this.constructor === ModelManager) {

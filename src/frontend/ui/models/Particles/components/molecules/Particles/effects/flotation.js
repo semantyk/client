@@ -1,3 +1,21 @@
+/**
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `flotation.js`
+ * @organization: Semantyk
+ * @project: Client
+ *
+ * @file: Flotation effect for particles in the Particles model.
+ *
+ * @created: Mar 14, 2025
+ * @modified: May 19, 2026
+ *
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ *
+ * @copyright: Semantyk © 2026. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ */
+
 import { Vector3 } from 'three';
 import { ModelStrategy } from "@semantyk/frontend/ui/components/molecules/Model/logic/strategy";
 

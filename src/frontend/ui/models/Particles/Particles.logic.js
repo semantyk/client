@@ -1,9 +1,26 @@
+/**
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `Particles.logic.js`
+ * @organization: Semantyk
+ * @project: Client
+ *
+ * @file: Particles model manager wiring atom and molecule logic strategies.
+ *
+ * @created: Mar 14, 2025
+ * @modified: May 19, 2026
+ *
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ *
+ * @copyright: Semantyk © 2026. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ */
+
 import { ModelManager } from '@semantyk/frontend/ui/components/molecules/Model/logic/manager';
 import { Camera, Circle, Mouse, Plane, Raycaster, RayLine } from './components/atoms';
 import ParticlesLogic from './components/molecules/Particles/Particles.logic';
-/**
- * Manager class for particle strategies using the Strategy pattern
- */
+
+//* Main
 export class ParticlesManager extends ModelManager {
     static logic = {
         camera: Camera.logic,
