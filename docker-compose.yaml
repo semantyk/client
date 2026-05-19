@@ -29,7 +29,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
-    command: pnpm run dev
+    command: bun run dev
 
   staging:
     build:
@@ -43,7 +43,7 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=staging
-    command: pnpm run start
+    command: bun run start
 
   test:
     build:
@@ -54,4 +54,4 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=test
-    command: pnpm run test
+    command: bun run test
