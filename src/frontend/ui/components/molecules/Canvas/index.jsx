@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx`
+ * # `Canvas.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the test suite for the `RootLayout` component.
+ * @file: This file contains the logic for the canvas component.
  *
- * @created: Nov 30, 2023
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -18,12 +18,17 @@
 
 //* Imports
 import React from "react";
-import { render } from "@testing-library/react";
 //* Local Imports
-import RootLayout from "@semantyk/app/layout";
+import CanvasLayout from "@semantyk/frontend/ui/models/atoms/Canvas/layout";
 
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
+//* Main
+export default function Canvas({ children }) {
+    // Logic
+    const camera = { position: [0, 0, 100] };
+    // Return
+    return (
+        <CanvasLayout camera={camera}>
+            {children}
+        </CanvasLayout>
+    );
+};

@@ -49,7 +49,7 @@ body:
       options:
         - npm
         - yarn
-        - pnpm
+        - bun
     validations:
       required: true
   - type: checkboxes

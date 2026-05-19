@@ -1,12 +1,12 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx`
+ * # `index.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the test suite for the `RootLayout` component.
+ * @file: This file contains the logic for a generic Three.js model component.
  *
- * @created: Nov 30, 2023
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
@@ -16,14 +16,19 @@
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
+"use client";
+
 //* Imports
 import React from "react";
-import { render } from "@testing-library/react";
-//* Local Imports
-import RootLayout from "@semantyk/app/layout";
+import Canvas from "@semantyk/frontend/ui/models/atoms/Canvas";
+import ParticlesModel from "@semantyk/frontend/ui/models/molecule/Particles";
 
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
+//* Main
+export default function Model() {
+    // Return
+    return (
+        <Canvas>
+            <ParticlesModel/>
+        </Canvas>
+    );
+};

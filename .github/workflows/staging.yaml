@@ -24,30 +24,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 21.x ]
     steps:
       # 1. Checkout the Repository
       - uses: actions/checkout@v4
         name: 1. Repository Checkout
-      # 2. Setup pnpm
-      - uses: pnpm/action-setup@v2
-        name: 2. Setup pnpm
-        with:
-          version: 8
-      # 3. Setup Node.js
-      - uses: actions/setup-node@v4
-        name: 3. Setup Node.js (v${{ matrix.node-version }})
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      # 4. Install Dependencies
-      - run: pnpm install
-        name: 4. Install Dependencies
-      # 5. Build the Project
-      - name: 5. Build the Project
-        run: pnpm run build
+      # 2. Setup Bun
+      - uses: oven-sh/setup-bun@v2
+        name: 2. Setup Bun
+      # 3. Install Dependencies
+      - run: bun install --frozen-lockfile
+        name: 3. Install Dependencies
+      # 4. Build the Project
+      - name: 4. Build the Project
+        run: bun run build
       # 5. Cloud SDK Configuration
       - uses: google-github-actions/setup-gcloud@v1
         name: 5. Cloud SDK Configuration

@@ -1,16 +1,14 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `layout.test.jsx`
+ * # `layout.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the test suite for the `RootLayout` component.
- *
- * @created: Nov 30, 2023
+ * @created: Jul 17, 2024
  * @modified: Mar 7, 2025
  *
  * @author: Semantyk Team
- * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ * Maintainer:
  *
  * @copyright: Semantyk © 2025. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -18,12 +16,20 @@
 
 //* Imports
 import React from "react";
-import { render } from "@testing-library/react";
+import { Canvas } from "@react-three/fiber";
 //* Local Imports
-import RootLayout from "@semantyk/app/layout";
+import "@semantyk/frontend/ui/models/atoms/Canvas/index.css";
 
-describe("Root Layout", () => {
-    it("should render", () => {
-        render(<RootLayout/>);
-    });
-});
+//* Main
+export default function CanvasLayout(props) {
+    // Props
+    const { children, ...rest } = props;
+    // Return
+    return (
+        <div id="Canvas">
+            <Canvas {...rest}>
+                {children}
+            </Canvas>
+        </div>
+    );
+}
