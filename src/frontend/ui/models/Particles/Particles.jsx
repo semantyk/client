@@ -1,18 +1,18 @@
 /**
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
- * # `ParticlesScene.jsx`
+ * # `Particles.jsx`
  * @organization: Semantyk
  * @project: Client
  *
- * @file: This file contains the logic for the ParticlesScene component.
+ * @file: Scene component mounting the Particles 3D model in the canvas.
  *
  * @created: Mar 13, 2025
- * @modified: Mar 13, 2025
+ * @modified: May 19, 2026
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Semantyk © 2025. All rights reserved.
+ * @copyright: Semantyk © 2026. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 

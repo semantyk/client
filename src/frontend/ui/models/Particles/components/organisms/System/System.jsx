@@ -1,6 +1,19 @@
 /**
-  * ParticleSystem.jsx
- * Molecule component that combines Particles with its logic
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+ * # `System.jsx`
+ * @organization: Semantyk
+ * @project: Client
+ *
+ * @file: Organism combining Particles with its system logic.
+ *
+ * @created: Mar 14, 2025
+ * @modified: May 19, 2026
+ *
+ * @author: Semantyk Team
+ * @maintainer: Daniel Bakas <https://id.danielbakas.com>
+ *
+ * @copyright: Semantyk © 2026. All rights reserved.
+ * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
 //* Imports

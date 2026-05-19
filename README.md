@@ -7,12 +7,12 @@
 \ @file: This is the main README file for the client project.
 \
 \ @created: Nov 28, 2023
-\ @modified: Mar 7, 2025
+\ @modified: May 19, 2026
 \
 \ @author: Semantyk Team
 \ @maintainer: Daniel Bakas <https://id.danielbakas.com>
 \
-\ @copyright: Semantyk © 2025. All rights reserved.
+\ @copyright: Semantyk © 2026. All rights reserved.
 \ ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 )
 
@@ -55,4 +55,4 @@ For inquiries or support regarding this project, please reach out to us:
 Your feedback and questions are greatly appreciated!
 
 ---
-*[Semantyk](https://www.semantyk.com/) © 2025. All rights reserved.*
+*[Semantyk](https://www.semantyk.com/) © 2026. All rights reserved.*

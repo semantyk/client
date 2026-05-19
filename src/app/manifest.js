@@ -4,13 +4,15 @@
  * @organization: Semantyk
  * @project: Client
  *
+ * @file: Next.js web app manifest generated from application knowledge.
+ *
  * @created: Jul 6, 2024
- * @modified: Mar 7, 2025
+ * @modified: May 19, 2026
  *
  * @author: Semantyk Team
  * @maintainer: Daniel Bakas <https://id.danielbakas.com>
  *
- * @copyright: Semantyk © 2025. All rights reserved.
+ * @copyright: Semantyk © 2026. All rights reserved.
  * –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
  */
 
