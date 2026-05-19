@@ -13,9 +13,6 @@
     "url": "https://github.com/semantyk/client.git"
   },
   "version": "0.0.0",
-  "engines": {
-    "node": ">=24"
-  },
   "dependencies": {
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-authn-browser": "^2.3.0",
